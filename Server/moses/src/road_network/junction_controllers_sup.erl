@@ -6,7 +6,7 @@
 -export([start_link/1]).
 
 start_link(JunctionSepcs) ->
-    supervisor:start_link({local, traffic_lights_controllers_sup}, ?MODULE, [JunctionSepcs]).
+    supervisor:start_link({local, traffic_lights_controllers_sup}, ?MODULE, JunctionSepcs).
 
 init(JunctionSepcs) ->
     SupFlags = #{strategy => one_for_one,
