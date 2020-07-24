@@ -43,19 +43,7 @@ init([]) ->
                         type => supervisor
                     },
                     #{
-                        id => notification_announcer,
-                        start => {notification_announcer, start_link, []},
-                        restart => permanent,
-                        type => worker
-                    },
-                    #{
-                        id => clients_supervisor,
-                        start => {clients_sup, start_link, []},
-                        restart => permanent,
-                        type => supervisor
-                    },
-                    #{
-                        id => road_network_supervisor,
+                        id => road_network_sup,
                         start => {road_network_sup, start_link, []},
                         restart => permanent,
                         type => supervisor

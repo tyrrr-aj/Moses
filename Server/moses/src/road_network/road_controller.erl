@@ -24,7 +24,7 @@
 %% interface
 
 start_link(#{id := RoadId} = RoadSpec) ->
-    gen_server:start_link({local, RoadId}, ?MODULE, [RoadSpec], []).
+    gen_server:start_link({local, RoadId}, ?MODULE, RoadSpec, []).
 
 add_ev(RoadId, EvSpec) ->
     gen_server:cast(RoadId, {add_ev_impl, EvSpec}).

@@ -31,14 +31,14 @@ init([]) ->
                  period => 1},
     ChildSpecs = [
                     #{
-                        id => road_controllers_supervisor,
-                        start => {road_controllers_sup, start_link, []},
+                        id => road_controllers_sup,
+                        start => {road_controllers_sup, start_link, [[]]},
                         restart => permanent,
                         type => supervisor
                     },
                     #{
-                        id => traffic_lights_controllers_supervisor,
-                        start => {traffic_lights_controllers_sup, start_link, []},
+                        id => junction_controllers_sup,
+                        start => {junction_controllers_sup, start_link, [[]]},
                         restart => permanent,
                         type => supervisor
                     }
