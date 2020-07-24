@@ -1,0 +1,15 @@
+{application, moses,
+ [{description, "Moses Project server software"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, {moses_app, []}},
+  {applications,
+   [kernel,
+    stdlib
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {licenses, ["Apache 2.0"]},
+  {links, []}
+ ]}.
