@@ -14,7 +14,7 @@ init(JunctionSepcs) ->
                  period => 1},
     ChildSpecs = [#{
                         id => Id,
-                        start => {traffic_lights_controller, start_link, [Spec]},
+                        start => {junction_controller, start_link, [Spec]},
                         restart => permanent,
                         type => worker
                     } || {Id, _}=Spec <- JunctionSepcs

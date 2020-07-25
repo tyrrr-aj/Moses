@@ -5,7 +5,8 @@
   {mod, {moses_app, []}},
   {applications,
    [kernel,
-    stdlib
+    stdlib,
+    amqp_client
    ]},
   {env,[]},
   {modules, []},
