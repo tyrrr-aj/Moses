@@ -9,7 +9,7 @@ start_link(RoadSpecs) ->
     supervisor:start_link({local, road_controllers_sup}, ?MODULE, [RoadSpecs]).
 
 init(RoadSpecs) ->
-    NotifierConnection = notifier:setup_connection(),
+    {ok, NotifierConnection} = notifier:setup_connection(),
 
     SupFlags = #{strategy => one_for_one,
                  intensity => 0,
