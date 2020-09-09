@@ -2,18 +2,13 @@
 
 -behaviour(supervisor).
 
--export([start_link/0]).
+-export([start_link/0, start_manual/0]).
 -export([init/1]).
 
 -define(SERVER, ?MODULE).
 
 start_link() ->
-    Response = supervisor:start_link({local, ?SERVER}, ?MODULE, []),
-    case Response of
-        {ok, _} ->
-            supervisor:start_child(?SERVER, [firefighters_dispatch])
-    end,
-    Response.
+    supervisor:start_link({local, ?SERVER}, ?MODULE, []).
 
 %% sup_flags() = #{strategy => strategy(),         % optional
 %%                 intensity => non_neg_integer(), % optional
@@ -25,16 +20,25 @@ start_link() ->
 %%                  type => worker(),       % optional
 %%                  modules => modules()}   % optional
 
+start_manual() ->
+    supervisor:start_child(?SERVER, #{
+            id => manual_dispatcher,
+            start => {dispatcher, start_link, [manual]},
+            restart => permanent,
+            type => worker
+        }).
+
 init([]) ->
-    SupFlags = #{strategy => simple_one_for_one,
+    SupFlags = #{strategy => one_for_one,
                  intensity => 0,
                  period => 1},
-    ChildSpecs = [#{
-                        id => test,
-                        start => {dispatcher, start_link, [test]},
-                        restart => permanent,
-                        type => worker
-                    }
+    ChildSpecs = [
+                    % #{
+                    %     id => test,
+                    %     start => {dispatcher, start_link, [test]},
+                    %     restart => permanent,
+                    %     type => worker
+                    % }
                 ],
     {ok, {SupFlags, ChildSpecs}}.
 

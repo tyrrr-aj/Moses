@@ -25,7 +25,7 @@
 %% interface
 
 start_link(#{id := JunctionId} = JunctionSpec) ->
-    gen_server:start_link({local, JunctionId}, ?MODULE, [JunctionSpec], []).
+    gen_server:start_link({local, JunctionId}, ?MODULE, JunctionSpec, []).
 
 add_ev(JunctionId, RideId) ->
     gen_server:cast(JunctionId, {add_ev, RideId}).
