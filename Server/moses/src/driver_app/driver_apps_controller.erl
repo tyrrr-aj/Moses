@@ -1,4 +1,4 @@
--module(driver_apps_controllern).
+-module(driver_apps_controller).
 
 -behaviour(gen_server).
 

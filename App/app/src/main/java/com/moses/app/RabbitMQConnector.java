@@ -1,60 +1,59 @@
 package com.moses.app;
 
 import android.os.Build;
-import android.os.Handler;
 
 import androidx.annotation.RequiresApi;
 
-import com.rabbitmq.client.AMQP;
+import com.rabbitmq.client.BuiltinExchangeType;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.DeliverCallback;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.nio.charset.StandardCharsets;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.TimeoutException;
-import java.util.function.Function;
+import java.util.function.Consumer;
 
 public class RabbitMQConnector {
-    ConnectionFactory factory = new ConnectionFactory();
+    private final static String exchangeName = "moses_exchange";
 
-    private void setupConnection() throws NoSuchAlgorithmException, KeyManagementException, URISyntaxException, IOException, TimeoutException {
-        factory.setUri("amqp://10.0.2.2:5672");
+    private ConnectionFactory factory;
+    private Connection connection;
+    private Channel channel;
 
-        Connection connection = factory.newConnection();
+    private String notificationQueue;
+    private String routingKey = "mock_road";
 
+    private final static String localizationUpdateRoutingKey = "localization_update";
+
+    public RabbitMQConnector() {
+        factory = new ConnectionFactory();
+        factory.setHost("10.0.2.2");
     }
 
-    public void subscribe(MainActivity subscribent) {
-        Thread subscribeThread = new Thread(new Runnable() {
-            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-            @Override
-            public void run() {
-                while(true) {
-                    try {
-                        Connection connection = factory.newConnection();
-                        Channel channel = connection.createChannel();
-                        channel.basicQos(1);
-                        AMQP.Queue.DeclareOk q = channel.queueDeclare();
-                        channel.queueBind(q.getQueue(), "moses_exchange", "mock_road");
+    public void connect() throws IOException, TimeoutException {
+        connection = factory.newConnection();
+        channel = connection.createChannel();
 
-                        DeliverCallback deliverCallback = (consumerTag, delivery) -> {
-                            String message = new String(delivery.getBody(), StandardCharsets.UTF_8);
-                            subscribent.showMessage(message);
-                        };
+        channel.exchangeDeclare(exchangeName, BuiltinExchangeType.DIRECT);
+        notificationQueue = channel.queueDeclare().getQueue();
+        channel.queueBind(notificationQueue, exchangeName, routingKey);
+    }
 
-                        channel.basicConsume(q.getQueue(), true, deliverCallback, consumerTag -> { });
-                    } catch (TimeoutException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        });
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public void listenForNotifications(Consumer<byte[]> userCallback) throws IOException {
+        DeliverCallback deliverCallback = (consumerTag, delivery) -> {
+            userCallback.accept(delivery.getBody());
+        };
+
+        channel.basicConsume(notificationQueue, true, deliverCallback, consumerTag -> {});
+    }
+
+    public void sendLocalization(double longitude, double latitude) throws IOException {
+        Marshaller marshaller = new Marshaller();
+        channel.basicPublish(exchangeName,
+                localizationUpdateRoutingKey,
+                null,
+                marshaller.marshallLocalizationUpdate(latitude, longitude, notificationQueue));
     }
 }

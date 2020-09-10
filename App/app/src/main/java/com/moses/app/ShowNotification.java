@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 
 public class ShowNotification extends AppCompatActivity {
 
@@ -14,5 +15,8 @@ public class ShowNotification extends AppCompatActivity {
 
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.MESSAGE_BODY);
+
+        TextView notificationBody = findViewById(R.id.notification_body);
+        notificationBody.setText(message);
     }
 }
