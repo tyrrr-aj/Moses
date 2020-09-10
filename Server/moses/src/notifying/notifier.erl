@@ -55,7 +55,7 @@ marshall_notification(#{begining_at := Begin, ending_at := End, direction := Dir
                         backward -> 0;
                         forward -> 1
                     end,
-    list_to_binary([float_to_binary(Begin), <<";">>, float_to_binary(End), <<";">>, DirectionRepr, <<";">>, Text]).
+    list_to_binary([trunc(Begin * 100), trunc(End * 100), DirectionRepr, Text]).
 
 choose_routing_key(#{road_id := RoadId}) ->
     atom_to_binary(RoadId, routing_key_encoding()).
