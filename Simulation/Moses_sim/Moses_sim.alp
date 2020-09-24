@@ -19,6 +19,11 @@
 			<AdditionalClassCode><![CDATA[Road getRandomRoad(ICar car) {
 	List<Road> allRoads = car.getRoadNetwork().getRoads();
 	return allRoads.get(new Random().nextInt(allRoads.size()));
+}
+
+Road getRandomRoad() {
+	List<Road> allRoads = getRoadNetworks()[0].getRoads();
+	return allRoads.get(new Random().nextInt(allRoads.size()));
 }]]></AdditionalClassCode>
 			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
 			<Generic>false</Generic>
@@ -364,6 +369,10 @@
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[100]]></Code>
+								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[interarrivalTime]]></Name>
@@ -404,7 +413,7 @@
 						<Parameter>
 							<Name><![CDATA[road]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[init_road]]></Code>
+								<Code><![CDATA[getRandomRoad();]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -637,7 +646,7 @@
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[1000]]></Code>
+								<Code><![CDATA[60]]></Code>
 								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
 							</Value>
 						</Parameter>
@@ -667,9 +676,6 @@
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[limitArrivals]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[true]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[maxArrivals]]></Name>
@@ -683,7 +689,7 @@
 						<Parameter>
 							<Name><![CDATA[road]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[init_road]]></Code>
+								<Code><![CDATA[getRandomRoad();]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -14475,14 +14481,19 @@
 			<Name><![CDATA[BaseCar]]></Name>
 			<AdditionalClassCode><![CDATA[private DriverAppConnector connector;
 
-private Position position;
+private com.moses.Position position;
 
 private void updatePosition() {
-	position = connector.updateLocalization(getLongitude(), getLatitude());
+	try {
+		position = connector.updateLocalization(getLongitude(), getLatitude());
+	}
+	catch (InterruptedException | IOException ie) {
+		System.out.println("BaseCar: position update failed");
+	}
 }
 
 private void receiveNotification(Notification notification) {
-	System.out.println("Notification received!");
+	System.out.println("Notification received! Body: " + notification.text);
 	markAsAwareOfIncomingEV();
 }
 
@@ -14504,9 +14515,16 @@ private double getCurrLattitude() {
 }]]></AdditionalClassCode>
 			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
 			<Import><![CDATA[import com.moses.driverapp.DriverAppConnector;
-import com.moses.Position;]]></Import>
-			<StartupCode><![CDATA[connector = new DriverAppConnector();
-connector.listenForNotifications(receiveNotification);]]></StartupCode>
+import com.moses.driverapp.Notification;
+
+import java.io.IOException;]]></Import>
+			<StartupCode><![CDATA[try {
+	connector = new DriverAppConnector();
+	connector.listenForNotifications(notification -> receiveNotification(notification));
+}
+catch (Exception e) {
+	System.out.println("BaseCar: Failed to start listening for notifications");
+}]]></StartupCode>
 			<Generic>false</Generic>
 			<GenericParameter>
 				<Id>1600709507845</Id>
@@ -14608,7 +14626,7 @@ connector.listenForNotifications(receiveNotification);]]></StartupCode>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Properties TriggerType="timeout" Mode="occuresOnce">
+					<Properties TriggerType="timeout" Mode="cyclic">
 						<Timeout Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
@@ -14629,6 +14647,7 @@ connector.listenForNotifications(receiveNotification);]]></StartupCode>
 						</RecurrenceCode>
 						<Condition><![CDATA[false]]></Condition>
 					</Properties>
+					<Action><![CDATA[updatePosition();]]></Action>
 				</Event>
 			</Events>
 			<AgentLinks>
@@ -15550,7 +15569,7 @@ sendTracking();]]></Action>
 			<ReferencedFromUserCode>false</ReferencedFromUserCode>
 		</Resource>
 		<Resource>
-			<Path><![CDATA[C:/Users/adams/IdeaProjects/RabbitMQConnector/out/artifacts/RabbitMQConnector_jar/RabbitMQConnector.jar]]></Path>
+			<Path><![CDATA[../../RabbitMQConnector/out/artifacts/RabbitMQConnector_jar/RabbitMQConnector.jar]]></Path>
 			<ReferencedFromUserCode>false</ReferencedFromUserCode>
 		</Resource>
 	</ModelResources>
@@ -15569,7 +15588,7 @@ sendTracking();]]></Action>
 	<ClassPathEntry>
 		<ResourceReference>
 			<PackageName><![CDATA[moses_sim]]></PackageName>
-			<ClassName><![CDATA[C:/Users/adams/IdeaProjects/RabbitMQConnector/out/artifacts/RabbitMQConnector_jar/RabbitMQConnector.jar]]></ClassName>
+			<ClassName><![CDATA[../../RabbitMQConnector/out/artifacts/RabbitMQConnector_jar/RabbitMQConnector.jar]]></ClassName>
 		</ResourceReference>
 		<Imported>false</Imported>
 		<Folder>false</Folder>
