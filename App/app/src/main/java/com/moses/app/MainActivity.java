@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity{
     public static String MESSAGE_BODY = "com.moses.app.MESSAGE_BODY";
 
     public MyLocationListener locationListener;
+    private RabbitMQConnector connector;
+    private Localization localization;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -32,34 +34,60 @@ public class MainActivity extends AppCompatActivity{
 
         Marshaller marshaller = new Marshaller();
         try {
-            RabbitMQConnector connector = new RabbitMQConnector();
-            Thread thread = new Thread(() -> {
-                try {
-                    connector.connect();
-                    connector.listenForNotifications(message -> {
-                        Notification notification = marshaller.unmarshall(message);
-                        showMessage(notification.toString());
-                    });
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (TimeoutException e) {
-                    e.printStackTrace();
-                }
-            });
-            thread.start();
-
+            connector = new RabbitMQConnector();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+        Thread connectionThread = new Thread(() -> {
+            try {
+                connector.connect();
+            } catch (TimeoutException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        connectionThread.start();
+        try {
+            connectionThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        Thread notificationThread = new Thread(() -> {
+            try {
+                connector.listenForNotifications(message -> {
+                    Notification notification = marshaller.unmarshall(message);
+                    showMessage(notification.toString());
+                });
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        notificationThread.start();
+
+        localization = new Localization();
+        Thread localizationThread = new Thread(() -> {
+            try {
+                connector.listenForLocalization(message -> {
+                    localization = marshaller.unmarshallLocalization(message);
+                    updateLocalizationView(localization);
+                });
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        localizationThread.start();
+
         setContentView(R.layout.activity_main);
 
         Button button = (Button) findViewById(R.id.button);
-        TextView textview = (TextView) findViewById(R.id.textView);
+//        TextView textview = (TextView) findViewById(R.id.textView);
 
-//        button.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View view){
+        button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
 //                String longtitudeText = "Longtitude : ";
 //                longtitudeText += locationListener.longitude;
 //
@@ -68,8 +96,20 @@ public class MainActivity extends AppCompatActivity{
 //
 //                String location = longtitudeText + "\n" + latitudeText;
 //                textview.setText(location);
-//            }
-//        });
+                try {
+                    Thread thread = new Thread(() -> {
+                        try {
+                            connector.sendLocalization(50.24535, 19.43256);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    });
+                    thread.start();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     public void showMessage(String message) {
@@ -93,5 +133,10 @@ public class MainActivity extends AppCompatActivity{
         }
         locationManager.requestLocationUpdates(
                 LocationManager.GPS_PROVIDER, 5000, 10, locationListener);
+    }
+
+    private void updateLocalizationView(Localization localization) {
+        TextView textView = findViewById(R.id.localizationText);
+        textView.setText(String.format("RoadId: %s\nPartOfRoad: %f\nDirection: %s", localization.RoadId, localization.PartOfRoad, localization.direction));
     }
 }

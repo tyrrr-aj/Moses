@@ -5,10 +5,8 @@ import androidx.annotation.NonNull;
 public class Notification {
     public float beginAt;
     public float endAt;
-    public Direction direction;
+    public Localization.Direction direction;
     public String text;
-
-    public enum Direction {FORWARD, BACKWARD}
 
     @NonNull
     @Override

@@ -30,9 +30,9 @@ handle_cast(_, _) ->
     unimplemented.
 
 handle_info(timeout, {EmergencyServiceType, _, _} = State) ->
-    io:format("[Dispatcher] checking for new rides~n"),
+    % io:format("[Dispatcher] checking for new rides~n"),
     {NewRides, NewState} = check_for_new_rides(State),
-    io:format("[Dispatcher] new rides are: ~p~n", [NewRides]),
+    % io:format("[Dispatcher] new rides are: ~p~n", [NewRides]),
     start_trackers_for_new_rides(EmergencyServiceType, NewRides),
     {noreply, NewState, time_res()}.
 

@@ -47,13 +47,13 @@ init([]) ->
                         start => {road_network_sup, start_link, []},
                         restart => permanent,
                         type => supervisor
+                    },
+                    #{
+                        id => driver_apps_controller,
+                        start => {driver_apps_controller, start_link, []},
+                        restart => permanent,
+                        type => worker
                     }
-                    % #{
-                    %     id => driver_apps_controller,
-                    %     start => {driver_apps_controller, start_link, []},
-                    %     restart => permanent,
-                    %     type => worker
-                    % }
                 ],
     {ok, {SupFlags, ChildSpecs}}.
 
