@@ -23,4 +23,4 @@ RUN mkdir data conf
 COPY ./data ./data
 COPY ./conf ./conf
 
-#ENTRYPOINT [ "osm2pgrouting --f data/Cracow.osm --conf /conf/mapconfig.xml --dbname osm --username postgres --clean" ]
+#ENTRYPOINT [ "osm2pgrouting --f data/Cracow.osm --conf /conf/mapconfig.xml --dbname osm --username postgres --password letMEin! --clean" ]

@@ -3,6 +3,7 @@
  {<<"credentials_obfuscation">>,
   {pkg,<<"credentials_obfuscation">>,<<"2.0.0">>},
   1},
+ {<<"epgsql">>,{pkg,<<"epgsql">>,<<"4.4.0">>},0},
  {<<"goldrush">>,{pkg,<<"goldrush">>,<<"0.1.9">>},2},
  {<<"jsx">>,{pkg,<<"jsx">>,<<"2.9.0">>},1},
  {<<"lager">>,{pkg,<<"lager">>,<<"3.8.0">>},1},
@@ -13,6 +14,7 @@
 {pkg_hash,[
  {<<"amqp_client">>, <<"279A73DCBDC5F797D7874D600A51FAD6A82A716EEC40AB1F25E3497939FC7F2D">>},
  {<<"credentials_obfuscation">>, <<"65425424414B91F85FEB2C8F7E09AF65E91B6E311842E4CA07F6AABE20F5E58C">>},
+ {<<"epgsql">>, <<"8FE21C9C6651A4286CF57E33719DF0CF70685879E50EF6B4D0CCD95E5006206D">>},
  {<<"goldrush">>, <<"F06E5D5F1277DA5C413E84D5A2924174182FB108DABB39D5EC548B27424CD106">>},
  {<<"jsx">>, <<"D2F6E5F069C00266CAD52FB15D87C428579EA4D7D73A33669E12679E203329DD">>},
  {<<"lager">>, <<"3402B9A7E473680CA179FC2F1D827CAB88DD37DD1E6113090C6F45EF05228A1C">>},

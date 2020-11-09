@@ -11,6 +11,6 @@ public class Position {
 
     @Override
     public String toString() {
-        return "{" + roadId + ", " +  partOfRoad + '}';
+        return "{" + roadId + ":" +  partOfRoad + '}';
     }
 }

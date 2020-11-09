@@ -11,6 +11,9 @@ public class PositionMarshaller {
     }
 
     public static Position unmarshallPosition(byte[] messageBody) {
+        if (new String(messageBody).equals("unknown")) {
+            return null;
+        }
         double partOfRoad = ((float) (int) messageBody[0]) / 100;
         String roadId = new String(Arrays.copyOfRange(messageBody, 1, messageBody.length));
 

@@ -38,7 +38,7 @@ public class Main {
 
 	public static void evConnectorTest() {
     	try {
-			EVConnector connector = new EVConnector(EVType.AMBULANCE, "amb1");
+			EVConnector connector = new EVConnector(EVType.AMBULANCE.name(), "amb1");
 			connector.sendDispatchMessageAsync(50.06236, 19.93276);
 
 			System.out.println("Dispatch message sent");

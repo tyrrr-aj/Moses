@@ -2,15 +2,22 @@
 
 -include_lib("amqp_client/include/amqp_client.hrl").
 
--export([setup_connection_and_channel/0, prepare_queue/4, receive_single_notification/1, send_reply/3, get_message_body/1, get_callback_routing_key/1, close/3]).
+-export([setup_connection_and_channel/0, setup_simulation_connection_and_channel/0, prepare_queue/4, prepare_queue/5, receive_single_notification/1, send_reply/3, get_message_body/1, get_callback_routing_key/1, close/3]).
 
 exchange_name() -> <<"moses_exchange">>.
+simulation_exchange_name() -> <<"moses_simulation_exchange">>.
 
 
 setup_connection_and_channel() ->
     {ok, Connection} = amqp_connection:start(#amqp_params_network{}),
     {ok, Channel} = amqp_connection:open_channel(Connection),
-    ok = setup_exchange(Channel),
+    ok = setup_exchange(Channel, exchange_name()),
+    {ok, Connection, Channel}.
+
+setup_simulation_connection_and_channel() ->
+    {ok, Connection} = amqp_connection:start(#amqp_params_network{}),
+    {ok, Channel} = amqp_connection:open_channel(Connection),
+    ok = setup_simulation_exchange(Channel, simulation_exchange_name()),
     {ok, Connection, Channel}.
 
 close(QueueName, Channel, Connection) ->
@@ -24,6 +31,12 @@ prepare_queue(Channel, QueueName, RoutingKey, Timeout) ->
     subscribe_on_queue(Channel, QueueName, Timeout),
     ok.
 
+prepare_queue(Channel, QueueName, RoutingKey, Timeout, simulation) ->
+    declare_queue(Channel, QueueName),
+    bind_queue(Channel, QueueName, RoutingKey, simulation_exchange_name()),
+    subscribe_on_queue(Channel, QueueName, Timeout),
+    ok.
+
 declare_queue(Channel, QueueName) ->
     Declare = #'queue.declare'{queue = QueueName},
     #'queue.declare_ok'{} = amqp_channel:call(Channel, Declare).
@@ -31,6 +44,12 @@ declare_queue(Channel, QueueName) ->
 bind_queue(Channel, QueueName, RoutingKey) ->
     Binding = #'queue.bind'{queue       = QueueName,
                             exchange    = exchange_name(),
+                            routing_key = RoutingKey},
+    #'queue.bind_ok'{} = amqp_channel:call(Channel, Binding).
+
+bind_queue(Channel, QueueName, RoutingKey, ExchangeName) ->
+    Binding = #'queue.bind'{queue       = QueueName,
+                            exchange    = ExchangeName,
                             routing_key = RoutingKey},
     #'queue.bind_ok'{} = amqp_channel:call(Channel, Binding).
 
@@ -74,7 +93,13 @@ delete_queue(Channel, QueueName) ->
 
 %% private functions
 
-setup_exchange(Channel) ->
-    Declare = #'exchange.declare'{exchange = exchange_name()},
+setup_simulation_exchange(Channel, ExchangeName) ->
+    Declare = #'exchange.declare'{exchange = ExchangeName, type = <<"topic">>},
     #'exchange.declare_ok'{} = amqp_channel:call(Channel, Declare),
     ok.
+
+setup_exchange(Channel, ExchangeName) ->
+    Declare = #'exchange.declare'{exchange = ExchangeName},
+    #'exchange.declare_ok'{} = amqp_channel:call(Channel, Declare),
+    ok.
+

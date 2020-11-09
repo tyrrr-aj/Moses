@@ -33,6 +33,7 @@ handle_cast(_, _) ->
 handle_info(Message, {Connection, Channel}) ->
     io:format("Received message: ~s~n", [rabbitmq_connector:get_message_body(Message)]),
     Position = update_position(Message),
+    io:format("Position: ~p~n", [Position]),
     reply_with_position(Channel, Message, Position),
     {noreply, {Connection, Channel}}.
 
@@ -43,11 +44,25 @@ terminate(_, _, {Connection, Channel}) ->
 
 update_position(Message) ->
     MessageBody = rabbitmq_connector:get_message_body(Message),
-    {mock_road, 0.5}.
+    GPSCoords = parse_coords(MessageBody),
+    map_controller:get_position(GPSCoords).
 
 reply_with_position(Channel, Message, Position) ->
     ReplyBody = marshallPosition(Position),
     rabbitmq_connector:send_reply(Channel, Message, ReplyBody).
 
+marshallPosition(unknown) ->
+    atom_to_binary(unknown, encoding());
+
 marshallPosition({RoadId, PartOfRoad}) ->
     list_to_binary([trunc(PartOfRoad * 100), atom_to_binary(RoadId, encoding())]).
+
+parse_coords(MessageBody) ->
+    RawBody = binary_to_list(MessageBody),
+    #{
+        lon => coord(lists:sublist(RawBody, 7)),
+        lat => coord(lists:sublist(RawBody, 8, 14))
+    }.
+
+coord(ByteRepr) ->
+    list_to_integer(ByteRepr) / 100000.0.

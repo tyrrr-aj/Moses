@@ -33,12 +33,12 @@ init([]) ->
                  intensity => 0,
                  period => 1},
     ChildSpecs = [
-                    % #{
-                    %     id => test,
-                    %     start => {dispatcher, start_link, [test]},
-                    %     restart => permanent,
-                    %     type => worker
-                    % }
+                    #{
+                        id => simulation,
+                        start => {dispatcher, start_link, [simulation]},
+                        restart => permanent,
+                        type => worker
+                    }
                 ],
     {ok, {SupFlags, ChildSpecs}}.
 

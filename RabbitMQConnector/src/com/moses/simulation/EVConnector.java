@@ -24,12 +24,12 @@ public class EVConnector {
     private final RabbitMqConnector connector;
     private final Marshaller marshaller;
 
-    public EVConnector(EVType evType, String vehicleId) throws IOException, TimeoutException {
+    public EVConnector(String evType, String vehicleId) throws IOException, TimeoutException {
         connector = new RabbitMqConnector(host);
         connector.setupExchange(exchangeName, exchangeType);
 
-        dispatchRootingKey = dispatchRootingKeyRoot + "." + evType.name();
-        trackingRootingKey = trackingRootingKeyRoot + "." + evType.name();
+        dispatchRootingKey = dispatchRootingKeyRoot + "." + evType;
+        trackingRootingKey = trackingRootingKeyRoot + "." + evType;
         this.vehicleId = vehicleId;
 
         marshaller = new Marshaller();

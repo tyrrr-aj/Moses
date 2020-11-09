@@ -53,6 +53,12 @@ init([]) ->
                         start => {driver_apps_controller, start_link, []},
                         restart => permanent,
                         type => worker
+                    },
+                    #{
+                        id => map_controller_sup,
+                        start => {map_controller_sup, start_link, []},
+                        restart => permanent,
+                        type => supervisor
                     }
                 ],
     {ok, {SupFlags, ChildSpecs}}.
