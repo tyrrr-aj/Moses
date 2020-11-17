@@ -27,7 +27,7 @@ init([]) ->
 handle_call(get_rides, _From, {ConnDetails, PendingRides}) ->
     {reply, PendingRides, {ConnDetails, []}}.
 
-handle_cast({add_ride, NewRide}, {ConnDetails, PendingRides}) ->
+handle_cast(_, _State) ->
     should_not_be_used.
 
 handle_info(Message, {ConnDetails, PendingRides}) ->

@@ -60,8 +60,8 @@ subscribe_on_queue(Channel, QueueName, Timeout) ->
 send_reply(Channel, OriginalMessage, ReplyBody) ->
     RoutingKey = get_callback_routing_key(OriginalMessage),
     Publish = #'basic.publish'{exchange = <<"">>, routing_key = RoutingKey},
-    amqp_channel:cast(Channel, Publish, #amqp_msg{payload = ReplyBody}),
-    io:format("Replied to: ~s~n", [RoutingKey]).
+    amqp_channel:cast(Channel, Publish, #amqp_msg{payload = ReplyBody}).
+    % io:format("Replied to: ~s~n", [RoutingKey]).
 
 receive_subscription_ack(Timeout) ->
     receive

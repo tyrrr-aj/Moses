@@ -31,6 +31,6 @@
 
 	<lateral-resolution value="1.0"/>
 	
-	<device.bluelight.explicit value="amb0"/>
+	<!-- <device.bluelight.explicit value="amb0"/> -->
 
 </configuration>

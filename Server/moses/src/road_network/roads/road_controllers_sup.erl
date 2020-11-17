@@ -6,20 +6,18 @@
 -export([start_link/1]).
 
 start_link(RoadSpecs) ->
-    supervisor:start_link({local, road_controllers_sup}, ?MODULE, [RoadSpecs]).
+    supervisor:start_link({local, road_controllers_sup}, ?MODULE, RoadSpecs).
 
 init(RoadSpecs) ->
-    {ok, NotifierConnection} = notifier:setup_connection(),
-
     SupFlags = #{strategy => one_for_one,
                  intensity => 0,
                  period => 1},
     ChildSpecs = [
                     #{
                         id => Id,
-                        start => {road_controller, start_link, [Spec, NotifierConnection]},
+                        start => {road_controller, start_link, [Spec]},
                         restart => permanent,
                         type => worker
-                    } || {Id, _}=Spec <- RoadSpecs
+                    } || #{id := Id}=Spec <- RoadSpecs
                 ],
     {ok, {SupFlags, ChildSpecs}}. 

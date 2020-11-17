@@ -37,8 +37,20 @@ init([]) ->
                         type => supervisor
                     },
                     #{
+                        id => service_tracking_connectors_supervisor,
+                        start => {service_tracking_connectors_sup, start_link, []},
+                        restart => permanent,
+                        type => supervisor
+                    },
+                    #{
                         id => ev_trackers_supervisor,
                         start => {ev_trackers_sup, start_link, []},
+                        restart => permanent,
+                        type => supervisor
+                    },
+                    #{
+                        id => notifier_supervisor,
+                        start => {notifier_sup, start_link, []},
                         restart => permanent,
                         type => supervisor
                     },

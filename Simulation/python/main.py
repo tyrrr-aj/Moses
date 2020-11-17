@@ -42,7 +42,7 @@ def vehicles_make_step():
 
 def setupCmd():
     sumoBinary = "C:\\Program Files (x86)\\Eclipse\\Sumo\\bin\\sumo-gui.exe"
-    return [sumoBinary, "-c", "..\\sumo\\osm.sumocfg"]
+    return [sumoBinary, "-c", "..\\sumo\\osm.sumocfg", '--device.bluelight.explicit', 'amb0,pol0,fir0']
 
 def runSimulation(sumoCmd):
     traci.start(sumoCmd)

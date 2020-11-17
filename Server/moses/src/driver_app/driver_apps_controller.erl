@@ -31,9 +31,9 @@ handle_cast(_, _) ->
     unimplemented.
 
 handle_info(Message, {Connection, Channel}) ->
-    io:format("Received message: ~s~n", [rabbitmq_connector:get_message_body(Message)]),
+    % io:format("Received message\: ~s~n", [rabbitmq_connector:get_message_body(Message)]),
     Position = update_position(Message),
-    io:format("Position: ~p~n", [Position]),
+    % io:format("Position: ~p~n", [Position]),
     reply_with_position(Channel, Message, Position),
     {noreply, {Connection, Channel}}.
 
@@ -47,15 +47,21 @@ update_position(Message) ->
     GPSCoords = parse_coords(MessageBody),
     map_controller:get_position(GPSCoords).
 
+
 reply_with_position(Channel, Message, Position) ->
-    ReplyBody = marshallPosition(Position),
+    ReplyBody = marshall_position(Position),
     rabbitmq_connector:send_reply(Channel, Message, ReplyBody).
 
-marshallPosition(unknown) ->
+
+marshall_position(unknown) ->
     atom_to_binary(unknown, encoding());
 
-marshallPosition({RoadId, PartOfRoad}) ->
-    list_to_binary([trunc(PartOfRoad * 100), atom_to_binary(RoadId, encoding())]).
+marshall_position({road, RoadId, PartOfRoad}) ->
+    list_to_binary([trunc(PartOfRoad * 100), atom_to_binary(RoadId, encoding())]);
+
+marshall_position({junction, JunctionId}) ->
+    list_to_binary([atom_to_binary(junction, encoding()), atom_to_binary(JunctionId, encoding())]).
+
 
 parse_coords(MessageBody) ->
     RawBody = binary_to_list(MessageBody),
