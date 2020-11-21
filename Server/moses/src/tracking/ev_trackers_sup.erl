@@ -9,7 +9,7 @@ start_link() ->
     supervisor:start_link({local, ?MODULE}, ?MODULE, []).
 
 start_ride(EmergencyServiceType, RideData) ->
-    io:format("[Ev-trackers_SUP] Starting new ride for {~p, ~p}~n", [EmergencyServiceType, RideData]),
+    % io:format("[Ev-trackers_SUP] Starting new ride for {~p, ~p}~n", [EmergencyServiceType, RideData]),
     {ok, _} = supervisor:start_child(?MODULE, [EmergencyServiceType, RideData]).
 
 %% Callbacks

@@ -29,12 +29,12 @@ start_link() ->
 %% callbacks
 
 init([]) ->
-    Connection = map_connection:establish_connection(),
-    {ok, #{connection => Connection, requests => #{}}}.
+    ConnectionDetails = map_connection:establish_connection(),
+    {ok, #{connection => ConnectionDetails, requests => #{}}}.
 
 
-handle_call({get_position, GPSCoords}, From, #{connection := Connection, requests := Requests} = State) ->
-    Ref = map_connection:position_query(Connection, GPSCoords),
+handle_call({get_position, GPSCoords}, {From, _Tag}, #{connection := ConnectionDetails, requests := Requests} = State) ->
+    Ref = map_connection:position_query(ConnectionDetails, GPSCoords),
     UpdatedRequests = Requests#{Ref => From},
     {reply, ok, State#{requests := UpdatedRequests}}.
 
@@ -43,14 +43,14 @@ handle_cast(_, _) ->
     should_not_be_used.
 
 
-handle_info({_Connection, Ref, Result}, #{requests := Requests} = State) ->
+handle_info({_Connection, Ref, {ok, _ColumnNames, Result}}, #{requests := Requests} = State) ->
     Position = map_connection:parse_position_query_result(Result),
     RespondTo = maps:get(Ref, Requests),
     UpdatedRequests = maps:remove(Ref, Requests),
-    RespondTo ! Position,
+    RespondTo ! {ok, Position},
     {noreply, State#{requests := UpdatedRequests}}.
 
 
-terminate(_, Connection) ->
-    map_connection:shutdown_connection(Connection),
+terminate(_, #{connection := ConnectionDetails}) ->
+    map_connection:shutdown_connection(ConnectionDetails),
     ok.

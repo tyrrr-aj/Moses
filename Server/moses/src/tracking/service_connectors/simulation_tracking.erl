@@ -35,7 +35,10 @@ init([]) ->
 
 handle_call({get_position, RideId}, _From, #{coords := CoordsMap}=State) ->
     % io:format("CoordsMap: ~p~n", [CoordsMap]),
-    {reply, get_coords(RideId, CoordsMap), State};
+    case get_coords(RideId, CoordsMap) of
+        end_ride -> {reply, end_ride, State#{coords := maps:remove(RideId, CoordsMap)}};
+        Coords -> {reply, Coords, State}
+    end;
 
 handle_call({add_ride, RideId}, _From, #{coords := CoordsMap}=State) ->
     try get_coords(RideId, CoordsMap) of
@@ -47,15 +50,13 @@ handle_call({add_ride, RideId}, _From, #{coords := CoordsMap}=State) ->
 handle_cast(_, _State) ->
     should_not_be_used.
 
-handle_info(Message, #{coords := Coords}=State) ->
+handle_info(Message, #{coords := CoordsMap}=State) ->
     RawBody = rabbitmq_connector:get_message_body(Message),
     % io:format("Received message: ~s~n", [RawBody]),
-    case parse_message(RawBody) of
-        {RideId, end_ride} -> {noreply, State#{coords => maps:remove(RideId, Coords)}};
-        {RideId, Coords} -> {noreply, State#{coords => Coords#{RideId => Coords}}}
-    end.
+    {RideId, VehicleCoords} = parse_message(RawBody),
+    {noreply, State#{coords => CoordsMap#{RideId => VehicleCoords}}}.
 
-terminate(_, #{rabbitmq_conn := {Channel, Connection}}) ->
+terminate(_, #{rabbitmq_conn := {Connection, Channel}}) ->
     rabbitmq_connector:close(queue_name(), Channel, Connection).
 
 %% Internal functions

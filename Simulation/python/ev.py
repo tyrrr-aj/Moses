@@ -25,3 +25,6 @@ class Ev(Vehicle):
     def send_localization_update(self):
         coords = get_position(self.vehicle_id)
         self.connector.send_tracking_update(*coords)
+
+    def stop(self):
+        self.connector.send_end_ride_message()

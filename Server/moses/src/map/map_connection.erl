@@ -10,27 +10,34 @@
 
 establish_connection() ->
     {ok, Connection} = epgsqla:start_link(),
-    Ref = epgsqla:connect(Connection, <<"localhost">>, <<"moses">>, <<"Split now!">>, #{database => <<"osm">>}),
-    receive
+    Ref = epgsqla:connect(Connection, "localhost", "moses", "Split now!", #{database => "osm"}),
+    {ok, Connection} = receive
         {Connection, Ref, connected} ->
-            Connection;
+            {ok, Connection};
         {Connection, Ref, Error} ->
             Error;
         {'EXIT', Connection, _Reason} ->
             {error, closed}
-    end.
+    end,
+    {ok, PositionQueryStatement} = epgsql:parse(Connection, prepared_position_query_name(), "select * from findNearestRoad($1, $2)", position_query_parameter_types()),
+    {Connection, PositionQueryStatement}.
 
-position_query(Connection, #{lon := Lon, lat := Lat}) ->
+
+position_query({Connection, PositionQueryStatement}, #{lon := Lon, lat := Lat}) ->
     % io:format("Lon: ~f, lat: ~f~n", [Lon, Lat]),
-    Ref = epgsqla:equery(Connection, "select * from findNearestRoad($1, $2)", [Lon, Lat]),
+    TypedParameters = lists:zip(position_query_parameter_types(), [Lon, Lat]),
+    Ref = epgsqla:prepared_query(Connection, PositionQueryStatement, TypedParameters),
     Ref.
 
-shutdown_connection(Connection) ->
+
+shutdown_connection({Connection, _}) ->
     ok = epgsql:close(Connection).
+
 
 query_for_roads(Connection, #{lon := LonLowerLeft, lat := LatLowerLeft}, #{lon := LonUpperRight, lat := LatUpperRight}) ->
     {ok, _, Rows} = epgsql:equery(Connection, "select * from getRoadsInBox($1, $2, $3, $4)", [LonLowerLeft, LatLowerLeft, LonUpperRight, LatUpperRight]),
     lists:map(fun(Row) -> map_parsing:road_spec(Row) end, Rows).
+
 
 query_for_junctions(Connection, #{lon := LonLowerLeft, lat := LatLowerLeft}, #{lon := LonUpperRight, lat := LatUpperRight}) ->
     {ok, _, Rows} = epgsql:equery(Connection, "select * from getJunctionsInBox($1, $2, $3, $4)", [LonLowerLeft, LatLowerLeft, LonUpperRight, LatUpperRight]),
@@ -55,6 +62,12 @@ single_row([Row]) ->
 
 
 %% internal_constants
+
+
+prepared_position_query_name() -> "position_query".
+
+
+position_query_parameter_types() -> [float8, float8].
 
 % connection_parameters() ->
 %     #{

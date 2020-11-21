@@ -56,4 +56,15 @@ public class EVConnector {
             }
         });
     }
+
+    public void sendEndRideMessageAsync() {
+        CompletableFuture.runAsync(() -> {
+            byte[] messageBody = marshaller.marshallEndRide(vehicleId);
+            try {
+                connector.sendMessage(exchangeName, dispatchRootingKey, messageBody);
+            } catch (IOException e) {
+                System.out.println("Error while sending end_ride message from " + vehicleId);
+            }
+        });
+    }
 }

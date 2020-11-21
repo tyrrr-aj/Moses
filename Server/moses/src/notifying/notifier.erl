@@ -29,7 +29,7 @@ start_link() ->
 
 
 notify(Notification) ->
-    gen_server:cast({notify, Notification}, ?SERVER).
+    gen_server:cast(?SERVER, {notify, Notification}).
 
 
 %% callbacks
@@ -61,9 +61,7 @@ terminate(_, {Channel, Connection}) ->
 %% internal functions
 
 setup_connection() ->
-    {ok, Connection} = amqp_connection:start(#amqp_params_network{}),
-    % setup_exchange(Connection),
-    {ok, Connection}.
+    amqp_connection:start(#amqp_params_network{}).
 
 get_channel(Connection) ->
     amqp_connection:open_channel(Connection).

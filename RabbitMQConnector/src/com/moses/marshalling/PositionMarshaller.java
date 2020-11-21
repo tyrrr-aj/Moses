@@ -14,6 +14,9 @@ public class PositionMarshaller {
         if (new String(messageBody).equals("unknown")) {
             return null;
         }
+        else if (new String(messageBody).equals("unknown")) {
+            
+        }
         double partOfRoad = ((float) (int) messageBody[0]) / 100;
         String roadId = new String(Arrays.copyOfRange(messageBody, 1, messageBody.length));
 

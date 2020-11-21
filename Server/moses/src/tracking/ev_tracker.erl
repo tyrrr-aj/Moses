@@ -3,7 +3,7 @@
 -behaviour(gen_server).
 
 -export([init/1, handle_call/3, handle_cast/2, handle_info/2, terminate/2]).
--export([start_link/2]).
+-export([start_link/2, stop_tracking/1]).
 
 
 %% TrackingInfo = #{
@@ -12,7 +12,7 @@
 %%  direction => forward | backward | not_moving | road_changed
 %%  ride_id => RideId,
 %%  emergency_service_type => EmergencyServiceType
-%%  connection => Connection
+%%  connection => TrackingModule
 %% }
 
 time_res() -> 1000.
@@ -21,14 +21,18 @@ time_res() -> 1000.
 %% API
 
 start_link(EmergencyServiceType, #{ride_id := RideId}) ->
-    gen_server:start_link(?MODULE, {EmergencyServiceType, RideId}, []).
+    gen_server:start_link({local, names:tracker_name(RideId)}, ?MODULE, {EmergencyServiceType, RideId}, []).
+
+
+stop_tracking(RideId) ->
+    gen_server:cast(names:tracker_name(RideId), end_ride).
 
 
 %% Callbacks
 
-init({EmergencyServiceType, RideId}=TrackingSpec) ->
-    io:format("Ev_tracker started~n", []),
-    TrackingModule = tracking_module(TrackingSpec),
+init({EmergencyServiceType, RideId}) ->
+    % io:format("Ev_tracker started~n", []),
+    TrackingModule = names:tracking_module(EmergencyServiceType),
     {ok, InitialCoords} = TrackingModule:start_tracking(RideId),
     % add_ev_on_road(maps:get(current_position, TrackingInfo), TrackingInfo),
     InitialPosition = get_position(InitialCoords),
@@ -37,24 +41,27 @@ init({EmergencyServiceType, RideId}=TrackingSpec) ->
 
 
 handle_info(timeout, TrackingInfo) ->
-    % io:format("[Ev_tracker] Updating position...~n", []),
-    NewTrackingInfo = update_tracking_info(TrackingInfo),
-    % io:format(" current position: ~p, direction: ~p~n", [maps:get(current_position, NewTrackingInfo), maps:get(direction, NewTrackingInfo)]),
-    % io:format("[update_controllers] will be called with ~p~n", [NewTrackingInfo]),
-    update_controllers(NewTrackingInfo),
-    {noreply, NewTrackingInfo, time_res()}.
+    case update_tracking_info(TrackingInfo) of
+        end_ride -> {stop, normal, TrackingInfo};
+        unknown -> {noreply, TrackingInfo, time_res()};
+        NewTrackingInfo -> 
+            update_controllers(NewTrackingInfo),
+            {noreply, NewTrackingInfo, time_res()}
+        end.
 
 
 handle_call(_, _, _) ->
     should_not_be_used.
 
 
-handle_cast(_, _) ->
-    should_not_be_used.
+handle_cast(end_ride, TrackingInfo) ->
+    {stop, normal, TrackingInfo}.
 
 
 terminate(normal, TrackingInfo) ->
-    cleanup(TrackingInfo);
+    io:format("[ev_tracker] terminating with reason normal~n", []),
+    cleanup(TrackingInfo),
+    io:format("[ev_tracker] cleanup went well~n", []);
 
 terminate(shutdown, TrackingInfo) ->
     cleanup(TrackingInfo);
@@ -63,12 +70,6 @@ terminate(_Reason, _) ->
     ok.
 
 %% Internal functions
-
-
-tracking_module(EmergencyServiceType) ->
-    ServiceType = atom_to_list(EmergencyServiceType),
-    list_to_atom(ServiceType ++ "_tracking").
-
 
 init_tracking_info(RideId, EmergencyServiceType, Position, TrackingModule) ->
     #{
@@ -83,8 +84,8 @@ init_tracking_info(RideId, EmergencyServiceType, Position, TrackingModule) ->
 
 update_tracking_info(#{current_position := OldPosition}=OldTrackingInfo) ->
     case update_position(OldTrackingInfo) of
-        unknown ->
-            OldTrackingInfo;
+        end_ride -> end_ride;
+        unknown -> unknown;
         NewPosition -> 
             OldTrackingInfo#{
                 previous_position := OldPosition,
@@ -95,10 +96,12 @@ update_tracking_info(#{current_position := OldPosition}=OldTrackingInfo) ->
 
 
 update_position(#{ride_id := RideId, connection := TrackingModule}) ->
-    {ok, GPSCoords} = TrackingModule:get_current_position(RideId),
-    % io:format("Coordinates for EV: ~p~n", [GPSCoords]),
+    {ok, GPSCoords} = TrackingModule:get_current_coords(RideId),
     get_position(GPSCoords).
 
+
+get_position(end_ride) ->
+    end_ride;
 
 get_position(unknown) ->
     unknown;
@@ -134,13 +137,27 @@ update_controllers(#{current_position := {road, _, _} = NewPosition, previous_po
     remove_ev_from_road(OldPosition, TrackingInfo),
     add_ev_on_road(NewPosition, TrackingInfo);
 
+update_controllers(#{current_position := {junction, JunctionId}, previous_position := {junction, JunctionId}}) ->
+    ok;
+
+update_controllers(#{current_position := {junction, NewJunctionId}, previous_position := {junction, OldJunctionId}} = TrackingInfo) ->
+    remove_ev_from_junction(OldJunctionId, maps:get(ride_id, TrackingInfo)),
+    add_ev_on_junction(NewJunctionId, TrackingInfo);
+
 update_controllers(#{current_position := {road, _, _} = NewPosition, previous_position := unknown} = TrackingInfo) ->
     % io:format("[update_controllers] adding ev on road~n", []),
     add_ev_on_road(NewPosition, TrackingInfo);
 
+update_controllers(#{current_position := {junction, JunctionId}, previous_position := unknown} = TrackingInfo) ->
+    add_ev_on_junction(JunctionId, TrackingInfo);
+
 update_controllers(#{current_position := unknown}) ->
     % io:format("[update_controllers] ev position unknown~n", []),
     ok.
+
+% update_controllers(SthStrange) ->
+%     io:format("ERROR: ev_tracker:update_controllers called with sth strange, namely: ~p~n", [SthStrange]),
+%     not_ok.
 
 
 add_ev_on_road({road, Road, PartOfRoad}, #{ride_id := RideId, direction := Direction, emergency_service_type := EmergencyServiceType}) ->
@@ -148,6 +165,9 @@ add_ev_on_road({road, Road, PartOfRoad}, #{ride_id := RideId, direction := Direc
 
 
 remove_ev_from_road({road, Road, _}, #{ride_id := RideId}) ->
+    road_controller:remove_ev(Road, RideId);
+
+remove_ev_from_road({road, Road, _}, RideId) ->
     road_controller:remove_ev(Road, RideId).
 
 
@@ -163,12 +183,13 @@ remove_ev_from_junction(JunctionId, RideId) ->
     junction_controller:remove_ev(JunctionId, RideId).
 
 
-cleanup({TrackingModule, #{current_position := {road, _, _} = CurrentPosition, ride_id := RideId} = TrackingInfo}) ->
-    TrackingModule:stop_tracking(TrackingInfo),
-    remove_ev_from_road(CurrentPosition, RideId),
-    ok;
+remove_ev_from_current_position(#{current_position := {road, RoadId, _}, ride_id := RideId}) ->
+    remove_ev_from_road(RoadId, RideId);
 
-cleanup({TrackingModule, #{current_position := {junction, _} = CurrentPosition, ride_id := RideId} = TrackingInfo}) ->
-    TrackingModule:stop_tracking(TrackingInfo),
-    remove_ev_from_junction(CurrentPosition, RideId),
-    ok.
+remove_ev_from_current_position(#{current_position := {junction, JunctionId}, ride_id := RideId}) ->
+    remove_ev_from_junction(JunctionId, RideId).
+
+
+cleanup(#{connection := TrackingModule, ride_id := RideId} = TrackingInfo) ->
+    remove_ev_from_current_position(TrackingInfo),
+    TrackingModule:stop_tracking(RideId).
