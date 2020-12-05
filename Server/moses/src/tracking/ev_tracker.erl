@@ -167,12 +167,12 @@ add_ev_on_road({road, Road, PartOfRoad}, #{ride_id := RideId, direction := Direc
 remove_ev_from_road({road, Road, _}, #{ride_id := RideId}) ->
     road_controller:remove_ev(Road, RideId);
 
-remove_ev_from_road({road, Road, _}, RideId) ->
-    road_controller:remove_ev(Road, RideId).
+remove_ev_from_road(RoadId, RideId) ->
+    road_controller:remove_ev(RoadId, RideId).
 
 
-update_ev_position_on_road({road, Road, PartOfRoad}, #{ride_id := RideId, direction := Direction}) ->
-    road_controller:update_ev_position(Road, {RideId, PartOfRoad, Direction}).
+update_ev_position_on_road({road, Road, PartOfRoad}, #{ride_id := RideId, direction := Direction, emergency_service_type := EmergencyServiceType}) ->
+    road_controller:update_ev_position(Road, {RideId, PartOfRoad, Direction, EmergencyServiceType}).
 
 
 add_ev_on_junction(JunctionId, #{ride_id := RideId}) ->

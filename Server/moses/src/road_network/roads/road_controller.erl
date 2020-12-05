@@ -29,8 +29,8 @@ start_link(#{id := RoadId} = RoadSpec) ->
 add_ev(RoadId, EvSpec) ->
     gen_server:cast(RoadId, {add_ev, EvSpec}).
 
-update_ev_position(RoadId, UpdateSpec) ->
-    gen_server:cast(RoadId, {update_ev, UpdateSpec}).
+update_ev_position(RoadId, EvSpec) ->
+    gen_server:cast(RoadId, {update_ev, EvSpec}).
 
 remove_ev(RoadId, RideId) ->
     gen_server:cast(RoadId, {remove_ev, RideId}).
@@ -56,9 +56,9 @@ handle_cast({add_ev, EVSpec}, {RoadSpec, EVs, PreviousNotifications}) ->
     % io:format("[Road_controller] position update processed succesfully!~n", []),
     {noreply, {RoadSpec, NewEVs, NewNotifications}};
 
-handle_cast({update_ev, UpdateSpec}, {RoadSpec, EVs, PreviousNotifications}) ->
+handle_cast({update_ev, EVSpec}, {RoadSpec, EVs, PreviousNotifications}) ->
     % io:format("[Road_controller] position update received~n", []),
-    NewEVs = update_ev_position_in_evs(UpdateSpec, EVs),
+    NewEVs = update_ev_position_in_evs(EVSpec, EVs),
     NewNotifications = update_decisions(RoadSpec, EVs, PreviousNotifications),
     {noreply, {RoadSpec, NewEVs, NewNotifications}};
 
@@ -69,16 +69,23 @@ handle_cast({remove_ev, RideId}, {RoadSpec, EVs, PreviousNotifications}) ->
     {noreply, {RoadSpec, NewEVs, NewNotifications}}.
 
 
+
 %% internal functions
 
 add_to_evs({RideId, PartOfRoad, Direction, EmergencyServiceType}, EVs) ->
     EVs#{RideId => #{part_of_road => PartOfRoad, direction => Direction, emergency_service_type => EmergencyServiceType}}.
 
-update_ev_position_in_evs({RideId, PartOfRoad, Direction}, EVs) ->
-    EVs#{RideId := #{part_of_road => PartOfRoad, direction => Direction}}.
+
+update_ev_position_in_evs({RideId, PartOfRoad, Direction, _} = EVSpec, EVs) ->
+    case EVs of
+        #{ride_id := _} -> EVs#{RideId := #{part_of_road => PartOfRoad, direction => Direction}};
+        _ -> add_to_evs(EVSpec, EVs)
+    end.   
+
 
 remove_from_evs(RideId, EVs) ->
     maps:remove(RideId, EVs).
+
 
 update_decisions(RoadSpec, EVs, PreviousNotifications) ->
     % io:format("[Road controller] update started~n", []),
@@ -88,6 +95,7 @@ update_decisions(RoadSpec, EVs, PreviousNotifications) ->
     % io:format("[Road controller] Junctions informed~n", []),
     ok.
 
+
 notify_vehicles(RoadSpec, EVs, PreviousNotifications) ->
     % io:format("[Road controller] (notify_vehicles) started~n", []),
     Notifications = road_clearance:generate_vehicle_notifications(RoadSpec, EVs, PreviousNotifications),
@@ -96,6 +104,7 @@ notify_vehicles(RoadSpec, EVs, PreviousNotifications) ->
     % lists:foreach(fun(Notification) -> io:format("[Road controler] (notify_vehicles/lambda) notification: ~p~n", [Notification]), notifier:notify(Notification) end, Notifications),
     % io:format("[Road controller] (notify_vehicles) vehicles notified~n", []),
     ok.
+
 
 inform_junctions(RoadSpec, EVs) ->
     InfoForJunctions = road_clearance:generate_junction_info(RoadSpec, EVs),

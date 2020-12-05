@@ -2,7 +2,7 @@ import os, sys, time
 import traci
 
 import jnius_config
-jnius_config.set_classpath('C:\\Users\\adams\\Projekty\\Moses\\RabbitMQConnector\\out\\artifacts\\RabbitMQConnector_jar\\RabbitMQConnector.jar')
+jnius_config.set_classpath('/home/eddie/adams/Projekty/Moses/RabbitMQConnector/out/artifacts/RabbitMQConnector_jar/RabbitMQConnector.jar')
 
 from ev import Ev
 from regular_vehicle import RegularVehicle
@@ -44,8 +44,8 @@ def setupCmd():
     sumoBinary = "C:\\Program Files (x86)\\Eclipse\\Sumo\\bin\\sumo-gui.exe"
     return [sumoBinary, "-c", "..\\sumo\\osm.sumocfg", '--device.bluelight.explicit', 'amb0,pol0,fir0']
 
-def runSimulation(sumoCmd):
-    traci.start(sumoCmd)
+def runSimulation():
+    # traci.start(sumoCmd)
 
     #tracking.track_in_new_thread(traci, 'veh0')
     # vehicleId = 'veh0'
@@ -65,7 +65,10 @@ if __name__ == '__main__':
         tools = os.path.join(os.environ['SUMO_HOME'], 'tools')
         sys.path.append(tools)
 
-        sumoCmd = setupCmd()
-        runSimulation(sumoCmd)
+        # sumoCmd = setupCmd()
+        # runSimulation(sumoCmd)
+        traci.init(port=1111, host='172.18.32.1')
+        traci.setOrder(0)
+        runSimulation()
     else:
         sys.exit("please declare environment variable 'SUMO_HOME'")

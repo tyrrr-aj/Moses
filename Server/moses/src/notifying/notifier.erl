@@ -14,12 +14,18 @@
 -define(SERVER, ?MODULE).
 
 %% Notifications = [#{
-%%  road_id => RoadId,
+%%  road_network_element_type => road | junction
+%%  road_network_element_id => RoadId,
+%%  ride_id => RideId,
 %%  begining_at => PartOfRoad,
 %%  ending_at => PartOfRoad,
 %%  direction => forward | backward,
 %%  notification_body => <<"NotificationBody">>
 %% }]
+
+%% marshalled notification:
+%% <<"0 beg_at end_at road_id; text">>
+%% <<"1 junction_id; text">>
 
 
 %% API
@@ -46,13 +52,16 @@ handle_call(_, _, _) ->
 
 
 handle_cast({notify, Notification}, {_, Channel} = State) ->
+    % io:format("[notifier] got notification to send: ~p~n", [Notification]),
     Payload = marshall_notification(Notification),
     Publish = #'basic.publish'{exchange = exchange_name(), routing_key = choose_routing_key(Notification)},
+    % io:format("[notifier] notification prepared ~n", []),
     amqp_channel:cast(Channel, Publish, #amqp_msg{payload = Payload}),
+    % io:format("[notifier] notification sent ~n", []),
     {noreply, State}.
 
 
-terminate(_, {Channel, Connection}) ->
+terminate(_, {Connection, Channel}) ->
     close_channel(Channel),
     close_connection(Connection),
     ok.
@@ -63,25 +72,35 @@ terminate(_, {Channel, Connection}) ->
 setup_connection() ->
     amqp_connection:start(#amqp_params_network{}).
 
+
 get_channel(Connection) ->
     amqp_connection:open_channel(Connection).
+
 
 setup_exchange(Channel) ->
     Declare = #'exchange.declare'{exchange = exchange_name()},
     #'exchange.declare_ok'{} = amqp_channel:call(Channel, Declare).
 
-marshall_notification(#{begining_at := Begin, ending_at := End, direction := Direction, notification_body := Text}) ->
+
+marshall_notification(#{road_network_element_type := road, ride_id := RideId, begining_at := Begin, ending_at := End, direction := Direction, notification_body := Text}) ->
     DirectionRepr = case Direction of
                         backward -> 0;
                         forward -> 1
                     end,
-    list_to_binary([trunc(Begin * 100), trunc(End * 100), DirectionRepr, Text]).
+    list_to_binary([0, trunc(Begin * 100), trunc(End * 100), DirectionRepr, list_to_binary(RideId), <<";">>, Text]);
 
-choose_routing_key(#{road_id := RoadId}) ->
-    atom_to_binary(RoadId, routing_key_encoding()).
+marshall_notification(#{road_network_element_type := junction, ride_id := RideId, notification_body := Text}) ->
+    list_to_binary([1, list_to_binary(RideId), <<";">>, Text]).
+
+
+
+choose_routing_key(#{road_network_element_id := RoadNetworkElementId}) ->
+    atom_to_binary(RoadNetworkElementId, routing_key_encoding()).
+
 
 close_channel(Channel) ->
     amqp_channel:close(Channel).
+
 
 close_connection(Connection) ->
     amqp_connection:close(Connection).
@@ -91,5 +110,9 @@ close_connection(Connection) ->
 
 exchange_name() -> <<"moses_exchange">>.
 
+
 routing_key_encoding() ->
     latin1.
+
+
+encoding() -> latin1.

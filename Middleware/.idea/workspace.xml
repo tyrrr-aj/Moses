@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="RabbitMQConnector:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="42adc8c8-9215-4a3b-9a1d-44c1f0555221" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/driverapp/backend/NotificationsReceiver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/driverapp/backend/dto/GPSCoords.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/driverapp/backend/interfaces/Displayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/driverapp/backend/interfaces/GPSAccessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/driverapp/backend/synchronization/ProcessedRides.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/driverapp/backend/synchronization/SyncedObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/driverapp/backend/threads/NotificationsProcessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/driverapp/backend/threads/PositionTracking.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/driverapp/backend/threads/ProcessedRidesCleaning.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/driverapp/simulation/SimConnector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/notifications/GeographicalBounds.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/notifications/JunctionBounds.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/notifications/RoadBounds.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/position/Position.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/position/PositionOnJunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/position/PositionOnRoad.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/position/UnknownPosition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Map/server/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../Map/server/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RabbitMQConnector/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RabbitMQConnector/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RabbitMQConnector/RabbitMQConnector.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../RabbitMQConnector/MosesMiddleware.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RabbitMQConnector/out/artifacts/RabbitMQConnector_jar/RabbitMQConnector.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../RabbitMQConnector/out/artifacts/RabbitMQConnector_jar/RabbitMQConnector.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RabbitMQConnector/out/production/RabbitMQConnector/com/moses/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../RabbitMQConnector/out/production/RabbitMQConnector/com/moses/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RabbitMQConnector/out/production/RabbitMQConnector/com/moses/Position.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RabbitMQConnector/out/production/RabbitMQConnector/com/moses/RabbitMqConnector.class" beforeDir="false" afterPath="$PROJECT_DIR$/../RabbitMQConnector/out/production/RabbitMQConnector/com/moses/RabbitMqConnector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RabbitMQConnector/out/production/RabbitMQConnector/com/moses/driverapp/DriverAppConnector.class" beforeDir="false" afterPath="$PROJECT_DIR$/../RabbitMQConnector/out/production/RabbitMQConnector/com/moses/driverapp/DriverAppConnector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RabbitMQConnector/out/production/RabbitMQConnector/com/moses/driverapp/Notification$Direction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RabbitMQConnector/out/production/RabbitMQConnector/com/moses/driverapp/Notification.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RabbitMQConnector/out/production/RabbitMQConnector/com/moses/marshalling/NotificationMarshaller.class" beforeDir="false" afterPath="$PROJECT_DIR$/../RabbitMQConnector/out/production/RabbitMQConnector/com/moses/marshalling/NotificationMarshaller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RabbitMQConnector/out/production/RabbitMQConnector/com/moses/marshalling/PositionMarshaller.class" beforeDir="false" afterPath="$PROJECT_DIR$/../RabbitMQConnector/out/production/RabbitMQConnector/com/moses/marshalling/PositionMarshaller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RabbitMQConnector/out/production/RabbitMQConnector/com/moses/simulation/EVConnector.class" beforeDir="false" afterPath="$PROJECT_DIR$/../RabbitMQConnector/out/production/RabbitMQConnector/com/moses/simulation/EVConnector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RabbitMQConnector/out/production/RabbitMQConnector/com/moses/simulation/EVType.class" beforeDir="false" afterPath="$PROJECT_DIR$/../RabbitMQConnector/out/production/RabbitMQConnector/com/moses/simulation/EVType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RabbitMQConnector/out/production/RabbitMQConnector/com/moses/simulation/Marshaller.class" beforeDir="false" afterPath="$PROJECT_DIR$/../RabbitMQConnector/out/production/RabbitMQConnector/com/moses/simulation/Marshaller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/Position.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/RabbitMqConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/RabbitMqConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/driverapp/DriverAppConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/driverapp/backend/DriverAppConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/driverapp/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/notifications/Notification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/marshalling/NotificationMarshaller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/marshalling/NotificationMarshaller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/marshalling/PositionMarshaller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/marshalling/PositionMarshaller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/simulation/EVConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RabbitMQConnector/src/com/moses/simulation/EVConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/moses/src/clearence/road_clearance.erl" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/moses/src/clearence/road_clearance.erl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/moses/src/driver_app/driver_apps_controller.erl" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/moses/src/driver_app/driver_apps_controller.erl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/moses/src/notifying/notifier.erl" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/moses/src/notifying/notifier.erl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/moses/src/road_network/roads/road_controller.erl" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/moses/src/road_network/roads/road_controller.erl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/moses/src/tracking/ev_tracker.erl" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/moses/src/tracking/ev_tracker.erl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Simulation/python/driver_app_emulator.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulation/python/driver_app_emulator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Simulation/python/hs_err_pid25668.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Simulation/python/hs_err_pid26692.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Simulation/python/hs_err_pid33900.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Simulation/python/hs_err_pid36672.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Simulation/python/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulation/python/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Simulation/python/regular_vehicle.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulation/python/regular_vehicle.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1hKR8XMnY1jU1q1Ie6cjcqZ0kC1" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="full.screen.before.presentation.mode" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.moses.Main" />
+      <module name="RabbitMQConnector" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="42adc8c8-9215-4a3b-9a1d-44c1f0555221" name="Default Changelist" comment="" />
+      <created>1599757639361</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1599757639361</updated>
+      <workItem from="1599757677333" duration="16935000" />
+      <workItem from="1600797929445" duration="7786000" />
+      <workItem from="1600871679913" duration="12906000" />
+      <workItem from="1600950444661" duration="4170000" />
+      <workItem from="1604337254795" duration="2499000" />
+      <workItem from="1604767037567" duration="527000" />
+      <workItem from="1604767921484" duration="1939000" />
+      <workItem from="1604874332415" duration="273000" />
+      <workItem from="1604893383303" duration="1952000" />
+      <workItem from="1605107643553" duration="658000" />
+      <workItem from="1605977087228" duration="12032000" />
+      <workItem from="1606043869270" duration="10035000" />
+      <workItem from="1606069664503" duration="5023000" />
+      <workItem from="1606121482685" duration="3471000" />
+      <workItem from="1606134532544" duration="1946000" />
+      <workItem from="1607018156096" duration="52000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1286" y="202" key="#com.intellij.ide.util.MemberChooser" timestamp="1606052174149">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1599774176414" />
+    <state x="1286" y="202" key="#com.intellij.ide.util.MemberChooser/0.0.3440.1400@0.0.3440.1400" timestamp="1606052174149" />
+    <state x="2399" y="394" width="374" height="618" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1605982909169">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="2399" y="394" width="374" height="618" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.3440.1400@0.0.3440.1400" timestamp="1605982909169" />
+    <state x="2287" y="598" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1606073456167">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="2287" y="598" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.3440.1400@0.0.3440.1400" timestamp="1606073456167" />
+    <state x="2211" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1605981747693">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="2211" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.3440.1400@0.0.3440.1400" timestamp="1605981747693" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599774499891">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1599774499891" />
+    <state x="1060" y="422" key="FileChooserDialogImpl" timestamp="1606127140225">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="1060" y="422" key="FileChooserDialogImpl/0.0.3440.1400@0.0.3440.1400" timestamp="1606127140225" />
+    <state width="1826" height="313" key="GridCell.Tab.0.bottom" timestamp="1606074553143">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="3397" height="400" key="GridCell.Tab.0.bottom.inPresentationMode" timestamp="1599773855812">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="3397" height="400" key="GridCell.Tab.0.bottom.inPresentationMode/0.0.3440.1400@0.0.3440.1400" timestamp="1599773855812" />
+    <state width="1071" height="586" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1600895108804" />
+    <state width="1826" height="313" key="GridCell.Tab.0.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1606074553143" />
+    <state width="1826" height="313" key="GridCell.Tab.0.center" timestamp="1606074553143">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="3397" height="400" key="GridCell.Tab.0.center.inPresentationMode" timestamp="1599773855811">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="3397" height="400" key="GridCell.Tab.0.center.inPresentationMode/0.0.3440.1400@0.0.3440.1400" timestamp="1599773855811" />
+    <state width="1071" height="586" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1600895108804" />
+    <state width="1826" height="313" key="GridCell.Tab.0.center/0.0.3440.1400@0.0.3440.1400" timestamp="1606074553143" />
+    <state width="1826" height="313" key="GridCell.Tab.0.left" timestamp="1606074553143">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="3397" height="400" key="GridCell.Tab.0.left.inPresentationMode" timestamp="1599773855811">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="3397" height="400" key="GridCell.Tab.0.left.inPresentationMode/0.0.3440.1400@0.0.3440.1400" timestamp="1599773855811" />
+    <state width="1071" height="586" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1600895108803" />
+    <state width="1826" height="313" key="GridCell.Tab.0.left/0.0.3440.1400@0.0.3440.1400" timestamp="1606074553143" />
+    <state width="1826" height="313" key="GridCell.Tab.0.right" timestamp="1606074553143">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="3397" height="400" key="GridCell.Tab.0.right.inPresentationMode" timestamp="1599773855811">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="3397" height="400" key="GridCell.Tab.0.right.inPresentationMode/0.0.3440.1400@0.0.3440.1400" timestamp="1599773855811" />
+    <state width="1071" height="586" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1600895108804" />
+    <state width="1826" height="313" key="GridCell.Tab.0.right/0.0.3440.1400@0.0.3440.1400" timestamp="1606074553143" />
+    <state width="1826" height="313" key="GridCell.Tab.1.bottom" timestamp="1606074553144">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1826" height="313" key="GridCell.Tab.1.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1606074553144" />
+    <state width="1826" height="313" key="GridCell.Tab.1.center" timestamp="1606074553144">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1826" height="313" key="GridCell.Tab.1.center/0.0.3440.1400@0.0.3440.1400" timestamp="1606074553144" />
+    <state width="1826" height="313" key="GridCell.Tab.1.left" timestamp="1606074553144">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1826" height="313" key="GridCell.Tab.1.left/0.0.3440.1400@0.0.3440.1400" timestamp="1606074553144" />
+    <state width="1826" height="313" key="GridCell.Tab.1.right" timestamp="1606074553144">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1826" height="313" key="GridCell.Tab.1.right/0.0.3440.1400@0.0.3440.1400" timestamp="1606074553144" />
+    <state x="1562" y="266" key="SettingsEditor" timestamp="1606127162375">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="1562" y="266" key="SettingsEditor/0.0.3440.1400@0.0.3440.1400" timestamp="1606127162375" />
+    <state x="290" y="595" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1599762012144">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="290" y="595" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.3440.1400@0.0.3440.1400" timestamp="1599762012144" />
+    <state x="1962" y="320" key="new project wizard" timestamp="1600798013580">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="1962" y="320" key="new project wizard/0.0.3440.1400@0.0.3440.1400" timestamp="1600798013580" />
+    <state x="516" y="334" key="run.anything.popup" timestamp="1599769284379">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="516" y="334" key="run.anything.popup/0.0.3440.1400@0.0.3440.1400" timestamp="1599769284379" />
+    <state x="1343" y="320" width="672" height="678" key="search.everywhere.popup" timestamp="1600888770929">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="1343" y="320" width="672" height="678" key="search.everywhere.popup/0.0.3440.1400@0.0.3440.1400" timestamp="1600888770929" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/moses/driverapp/threads/NotificationsProcessor.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/moses/driverapp/threads/NotificationsProcessor.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/moses/driverapp/threads/NotificationsProcessor.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/moses/position/PositionOnRoad.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

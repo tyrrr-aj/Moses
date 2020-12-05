@@ -31,7 +31,7 @@ handle_cast(_, _) ->
     unimplemented.
 
 handle_info(Message, {Connection, Channel}) ->
-    % io:format("Received message\: ~s~n", [rabbitmq_connector:get_message_body(Message)]),
+    % io:format("Received message: ~s~n", [rabbitmq_connector:get_message_body(Message)]),
     Position = update_position(Message),
     % io:format("Position: ~p~n", [Position]),
     reply_with_position(Channel, Message, Position),
