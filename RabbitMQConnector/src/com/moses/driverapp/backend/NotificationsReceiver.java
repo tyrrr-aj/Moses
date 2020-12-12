@@ -18,11 +18,9 @@ import java.util.concurrent.TimeoutException;
 public class NotificationsReceiver {
     private final GPSAccessor gpsAccessor;
     private final Displayer displayer;
+    DriverAppConnector connector;
 
     ExecutorService executor;
-
-    private PositionTracking positionTracking;
-    private ProcessedRidesCleaning processedRidesCleaning;
 
     public NotificationsReceiver(GPSAccessor gpsAccessor, Displayer displayer) {
         this.gpsAccessor = gpsAccessor;
@@ -30,7 +28,7 @@ public class NotificationsReceiver {
     }
 
     public void receiveNotifications() throws IOException, TimeoutException {
-        DriverAppConnector connector = new DriverAppConnector();
+        connector = new DriverAppConnector();
         ProcessedRides alreadyProcessedRides = new ProcessedRides();
         SyncedObject<Position> syncedPosition = new SyncedObject<>(new UnknownPosition());
 
@@ -50,7 +48,8 @@ public class NotificationsReceiver {
         });
     }
 
-    public void shutdown() {
+    public void shutdown() throws IOException {
         executor.shutdownNow();
+        connector.shutdown();
     }
 }

@@ -1,16 +1,16 @@
-import threading
+import jpype.imports
+from jpype import JImplements, JOverride
 
-# import jnius_config
-# jnius_config.set_classpath('C:\\Users\\adams\\Projekty\\Moses\\RabbitMQConnector\\out\\artifacts\\RabbitMQConnector_jar\\RabbitMQConnector.jar')
-import jnius
+from com.moses.driverapp.backend import NotificationsReceiver
 
-from jnius import autoclass, PythonJavaClass, java_method
+from com.moses.driverapp.backend.interfaces import Displayer, GPSAccessor
+from com.moses.driverapp.backend.dto import GPSCoords
+
+from java.util.function import Consumer
 
 
 class DriverAppEmulator:
-    def __init__(self, vehicle):
-        NotificationsReceiver = autoclass('com.moses.driverapp.NotificationsReceiver')
-        
+    def __init__(self, vehicle):        
         displayer = Displayer(vehicle)
         gps_accessor = GPSAccessor(vehicle)
 
@@ -21,8 +21,7 @@ class DriverAppEmulator:
     #     return self.connector.updateLocalization(coords)
 
     def listen_for_notifications(self):
-        thread = threading.Thread(target=self.receiver.receiveNotifications)
-        thread.start()
+        self.receiver.receiveNotifications()
     
     # def setup_and_listen(self, callback):
     #     local_conn = Connector()
@@ -31,41 +30,32 @@ class DriverAppEmulator:
     #     self.connector.listen_for_messages(queue, callback)
 
 
-class GPSAccessor(PythonJavaClass):
-    __javainterfaces__ = ['com/moses/driverapp/interfaces/GPSAccessor']
-
+@JImplements(GPSAccessor)
+class GPSAccessor:
     def __init__(self, vehicle):
-        super().__init__(self)
         self.vehicle = vehicle
-        self._gps_coords_class = autoclass('com.moses.driverapp.dto.GPSCoords')
 
-    @java_method('()Lcom/moses/driverapp/dto/GPSCoords;')
+    @JOverride
     def getCurrentCoords(self):
-        return self._get_coords_object(*self.vehicle.coords[::-1])
-    
-    def _get_coords_object(self, lon, lat):
-        return self._gps_coords_class(lon, lat)
+        return GPSCoords(*self.vehicle.coords[::-1])
 
 
-class Displayer(PythonJavaClass):
-    __javainterfaces__ = ['com/moses/driverapp/interfaces/Displayer']
-
+@JImplements(Displayer)
+class Displayer:
     def __init__(self, vehicle):
-        super().__init__(self)
         self.vehicle = vehicle
     
-    @java_method('(Lcom/moses/notifications/Notification;)V')
+    @JOverride
     def displayNotification(self, notification):
-        vehicle.highlight()
+        self.vehicle.highlight()
+        print(f'[{self.vehicle.vehicle_id}] received notification!')
 
 
-# class NotificationCallback(PythonJavaClass):
-#     __javainterfaces__ = ['java/util/function/Consumer']
-
+# @JImplements(Consumer)
+# class NotificationCallback:
 #     def __init__(self, callback):
-#         super(NotificationCallback, self).__init__()
 #         self.callback = callback
     
-#     @java_method('(Ljava/lang/Object;)V')
+#     @JOverride
 #     def accept(self, notification):
 #         self.callback(notification)

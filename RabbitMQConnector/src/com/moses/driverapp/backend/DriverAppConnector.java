@@ -20,7 +20,7 @@ public class  DriverAppConnector {
 
     private final String notificationQueue;
 
-    private final static String host = "172.18.32.1";
+    private final static String host = "localhost";
     private final static String username = "moses";
     private final static String password = "split";
 
@@ -57,5 +57,9 @@ public class  DriverAppConnector {
 
     public void unbindKey(String routingKey) throws IOException {
         connector.unbindQueue(notificationQueue, exchangeName, routingKey);
+    }
+
+    public void shutdown() throws IOException {
+        connector.closeConnection();
     }
 }

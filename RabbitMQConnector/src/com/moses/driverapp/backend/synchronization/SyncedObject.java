@@ -29,6 +29,10 @@ public class SyncedObject<T> {
         return actualObject;
     }
 
+    public void setValueDuringUpdate(T newValue) {
+        actualObject = newValue;
+    }
+
     public void endUpdate() {
         lock.unlock();
     }

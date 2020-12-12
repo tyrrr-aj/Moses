@@ -1,8 +1,8 @@
 create or replace function getRoadsInBox(
-    x_lower_left IN numeric,
-    y_lower_left IN numeric,
-    x_upper_right IN numeric,
-    y_upper_right IN numeric
+    x_lower_left IN double precision,
+    y_lower_left IN double precision,
+    x_upper_right IN double precision,
+    y_upper_right IN double precision
 )
 returns table(
     roadId bigint,

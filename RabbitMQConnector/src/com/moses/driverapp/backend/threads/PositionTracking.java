@@ -10,6 +10,8 @@ import com.moses.position.UnknownPosition;
 import java.io.IOException;
 
 public class PositionTracking extends Thread {
+    private SyncedObject<Boolean> isInterrupted;
+
     private final DriverAppConnector connector;
     private final SyncedObject<Position> syncedPosition;
     private final GPSAccessor gpsAccessor;
@@ -26,7 +28,9 @@ public class PositionTracking extends Thread {
 
     @Override
     public void run() {
-        while(true) {
+        isInterrupted = new SyncedObject<>(false);
+
+        while(!isInterrupted.get()) {
             GPSCoords coords = gpsAccessor.getCurrentCoords();
             try {
                 Position currentPosition = connector.updateLocalization(coords);
@@ -47,9 +51,14 @@ public class PositionTracking extends Thread {
             try {
                 Thread.sleep(interval);
             } catch (InterruptedException e) {
-                e.printStackTrace();
             }
         }
+    }
+
+    @Override
+    public void interrupt() {
+        isInterrupted.set(true);
+        super.interrupt();
     }
 
     private void updatePosition(Position newPosition) {

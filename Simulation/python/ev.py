@@ -1,7 +1,7 @@
 import traci
 
 from vehicle import Vehicle, position_update_interval
-from ev_server_connector import EvConnector
+from ev_server_connector import LocalEvConnector
 from tracking import get_position
 
 
@@ -9,7 +9,7 @@ class Ev(Vehicle):
     def __init__(self, vehicle_id, vehicle_type='simulation'):
         super().__init__(vehicle_id)
         self.step_no = 0
-        self.connector = EvConnector(vehicle_id, vehicle_type)
+        self.connector = LocalEvConnector(vehicle_id, vehicle_type)
         self.dispatch()
     
     def dispatch(self):

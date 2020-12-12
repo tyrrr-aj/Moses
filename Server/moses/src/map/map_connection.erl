@@ -34,12 +34,12 @@ shutdown_connection({Connection, _}) ->
     ok = epgsql:close(Connection).
 
 
-query_for_roads(Connection, #{lon := LonLowerLeft, lat := LatLowerLeft}, #{lon := LonUpperRight, lat := LatUpperRight}) ->
+query_for_roads({Connection, _}, #{lon := LonLowerLeft, lat := LatLowerLeft}, #{lon := LonUpperRight, lat := LatUpperRight}) ->
     {ok, _, Rows} = epgsql:equery(Connection, "select * from getRoadsInBox($1, $2, $3, $4)", [LonLowerLeft, LatLowerLeft, LonUpperRight, LatUpperRight]),
     lists:map(fun(Row) -> map_parsing:road_spec(Row) end, Rows).
 
 
-query_for_junctions(Connection, #{lon := LonLowerLeft, lat := LatLowerLeft}, #{lon := LonUpperRight, lat := LatUpperRight}) ->
+query_for_junctions({Connection, _}, #{lon := LonLowerLeft, lat := LatLowerLeft}, #{lon := LonUpperRight, lat := LatUpperRight}) ->
     {ok, _, Rows} = epgsql:equery(Connection, "select * from getJunctionsInBox($1, $2, $3, $4)", [LonLowerLeft, LatLowerLeft, LonUpperRight, LatUpperRight]),
     lists:map(fun(Row) -> map_parsing:junction_spec(Row) end, Rows).
 

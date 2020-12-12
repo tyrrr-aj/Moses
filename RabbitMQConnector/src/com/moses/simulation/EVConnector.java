@@ -8,7 +8,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeoutException;
 
 public class EVConnector {
-    private final static String host = "172.18.32.1";
+    private final static String host = "localhost";
     private final static String username = "moses";
     private final static String password = "split";
 

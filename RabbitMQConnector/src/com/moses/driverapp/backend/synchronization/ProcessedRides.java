@@ -19,16 +19,19 @@ public class ProcessedRides {
     }
 
     public void decreaseTTLs() {
-        processedRides.set(processedRides.get()
+        Map<String, Integer> oldRides = processedRides.startUpdate();
+        processedRides.setValueDuringUpdate(oldRides
                 .entrySet()
                 .stream()
-                .map(ride -> Map.entry(ride.getKey(), ride.getValue() - 1))
-                .filter(ride -> ride.getValue() > 0)
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue)));
+                .filter(ride -> ride.getValue() > 1)
+                .collect(Collectors.toMap(Map.Entry::getKey, ride -> ride.getValue() - 1)));
+        processedRides.endUpdate();
     }
 
     public void resetTTL(String rideId) {
-        processedRides.get().put(rideId, initialTTL);
+        Map<String, Integer> rides = processedRides.startUpdate();
+        rides.put(rideId, initialTTL);
+        processedRides.endUpdate();
     }
 
     public boolean isPresent(String rideId) {

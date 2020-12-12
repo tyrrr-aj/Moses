@@ -1,8 +1,10 @@
 package com.moses.driverapp.backend.threads;
 
 import com.moses.driverapp.backend.synchronization.ProcessedRides;
+import com.moses.driverapp.backend.synchronization.SyncedObject;
 
 public class ProcessedRidesCleaning extends Thread {
+    private SyncedObject<Boolean> isInterrupted;
     private final ProcessedRides syncedProcessedRides;
 
     private final int interval = 1000;
@@ -13,7 +15,9 @@ public class ProcessedRidesCleaning extends Thread {
 
     @Override
     public void run() {
-        while(true) {
+        isInterrupted = new SyncedObject<>(false);
+
+        while(!isInterrupted.get()) {
             syncedProcessedRides.decreaseTTLs();
             try {
                 Thread.sleep(interval);
@@ -21,5 +25,11 @@ public class ProcessedRidesCleaning extends Thread {
                 e.printStackTrace();
             }
         }
+    }
+
+    @Override
+    public void interrupt() {
+        isInterrupted.set(true);
+        super.interrupt();
     }
 }

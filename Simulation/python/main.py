@@ -1,8 +1,10 @@
 import os, sys, time
 import traci
 
-import jnius_config
-jnius_config.set_classpath('/home/eddie/adams/Projekty/Moses/RabbitMQConnector/out/artifacts/RabbitMQConnector_jar/RabbitMQConnector.jar')
+import jpype
+from jpype.types import *
+
+jpype.startJVM(classpath=['/home/adams/Projekty/Moses/RabbitMQConnector/out/artifacts/RabbitMQConnector_jar/RabbitMQConnector.jar'])
 
 from ev import Ev
 from regular_vehicle import RegularVehicle
@@ -41,22 +43,16 @@ def vehicles_make_step():
         vehicle.step()
 
 def setupCmd():
-    sumoBinary = "C:\\Program Files (x86)\\Eclipse\\Sumo\\bin\\sumo-gui.exe"
-    return [sumoBinary, "-c", "..\\sumo\\osm.sumocfg", '--device.bluelight.explicit', 'amb0,pol0,fir0']
+    sumoBinary = "/usr/bin/sumo-gui"
+    return [sumoBinary, "-c", "../sumo/osm.sumocfg", '--device.bluelight.explicit', 'amb0,pol0,fir0']
 
 def runSimulation():
-    # traci.start(sumoCmd)
-
-    #tracking.track_in_new_thread(traci, 'veh0')
-    # vehicleId = 'veh0'
-    # traci.vehicle.highlight(vehicleId)
+    traci.start(sumoCmd)
 
     while traci.simulation.getMinExpectedNumber() > 0:
         traci.simulationStep()
         update_vehicles()
         vehicles_make_step()
-        # position = tracking.get_position(vehicleId)
-        # tracking.print_position(position, vehicleId)
 
     traci.close()
 
@@ -65,10 +61,12 @@ if __name__ == '__main__':
         tools = os.path.join(os.environ['SUMO_HOME'], 'tools')
         sys.path.append(tools)
 
-        # sumoCmd = setupCmd()
-        # runSimulation(sumoCmd)
-        traci.init(port=1111, host='172.18.32.1')
+        sumoCmd = setupCmd()
+        runSimulation()
+        traci.init()
         traci.setOrder(0)
         runSimulation()
     else:
         sys.exit("please declare environment variable 'SUMO_HOME'")
+
+jpype.shutdownJVM()

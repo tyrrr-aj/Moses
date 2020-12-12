@@ -8,108 +8,98 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+
+import com.moses.RabbitMqConnector;
+import com.moses.driverapp.backend.NotificationsReceiver;
+import com.moses.driverapp.backend.interfaces.GPSAccessor;
+import com.moses.driverapp.simulation.SimConnector;
+import com.moses.driverapp.simulation.SimulatedGPSAccessor;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
-public class MainActivity extends AppCompatActivity{
-    public static String MESSAGE_BODY = "com.moses.app.MESSAGE_BODY";
 
+public class MainActivity extends AppCompatActivity{
     public MyLocationListener locationListener;
-    private RabbitMQConnector connector;
-    private Localization localization;
+    private NotificationsReceiver notificationsReceiver;
+
+    public static String MESSAGE_BODY = "com.moses.app.MESSAGE_BODY";
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setUpLocationTracker();
+//        setUpLocationTracker();
 
-        Marshaller marshaller = new Marshaller();
+        NotificationDisplayer displayer = new NotificationDisplayer(this);
+
+        RabbitMqConnector rabbitMqConnector;
+        GPSAccessor gpsAccessor = null;
         try {
-            connector = new RabbitMQConnector();
-        } catch (Exception e) {
+            rabbitMqConnector = new RabbitMqConnector("192.168.0.7", "moses", "split");
+            SimConnector simConnector = new SimConnector(rabbitMqConnector);
+            gpsAccessor = new SimulatedGPSAccessor(simConnector);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (TimeoutException e) {
             e.printStackTrace();
         }
 
-        Thread connectionThread = new Thread(() -> {
-            try {
-                connector.connect();
-            } catch (TimeoutException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
-        connectionThread.start();
+
+        notificationsReceiver = new NotificationsReceiver(gpsAccessor, displayer);
+
         try {
-            connectionThread.join();
-        } catch (InterruptedException e) {
+            notificationsReceiver.receiveNotifications();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (TimeoutException e) {
             e.printStackTrace();
         }
-
-        Thread notificationThread = new Thread(() -> {
-            try {
-                connector.listenForNotifications(message -> {
-                    Notification notification = marshaller.unmarshall(message);
-                    showMessage(notification.toString());
-                });
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
-        notificationThread.start();
-
-        localization = new Localization();
-        Thread localizationThread = new Thread(() -> {
-            try {
-                connector.listenForLocalization(message -> {
-                    localization = marshaller.unmarshallLocalization(message);
-                    updateLocalizationView(localization);
-                });
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
-        localizationThread.start();
 
         setContentView(R.layout.activity_main);
 
-        Button button = (Button) findViewById(R.id.button);
-//        TextView textview = (TextView) findViewById(R.id.textView);
 
-        button.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-//                String longtitudeText = "Longtitude : ";
-//                longtitudeText += locationListener.longitude;
+//        Button button = (Button) findViewById(R.id.button);
+////        TextView textview = (TextView) findViewById(R.id.textView);
 //
-//                String latitudeText = "Latitude : ";
-//                latitudeText += locationListener.latitude;
-//
-//                String location = longtitudeText + "\n" + latitudeText;
-//                textview.setText(location);
-                try {
-                    Thread thread = new Thread(() -> {
-                        try {
-                            connector.sendLocalization(50.24535, 19.43256);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    });
-                    thread.start();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+//        button.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View view){
+////                String longtitudeText = "Longtitude : ";
+////                longtitudeText += locationListener.longitude;
+////
+////                String latitudeText = "Latitude : ";
+////                latitudeText += locationListener.latitude;
+////
+////                String location = longtitudeText + "\n" + latitudeText;
+////                textview.setText(location);
+//                try {
+//                    Thread thread = new Thread(() -> {
+//                        try {
+//                            connector.sendLocalization(50.24535, 19.43256);
+//                        } catch (IOException e) {
+//                            e.printStackTrace();
+//                        }
+//                    });
+//                    thread.start();
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        try {
+            notificationsReceiver.shutdown();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void showMessage(String message) {
@@ -135,8 +125,8 @@ public class MainActivity extends AppCompatActivity{
                 LocationManager.GPS_PROVIDER, 5000, 10, locationListener);
     }
 
-    private void updateLocalizationView(Localization localization) {
-        TextView textView = findViewById(R.id.localizationText);
-        textView.setText(String.format("RoadId: %s\nPartOfRoad: %f\nDirection: %s", localization.RoadId, localization.PartOfRoad, localization.direction));
-    }
+//    private void updateLocalizationView(Localization localization) {
+//        TextView textView = findViewById(R.id.localizationText);
+//        textView.setText(String.format("RoadId: %s\nPartOfRoad: %f\nDirection: %s", localization.RoadId, localization.PartOfRoad, localization.direction));
+//    }
 }
