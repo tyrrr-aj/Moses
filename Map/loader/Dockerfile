@@ -19,8 +19,10 @@ RUN git clone https://github.com/pgRouting/osm2pgrouting.git \
  && make \
  && make install
 
-RUN mkdir data conf
-COPY ./data ./data
-COPY ./conf ./conf
+RUN mkdir /data conf
+COPY ./conf/* /conf
 
-#ENTRYPOINT [ "osm2pgrouting --f data/Cracow.osm --conf /conf/mapconfig.xml --dbname osm --username postgres --password letMEin! --clean" ]
+
+CMD osm2pgrouting --f /data/* --conf /conf/mapconfig.xml --dbname moses --username moses --password letMEin! --clean
+
+# run with: docker run -v <path to dir containing single .osm file>:/data --network="host" --name mosesdb_loader mosesdb_loader:latest

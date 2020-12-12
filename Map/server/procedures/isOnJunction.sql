@@ -1,6 +1,6 @@
 create or replace function isOnJunction(
-    road_length IN numeric,
-    part_of_road IN numeric,
+    road_length IN double precision,
+    part_of_road IN double precision,
     origin_id IN bigint,
     destination_id IN bigint
 )

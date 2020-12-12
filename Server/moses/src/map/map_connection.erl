@@ -10,7 +10,7 @@
 
 establish_connection() ->
     {ok, Connection} = epgsqla:start_link(),
-    Ref = epgsqla:connect(Connection, "localhost", "moses", "Split now!", #{database => "osm"}),
+    Ref = epgsqla:connect(Connection, "localhost", "moses", "letMEin!", #{database => "moses"}),
     {ok, Connection} = receive
         {Connection, Ref, connected} ->
             {ok, Connection};
@@ -73,8 +73,8 @@ position_query_parameter_types() -> [float8, float8].
 %     #{
 %         host => "localhost",
 %         username => "moses",
-%         password => "Split now!",
-%         database => "osm"
+%         password => "letMEin!",
+%         database => "moses"
 %     }.
 
 

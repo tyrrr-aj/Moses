@@ -1,6 +1,6 @@
 create or replace function findNearestRoad(
-    lon IN numeric,
-    lat IN numeric
+    lon IN double precision,
+    lat IN double precision
 )
     returns table(
         "id" bigint,
