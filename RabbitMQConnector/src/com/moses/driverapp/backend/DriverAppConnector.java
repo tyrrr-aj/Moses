@@ -18,22 +18,32 @@ public class  DriverAppConnector {
 
     private final static String localizationUpdateRoutingKey = "localization_update";
 
-    private final String notificationQueue;
+    private String notificationQueue;
 
-    private final static String host = "localhost";
+//    private final static String host = "localhost";
+    private final static String host = "10.0.2.2";
     private final static String username = "moses";
     private final static String password = "split";
 
     private final RabbitMqConnector connector;
 
-    public DriverAppConnector() throws IOException, TimeoutException {
-        connector = new RabbitMqConnector(host, username, password);
-        connector.setupExchange(exchangeName, exchangeType);
-        notificationQueue = connector.setupQueue();
+    public DriverAppConnector() {
+        this(new RabbitMqConnector(host, username, password));
+    }
+
+    public DriverAppConnector(RabbitMqConnector rabbitMqConnector) {
+        connector = rabbitMqConnector;
+    }
+
+    public void ensureConnected() throws IOException, TimeoutException {
+        connector.ensureConnected();
+        setupExchangeAndQueue();
     }
 
     public void listenForNotifications(Consumer<Notification> userCallback) throws IOException {
-        connector.listenForMessages(notificationQueue, (rawNotification, routingKey) ->  userCallback.accept(NotificationMarshaller.unmarshall(rawNotification, routingKey)));
+        connector.listenForMessages(notificationQueue, (rawNotification, routingKey) ->  {
+            userCallback.accept(NotificationMarshaller.unmarshall(rawNotification, routingKey));
+        });
     }
 
     public void sendLocalization(GPSCoords coords) throws IOException {
@@ -61,5 +71,10 @@ public class  DriverAppConnector {
 
     public void shutdown() throws IOException {
         connector.closeConnection();
+    }
+
+    private void setupExchangeAndQueue() throws IOException {
+        connector.setupExchange(exchangeName, exchangeType);
+        notificationQueue = connector.setupQueue();
     }
 }

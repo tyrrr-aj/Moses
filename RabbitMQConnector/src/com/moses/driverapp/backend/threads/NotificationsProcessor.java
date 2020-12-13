@@ -7,6 +7,8 @@ import com.moses.driverapp.backend.synchronization.SyncedObject;
 import com.moses.notifications.Notification;
 import com.moses.position.Position;
 
+import java.util.function.Function;
+
 public class NotificationsProcessor {
     private final ProcessedRides alreadyProcessedRides;
     private final DriverAppConnector connector;
@@ -21,7 +23,9 @@ public class NotificationsProcessor {
     }
 
     public void process(Notification notification) {
-        if (syncedPosition.get().doesNotificationApply(notification)) {
+        if (syncedPosition.applyAndGet((position) -> position.doesNotificationApply(notification))) {
+            System.out.println(String.format("Notification for %s ACCEPTED (own routing key is %s)",
+                    notification.geographicalBounds.roadNetworkElementId, syncedPosition.applyAndGet(Position::getRoutingKey)));
             if (alreadyProcessedRides.isPresent(notification.rideId)) {
                 alreadyProcessedRides.resetTTL(notification.rideId);
             }
@@ -29,6 +33,10 @@ public class NotificationsProcessor {
                 alreadyProcessedRides.addRide(notification.rideId);
                 displayer.displayNotification(notification);
             }
+        }
+        else {
+            System.out.println(String.format("Notification for %s REJECTED (own routing key is %s)",
+                    notification.geographicalBounds.roadNetworkElementId, syncedPosition.applyAndGet(Position::getRoutingKey)));
         }
     }
 }

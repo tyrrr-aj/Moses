@@ -52,7 +52,7 @@ handle_call(_, _, _) ->
 
 
 handle_cast({notify, Notification}, {_, Channel} = State) ->
-    % io:format("[notifier] got notification to send: ~p~n", [Notification]),
+    io:format("[notifier] got notification to send: ~p~n", [Notification]),
     Payload = marshall_notification(Notification),
     Publish = #'basic.publish'{exchange = exchange_name(), routing_key = choose_routing_key(Notification)},
     % io:format("[notifier] notification prepared ~n", []),

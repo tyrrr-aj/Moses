@@ -32,7 +32,7 @@ public class SyncedObject<T> {
         lock.unlock();
     }
 
-    public void update(Consumer<T> updateOperation) {
+    public void apply(Consumer<T> updateOperation) {
         lock.lock();
         updateOperation.accept(actualObject);
         lock.unlock();
@@ -43,18 +43,5 @@ public class SyncedObject<T> {
         R result = operation.apply(actualObject);
         lock.unlock();
         return result;
-    }
-
-    public T startUpdate() {
-        lock.lock();
-        return actualObject;
-    }
-
-    public void setValueDuringUpdate(T newValue) {
-        actualObject = newValue;
-    }
-
-    public void endUpdate() {
-        lock.unlock();
     }
 }

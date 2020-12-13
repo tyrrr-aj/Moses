@@ -18,8 +18,8 @@ public class Main {
 
     public static void main(String[] args) throws IOException, TimeoutException {
 //    	evConnectorTest();
-		driverAppConnectionTest();
-//		simulationAppConnectionTest();
+//		driverAppConnectionTest();
+		simulationAppConnectionTest();
 	}
 
     private static void simulationAppConnectionTest() {
@@ -31,17 +31,18 @@ public class Main {
 			appRabbitConnector = new RabbitMqConnector("localhost", "guest", "guest");
 			simConnector = new SimConnector(appRabbitConnector);
 			gpsAccessor = new SimulatedGPSAccessor(simConnector);
-		} catch (IOException | TimeoutException e) {
+		} catch (IOException e) {
 			System.err.println("[ERROR - APP] Creation of SimConnector and/or SimulatedGPSAccessor failed");
 			e.printStackTrace();
 		}
 
+		simConnector.ensureConnected();
+		gpsAccessor.init();
+
 		AppConnector appConnector = null;
-		RabbitMqConnector simRabbitConnector;
 
 		try {
-			simRabbitConnector = new RabbitMqConnector("localhost", "guest", "guest");
-			appConnector = new AppConnector(simRabbitConnector);
+			appConnector = new AppConnector();
 		} catch (TimeoutException | IOException e) {
 			System.err.println("[ERROR - SIM] Creation of AppConnector failed");
 			e.printStackTrace();
@@ -53,12 +54,7 @@ public class Main {
 			e.printStackTrace();
 		}
 
-		try {
-			simConnector.trackVehicle("test_vehicle");
-		} catch (IOException e) {
-			System.err.println("[ERROR _ APP] Turning on tracking specific vehicle failed");
-			e.printStackTrace();
-		}
+		simConnector.trackVehicle("test_vehicle");
 
 		try {
 			appConnector.updateVehiclePosition("test_vehicle", 19.12345, 50.98765);
@@ -77,12 +73,7 @@ public class Main {
 		}
 		System.out.println(gpsAccessor.getCurrentCoords());
 
-		try {
-			simConnector.trackVehicle("another_test_vehicle");
-		} catch (IOException e) {
-			System.err.println("[ERROR - APP] Changing tracked vehicle failed");
-			e.printStackTrace();
-		}
+		simConnector.trackVehicle("another_test_vehicle");
 
 		try {
 			appConnector.updateVehiclePosition("another_test_vehicle", 21.00001, 55.00001);
@@ -101,18 +92,10 @@ public class Main {
 		}
 		System.out.println(gpsAccessor.getCurrentCoords());
 
-		try {
-			simConnector.stopListening();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (TimeoutException e) {
-			e.printStackTrace();
-		}
+		simConnector.stopListening();
 		try {
 			appConnector.stop();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (TimeoutException e) {
+		} catch (IOException | TimeoutException e) {
 			e.printStackTrace();
 		}
 	}

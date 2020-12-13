@@ -12,8 +12,12 @@ public class SimulatedGPSAccessor implements GPSAccessor {
 
     public SimulatedGPSAccessor(SimConnector simConnector) throws IOException {
         this.simConnector = simConnector;
-        currentCoords = new SyncedObject<GPSCoords>(null);
-        simConnector.listenForCoords((coords) -> updateCoords(coords));
+        currentCoords = new SyncedObject<>(null);
+    }
+
+    public void init(){
+        simConnector.ensureConnected();
+        simConnector.listenForCoords(this::updateCoords);
     }
 
     @Override

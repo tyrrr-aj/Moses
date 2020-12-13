@@ -28,6 +28,7 @@ public class EVConnector {
 
     public EVConnector(String evType, String vehicleId) throws IOException, TimeoutException {
         connector = new RabbitMqConnector(host, username, password);
+        connector.ensureConnected();
         connector.setupExchange(exchangeName, exchangeType);
 
         dispatchRootingKey = dispatchRootingKeyRoot + "." + evType;

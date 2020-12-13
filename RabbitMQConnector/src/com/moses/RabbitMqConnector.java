@@ -12,20 +12,33 @@ import java.util.function.BiConsumer;
 
 
 public class RabbitMqConnector {
-    private final Connection connection;
+    private final ConnectionFactory connectionFactory;
+    private SyncedObject<Connection> connection;
     private final SyncedObject<Map<Thread, Channel>> channels;
     private final SyncedObject<Map<Thread, BlockingQueue<byte[]>>> resultBuffers;
     private final SyncedObject<Map<Thread, String>> callbackQueues;
 
-    public RabbitMqConnector(String host, String username, String password) throws IOException, TimeoutException {
-        ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost(host);
-        factory.setUsername(username);
-        factory.setPassword(password);
-        connection = factory.newConnection();
+    public RabbitMqConnector(String host, String username, String password) {
+        connectionFactory = new ConnectionFactory();
+        connectionFactory.setHost(host);
+        connectionFactory.setUsername(username);
+        connectionFactory.setPassword(password);
+
+        connection = new SyncedObject<>(null);
         channels = new SyncedObject<>(new HashMap<>());
         resultBuffers = new SyncedObject<>(new HashMap<>());
         callbackQueues = new SyncedObject<>(new HashMap<>());
+    }
+
+    public void ensureConnected() throws IOException, TimeoutException {
+        connection.update(conn -> {
+            try {
+                return conn == null ? connectionFactory.newConnection() : conn;
+            } catch (IOException | TimeoutException e) {
+                e.printStackTrace();
+                return conn;
+            }
+        });
     }
 
     public void setupExchange(String name, BuiltinExchangeType type) throws IOException {
@@ -82,7 +95,13 @@ public class RabbitMqConnector {
     }
 
     public void closeConnection() throws IOException {
-        connection.close();
+        connection.apply(conn -> {
+            try {
+                conn.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     public void sendMessage(String exchangeName, String routingKey, byte[] body) throws IOException {
@@ -111,8 +130,19 @@ public class RabbitMqConnector {
 
     private Channel getChannel() throws IOException {
         if (!channels.applyAndGet((channelMap) -> channelMap.containsKey(Thread.currentThread()))) {
-            Channel channel = connection.createChannel();
-            channels.update((channelMap) -> {channelMap.put(Thread.currentThread(), channel);});
+            Channel channel = connection.applyAndGet(conn -> {
+                try {
+                    return conn.createChannel();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            });
+            if (channel == null) {
+                throw new IOException("getChannel failed");
+            }
+
+            channels.apply(channelMap -> channelMap.put(Thread.currentThread(), channel));
         }
         return channels.applyAndGet((channelMap) -> channelMap.get(Thread.currentThread()));
     }
@@ -120,7 +150,7 @@ public class RabbitMqConnector {
     private String getCallbackQueue(Channel channel) throws IOException {
         if (!callbackQueues.applyAndGet((queueMap) -> queueMap.containsKey(Thread.currentThread()))) {
             String callbackQueue = channel.queueDeclare().getQueue();
-            callbackQueues.update((queueMap) -> {queueMap.put(Thread.currentThread(), callbackQueue);});
+            callbackQueues.apply((queueMap) -> queueMap.put(Thread.currentThread(), callbackQueue));
         }
         return callbackQueues.applyAndGet((queueMap) -> queueMap.get(Thread.currentThread()));
     }
@@ -128,7 +158,7 @@ public class RabbitMqConnector {
     private BlockingQueue<byte[]> setupListening(Channel channel, String callbackQueue) throws IOException {
         if (!resultBuffers.applyAndGet((bufferMap) -> bufferMap.containsKey(Thread.currentThread()))) {
             BlockingQueue<byte[]> buffer = new ArrayBlockingQueue<>(1);
-            resultBuffers.update((bufferMap) -> {bufferMap.put(Thread.currentThread(), buffer);});
+            resultBuffers.apply((bufferMap) -> bufferMap.put(Thread.currentThread(), buffer));
 
             channel.basicConsume(callbackQueue, true, (consumerTag, delivery) -> {
                 buffer.offer(delivery.getBody());

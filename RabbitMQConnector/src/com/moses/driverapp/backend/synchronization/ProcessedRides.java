@@ -8,33 +8,29 @@ public class ProcessedRides {
     private final SyncedObject<Map<String, Integer>> processedRides;
 
     private final int initialTTL = 10;
-    private final int interval = 1000;
 
     public ProcessedRides() {
         processedRides = new SyncedObject<>(new HashMap<>());
     }
 
     public void addRide(String rideId) {
-        processedRides.get().put(rideId, initialTTL);
+        processedRides.apply(rides -> {rides.put(rideId, initialTTL);});
     }
 
     public void decreaseTTLs() {
-        Map<String, Integer> oldRides = processedRides.startUpdate();
-        processedRides.setValueDuringUpdate(oldRides
-                .entrySet()
+        processedRides.update(rides -> {return
+            rides.entrySet()
                 .stream()
                 .filter(ride -> ride.getValue() > 1)
-                .collect(Collectors.toMap(Map.Entry::getKey, ride -> ride.getValue() - 1)));
-        processedRides.endUpdate();
+                .collect(Collectors.toMap(Map.Entry::getKey, ride -> ride.getValue() - 1));}
+                );
     }
 
     public void resetTTL(String rideId) {
-        Map<String, Integer> rides = processedRides.startUpdate();
-        rides.put(rideId, initialTTL);
-        processedRides.endUpdate();
+        processedRides.apply(rides -> {rides.put(rideId, initialTTL);});
     }
 
     public boolean isPresent(String rideId) {
-        return processedRides.get().containsKey(rideId);
+        return processedRides.applyAndGet(rides -> rides.containsKey(rideId));
     }
 }

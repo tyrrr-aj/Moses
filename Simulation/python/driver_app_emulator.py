@@ -2,6 +2,7 @@ import jpype.imports
 from jpype import JImplements, JOverride
 
 from com.moses.driverapp.backend import NotificationsReceiver
+from com.moses import RabbitMqConnector
 
 from com.moses.driverapp.backend.interfaces import Displayer, GPSAccessor
 from com.moses.driverapp.backend.dto import GPSCoords
@@ -12,7 +13,8 @@ class DriverAppEmulator:
         displayer = Displayer(vehicle)
         gps_accessor = GPSAccessor(vehicle)
 
-        self.receiver = NotificationsReceiver(gps_accessor, displayer)
+        rabbitmq_connector = RabbitMqConnector('localhost', 'moses', 'split')
+        self.receiver = NotificationsReceiver(gps_accessor, displayer, rabbitmq_connector)
     
     # def update_localization(self, lat, lon):
     #     coords = self._get_coords_object(lon, lat)
@@ -49,4 +51,3 @@ class Displayer:
     @JOverride
     def displayNotification(self, notification):
         self.vehicle.highlight()
-        print(f'[{self.vehicle.vehicle_id}] received notification!')

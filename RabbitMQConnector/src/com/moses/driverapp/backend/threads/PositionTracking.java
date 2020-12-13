@@ -8,6 +8,7 @@ import com.moses.position.Position;
 import com.moses.position.UnknownPosition;
 
 import java.io.IOException;
+import java.util.concurrent.TimeoutException;
 
 public class PositionTracking extends Thread {
     private SyncedObject<Boolean> isInterrupted;
@@ -29,23 +30,32 @@ public class PositionTracking extends Thread {
     @Override
     public void run() {
         isInterrupted = new SyncedObject<>(false);
+        try {
+            connector.ensureConnected();
+        } catch (IOException | TimeoutException e) {
+            e.printStackTrace();
+            return;
+        }
 
         while(!isInterrupted.get()) {
             GPSCoords coords = gpsAccessor.getCurrentCoords();
-            try {
-                Position currentPosition = connector.updateLocalization(coords);
+            if (coords != null) {
+                try {
+                    Position currentPosition = connector.updateLocalization(coords);
 
-                if (currentPosition != null) {
-                    updatePosition(currentPosition);
+                    if (currentPosition != null) {
+                        updatePosition(currentPosition);
 
-                    if (routingKeyHasChanged(currentPosition)) {
-                        updateBindings(currentPosition, lastKnownPosition);
+                        if (routingKeyHasChanged(currentPosition)) {
+                            updateBindings(currentPosition, lastKnownPosition);
+                        }
+
+                        lastKnownPosition = currentPosition;
                     }
-
-                    lastKnownPosition = currentPosition;
+                } catch (IOException | InterruptedException e) {
+                    e.printStackTrace();
+                    return;
                 }
-            } catch (IOException | InterruptedException e) {
-                return;
             }
 
             try {
@@ -68,7 +78,9 @@ public class PositionTracking extends Thread {
 
     private void updateBindings(Position currentPosition, Position oldPosition) throws IOException {
         connector.bindWithKey(currentPosition.getRoutingKey());
-        connector.unbindKey(oldPosition.getRoutingKey());
+        if (!oldPosition.getRoutingKey().equals("unknown")) {
+            connector.unbindKey(oldPosition.getRoutingKey());
+        }
     }
 
     private boolean routingKeyHasChanged(Position currentPosition) {

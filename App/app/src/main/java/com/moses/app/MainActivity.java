@@ -39,12 +39,10 @@ public class MainActivity extends AppCompatActivity{
         RabbitMqConnector rabbitMqConnector;
         GPSAccessor gpsAccessor = null;
         try {
-            rabbitMqConnector = new RabbitMqConnector("192.168.0.7", "moses", "split");
+            rabbitMqConnector = new RabbitMqConnector("10.0.2.2", "moses", "split");
             SimConnector simConnector = new SimConnector(rabbitMqConnector);
             gpsAccessor = new SimulatedGPSAccessor(simConnector);
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (TimeoutException e) {
             e.printStackTrace();
         }
 
@@ -95,11 +93,7 @@ public class MainActivity extends AppCompatActivity{
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        try {
-            notificationsReceiver.shutdown();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        notificationsReceiver.shutdown();
     }
 
     public void showMessage(String message) {
