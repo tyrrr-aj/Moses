@@ -1,5 +1,6 @@
 package com.moses;
 
+import com.moses.driverapp.backend.synchronization.SyncedObject;
 import com.rabbitmq.client.*;
 import com.rabbitmq.client.AMQP.BasicProperties;
 
@@ -12,9 +13,9 @@ import java.util.function.BiConsumer;
 
 public class RabbitMqConnector {
     private final Connection connection;
-    private final Map<Thread, Channel> channels;
-
-    private String callbackQueue;
+    private final SyncedObject<Map<Thread, Channel>> channels;
+    private final SyncedObject<Map<Thread, BlockingQueue<byte[]>>> resultBuffers;
+    private final SyncedObject<Map<Thread, String>> callbackQueues;
 
     public RabbitMqConnector(String host, String username, String password) throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
@@ -22,7 +23,9 @@ public class RabbitMqConnector {
         factory.setUsername(username);
         factory.setPassword(password);
         connection = factory.newConnection();
-        channels = new HashMap<>();
+        channels = new SyncedObject<>(new HashMap<>());
+        resultBuffers = new SyncedObject<>(new HashMap<>());
+        callbackQueues = new SyncedObject<>(new HashMap<>());
     }
 
     public void setupExchange(String name, BuiltinExchangeType type) throws IOException {
@@ -41,6 +44,11 @@ public class RabbitMqConnector {
     public String setupQueue() throws IOException {
         Channel channel = getChannel();
         return channel.queueDeclare().getQueue();
+    }
+
+    public String setupQueue(String name) throws IOException {
+        Channel channel = getChannel();
+        return channel.queueDeclare(name, false, true, true, null).getQueue();
     }
 
     public void bindQueue(String queue, String exchangeName, String routingKey) throws IOException {
@@ -83,7 +91,8 @@ public class RabbitMqConnector {
 
     public byte[] performRPC(String exchangeName, String routingKey, byte[] requestBody) throws IOException, InterruptedException {
         Channel channel = getChannel();
-        setupCallbackQueue(channel);
+        String callbackQueue = getCallbackQueue(channel);
+        BlockingQueue<byte[]> resultBuffer = setupListening(channel, callbackQueue);
         BasicProperties properties = preparePropertiesForRPC(callbackQueue);
         CompletableFuture.runAsync(() -> {
             try {
@@ -92,21 +101,7 @@ public class RabbitMqConnector {
                 e.printStackTrace();
             }
         });
-        final BlockingQueue<byte[]> resultBuffer = new ArrayBlockingQueue<>(1);
-        String ctag = channel.basicConsume(callbackQueue, true, (consumerTag, delivery) -> {
-            resultBuffer.offer(delivery.getBody());
-        }, consumerTag -> {});
-        byte[] result = resultBuffer.take();
-//        channel.basicCancel(ctag);
-        return result;
-    }
-
-    private Channel getChannel() throws IOException {
-        if (!channels.containsKey(Thread.currentThread())) {
-            Channel channel = connection.createChannel();
-            channels.put(Thread.currentThread(), channel);
-        }
-        return channels.get(Thread.currentThread());
+        return resultBuffer.take();
     }
 
     private void sendMessageWithProperties(String exchangeName, String routingKey, byte[] messageBody, BasicProperties properties) throws IOException {
@@ -114,10 +109,33 @@ public class RabbitMqConnector {
         channel.basicPublish(exchangeName, routingKey, properties, messageBody);
     }
 
-    private void setupCallbackQueue(Channel channel) throws IOException {
-        if (callbackQueue == null) {
-            callbackQueue = channel.queueDeclare().getQueue();
+    private Channel getChannel() throws IOException {
+        if (!channels.applyAndGet((channelMap) -> channelMap.containsKey(Thread.currentThread()))) {
+            Channel channel = connection.createChannel();
+            channels.update((channelMap) -> {channelMap.put(Thread.currentThread(), channel);});
         }
+        return channels.applyAndGet((channelMap) -> channelMap.get(Thread.currentThread()));
+    }
+
+    private String getCallbackQueue(Channel channel) throws IOException {
+        if (!callbackQueues.applyAndGet((queueMap) -> queueMap.containsKey(Thread.currentThread()))) {
+            String callbackQueue = channel.queueDeclare().getQueue();
+            callbackQueues.update((queueMap) -> {queueMap.put(Thread.currentThread(), callbackQueue);});
+        }
+        return callbackQueues.applyAndGet((queueMap) -> queueMap.get(Thread.currentThread()));
+    }
+
+    private BlockingQueue<byte[]> setupListening(Channel channel, String callbackQueue) throws IOException {
+        if (!resultBuffers.applyAndGet((bufferMap) -> bufferMap.containsKey(Thread.currentThread()))) {
+            BlockingQueue<byte[]> buffer = new ArrayBlockingQueue<>(1);
+            resultBuffers.update((bufferMap) -> {bufferMap.put(Thread.currentThread(), buffer);});
+
+            channel.basicConsume(callbackQueue, true, (consumerTag, delivery) -> {
+                buffer.offer(delivery.getBody());
+            }, consumerTag -> {});
+        }
+
+        return resultBuffers.applyAndGet((bufferMap) -> bufferMap.get(Thread.currentThread()));
     }
 
     private BasicProperties preparePropertiesForRPC(String callbackQueue) {

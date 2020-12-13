@@ -1,5 +1,6 @@
 import os, sys, time
 import traci
+from traci.exceptions import FatalTraCIError
 
 import jpype
 from jpype.types import *
@@ -49,11 +50,23 @@ def setupCmd():
 def runSimulation():
     traci.start(sumoCmd)
 
-    while traci.simulation.getMinExpectedNumber() > 0:
-        traci.simulationStep()
-        update_vehicles()
-        vehicles_make_step()
+    try:
+        while traci.simulation.getMinExpectedNumber() > 0:
+            traci.simulationStep()
+            update_vehicles()
+            vehicles_make_step()
+    
+    except KeyboardInterrupt:
+        print('simulation stopped before finished')
+        stop_tracking_vehicles(list(vehicles.keys()))
+        traci.close()
+        return
+    except FatalTraCIError:
+        print('simulation stopped before finished')
+        stop_tracking_vehicles(list(vehicles.keys()))
+        return
 
+    stop_tracking_vehicles(list(vehicles.keys()))
     traci.close()
 
 if __name__ == '__main__':
@@ -64,7 +77,6 @@ if __name__ == '__main__':
         sumoCmd = setupCmd()
         runSimulation()
         traci.init()
-        traci.setOrder(0)
         runSimulation()
     else:
         sys.exit("please declare environment variable 'SUMO_HOME'")

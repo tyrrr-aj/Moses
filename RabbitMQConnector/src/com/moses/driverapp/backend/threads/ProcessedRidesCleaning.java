@@ -22,7 +22,6 @@ public class ProcessedRidesCleaning extends Thread {
             try {
                 Thread.sleep(interval);
             } catch (InterruptedException e) {
-                e.printStackTrace();
             }
         }
     }

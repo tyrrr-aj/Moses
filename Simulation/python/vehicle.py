@@ -1,4 +1,4 @@
-position_update_interval = 5
+position_update_interval = 1
 
 class Vehicle:
     def __init__(self, vehicle_id):

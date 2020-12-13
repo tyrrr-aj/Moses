@@ -45,12 +45,13 @@ public class PositionTracking extends Thread {
                     lastKnownPosition = currentPosition;
                 }
             } catch (IOException | InterruptedException e) {
-                e.printStackTrace();
+                return;
             }
 
             try {
                 Thread.sleep(interval);
             } catch (InterruptedException e) {
+                return;
             }
         }
     }

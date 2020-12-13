@@ -32,3 +32,6 @@ class RegularVehicle(Vehicle):
 
     # def react_to_notification(self, notification_body):
     #     print(f'{self.vehicle_id} notified: {notification_body}')
+
+    def stop(self):
+        self.app.stop()

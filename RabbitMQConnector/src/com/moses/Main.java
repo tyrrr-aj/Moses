@@ -18,8 +18,8 @@ public class Main {
 
     public static void main(String[] args) throws IOException, TimeoutException {
 //    	evConnectorTest();
-//		driverAppConnectionTest();
-		simulationAppConnectionTest();
+		driverAppConnectionTest();
+//		simulationAppConnectionTest();
 	}
 
     private static void simulationAppConnectionTest() {
@@ -121,7 +121,7 @@ public class Main {
 		GPSAccessor gpsAccessor = new GPSAccessor() {
 			@Override
 			public GPSCoords getCurrentCoords() {
-				return new GPSCoords(50.05628,19.92711);
+				return new GPSCoords(50.05853,19.92589);
 			}
 		};
 		Displayer displayer = new Displayer() {

@@ -35,6 +35,7 @@ handle_info(Message, {Connection, Channel}) ->
     Position = update_position(Message),
     % io:format("Position: ~p~n", [Position]),
     reply_with_position(Channel, Message, Position),
+    % io:format("Replied~n", []),
     {noreply, {Connection, Channel}}.
 
 terminate(_, _, {Connection, Channel}) ->

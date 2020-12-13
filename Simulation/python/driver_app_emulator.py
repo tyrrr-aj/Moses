@@ -6,8 +6,6 @@ from com.moses.driverapp.backend import NotificationsReceiver
 from com.moses.driverapp.backend.interfaces import Displayer, GPSAccessor
 from com.moses.driverapp.backend.dto import GPSCoords
 
-from java.util.function import Consumer
-
 
 class DriverAppEmulator:
     def __init__(self, vehicle):        
@@ -29,6 +27,9 @@ class DriverAppEmulator:
     #     queue = local_conn.setup_queue(exchange, self.routing_key)
     #     self.connector.listen_for_messages(queue, callback)
 
+    def stop(self):
+        self.receiver.shutdown()
+
 
 @JImplements(GPSAccessor)
 class GPSAccessor:
@@ -49,13 +50,3 @@ class Displayer:
     def displayNotification(self, notification):
         self.vehicle.highlight()
         print(f'[{self.vehicle.vehicle_id}] received notification!')
-
-
-# @JImplements(Consumer)
-# class NotificationCallback:
-#     def __init__(self, callback):
-#         self.callback = callback
-    
-#     @JOverride
-#     def accept(self, notification):
-#         self.callback(notification)
