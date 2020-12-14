@@ -16,11 +16,11 @@
 	<!-- <vehicle id="veh0" type="veh_passenger" depart="0.00" departLane="best" route="same_direction"/> -->
     <vehicle id="veh1" type="veh_passenger" depart="0.00" departLane="best" route="opposite_direction"/>
     <!-- <vehicle id="veh2" type="veh_passenger" depart="1.00" departLane="best" route="same_direction"/> -->
-    <vehicle id="veh3" type="veh_passenger" depart="1.00" departLane="best" route="opposite_direction"/>
+    <!-- <vehicle id="veh3" type="veh_passenger" depart="1.00" departLane="best" route="opposite_direction"/> -->
     <!-- <vehicle id="veh4" type="veh_passenger" depart="2.00" departLane="best" route="same_direction"/> -->
-    <vehicle id="veh5" type="veh_passenger" depart="2.00" departLane="best" route="opposite_direction"/>    
+    <!-- <vehicle id="veh5" type="veh_passenger" depart="2.00" departLane="best" route="opposite_direction"/>     -->
     <!-- <vehicle id="veh6" type="veh_passenger" depart="3.00" departLane="best" route="same_direction"/> -->
-    <vehicle id="veh7" type="veh_passenger" depart="3.00" departLane="best" route="opposite_direction"/>
+    <!-- <vehicle id="veh7" type="veh_passenger" depart="3.00" departLane="best" route="opposite_direction"/> -->
     <!-- <vehicle id="veh8" type="veh_passenger" depart="7.00" departLane="best" route="basic"/>
     <vehicle id="veh9" type="veh_passenger" depart="9.00" departLane="best" route="basic"/>
     <vehicle id="veh10" type="veh_passenger" depart="10.00" departLane="best" route="basic"/>

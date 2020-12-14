@@ -28,7 +28,7 @@ class RegularVehicle(Vehicle):
         if self.should_make_way:
             traci.vehicle.highlight(self.vehicle_id, alphaMax=255, duration=10)
             self.should_make_way = False
-            traci.vehicle.setSpeed(self.vehicle_id, 5)
+            traci.vehicle.setSpeed(self.vehicle_id, 2)
 
         if self.remaining_stop > 0:
             self.remaining_stop -= 1

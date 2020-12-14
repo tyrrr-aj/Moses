@@ -24,12 +24,12 @@ public class NotificationsProcessor {
 
     public void process(Notification notification) {
         if (syncedPosition.applyAndGet((position) -> position.doesNotificationApply(notification))) {
-            System.out.println(String.format("Notification for %s ACCEPTED (own routing key is %s)",
-                    notification.geographicalBounds.roadNetworkElementId, syncedPosition.applyAndGet(Position::getRoutingKey)));
+//            System.out.println(String.format("Notification for %s ACCEPTED (own routing key is %s)",
+//                    notification.geographicalBounds.roadNetworkElementId, syncedPosition.applyAndGet(Position::getRoutingKey)));
             if (alreadyProcessedRides.isPresent(notification.rideId)) {
                 alreadyProcessedRides.resetTTL(notification.rideId);
 
-                System.out.println("...but DISMISSED as already processed");
+//                System.out.println("...but DISMISSED as already processed");
             }
             else {
                 alreadyProcessedRides.addRide(notification.rideId);
@@ -37,8 +37,8 @@ public class NotificationsProcessor {
             }
         }
         else {
-            System.out.println(String.format("Notification for %s REJECTED (own routing key is %s)",
-                    notification.geographicalBounds.roadNetworkElementId, syncedPosition.applyAndGet(Position::getRoutingKey)));
+//            System.out.println(String.format("Notification for %s REJECTED (own routing key is %s)",
+//                    notification.geographicalBounds.roadNetworkElementId, syncedPosition.applyAndGet(Position::getRoutingKey)));
         }
     }
 }

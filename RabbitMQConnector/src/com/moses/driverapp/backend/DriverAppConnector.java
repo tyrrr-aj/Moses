@@ -21,7 +21,7 @@ public class  DriverAppConnector {
     private String notificationQueue;
 
 //    private final static String host = "localhost";
-    private final static String host = "10.0.2.2";
+    private final static String host = "192.168.1.13";
     private final static String username = "moses";
     private final static String password = "split";
 

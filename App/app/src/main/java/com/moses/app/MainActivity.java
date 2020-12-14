@@ -8,15 +8,20 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.moses.RabbitMqConnector;
 import com.moses.driverapp.backend.NotificationsReceiver;
 import com.moses.driverapp.backend.interfaces.GPSAccessor;
 import com.moses.driverapp.simulation.SimConnector;
 import com.moses.driverapp.simulation.SimulatedGPSAccessor;
+import com.moses.notifications.Notification;
+import com.moses.notifications.NotificationType;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
@@ -25,8 +30,11 @@ import java.util.concurrent.TimeoutException;
 public class MainActivity extends AppCompatActivity{
     public MyLocationListener locationListener;
     private NotificationsReceiver notificationsReceiver;
+    private SimConnector simConnector;
 
+    public static String MESSAGE_TITLE = "com.moses.app.MESSAGE_TITLE";
     public static String MESSAGE_BODY = "com.moses.app.MESSAGE_BODY";
+
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -36,18 +44,20 @@ public class MainActivity extends AppCompatActivity{
 
         NotificationDisplayer displayer = new NotificationDisplayer(this);
 
-        RabbitMqConnector rabbitMqConnector;
+        RabbitMqConnector rabbitMqConnector = null;
         GPSAccessor gpsAccessor = null;
         try {
-            rabbitMqConnector = new RabbitMqConnector("10.0.2.2", "moses", "split");
-            SimConnector simConnector = new SimConnector(rabbitMqConnector);
-            gpsAccessor = new SimulatedGPSAccessor(simConnector);
+            rabbitMqConnector = new RabbitMqConnector("192.168.1.13", "moses", "split");
+            simConnector = new SimConnector(rabbitMqConnector);
+            SimulatedGPSAccessor simGpsAccessor = new SimulatedGPSAccessor(simConnector);
+            simGpsAccessor.init();
+            gpsAccessor = simGpsAccessor;
         } catch (IOException e) {
             e.printStackTrace();
         }
 
 
-        notificationsReceiver = new NotificationsReceiver(gpsAccessor, displayer);
+        notificationsReceiver = new NotificationsReceiver(gpsAccessor, displayer, rabbitMqConnector);
 
         try {
             notificationsReceiver.receiveNotifications();
@@ -60,34 +70,24 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
 
 
-//        Button button = (Button) findViewById(R.id.button);
-////        TextView textview = (TextView) findViewById(R.id.textView);
+        Button button = findViewById(R.id.button);
+//        TextView textview = (TextView) findViewById(R.id.textView);
+
+        button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                simConnector.ensureConnected();
+                simConnector.trackVehicle("veh1");
+//                String longtitudeText = "Longtitude : ";
+//                longtitudeText += locationListener.longitude;
 //
-//        button.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View view){
-////                String longtitudeText = "Longtitude : ";
-////                longtitudeText += locationListener.longitude;
-////
-////                String latitudeText = "Latitude : ";
-////                latitudeText += locationListener.latitude;
-////
-////                String location = longtitudeText + "\n" + latitudeText;
-////                textview.setText(location);
-//                try {
-//                    Thread thread = new Thread(() -> {
-//                        try {
-//                            connector.sendLocalization(50.24535, 19.43256);
-//                        } catch (IOException e) {
-//                            e.printStackTrace();
-//                        }
-//                    });
-//                    thread.start();
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
+//                String latitudeText = "Latitude : ";
+//                latitudeText += locationListener.latitude;
+//
+//                String location = longtitudeText + "\n" + latitudeText;
+//                textview.setText(location);
+            }
+        });
     }
 
     @Override
@@ -96,9 +96,10 @@ public class MainActivity extends AppCompatActivity{
         notificationsReceiver.shutdown();
     }
 
-    public void showMessage(String message) {
+    public void showMessage(String messageTitle, String messageBody) {
         Intent intent = new Intent(this, ShowNotification.class);
-        intent.putExtra(MESSAGE_BODY, message);
+        intent.putExtra(MESSAGE_TITLE, messageTitle);
+        intent.putExtra(MESSAGE_BODY, messageBody);
         startActivity(intent);
     }
 

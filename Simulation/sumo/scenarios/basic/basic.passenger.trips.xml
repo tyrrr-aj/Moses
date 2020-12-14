@@ -9,9 +9,9 @@
 	
 	<route id="basic" edges="19803688 25045066 216757319 221329659 221329657#0 216757315 199537368 216757322#0 216789266 187685304 216696189 216696187#0 216696187#3 216696187#8 219432045#0 -30815114#5 -657270894"/>
 	
-	<vehicle id="veh0" type="veh_passenger" depart="0.00" departLane="best" route="basic"/>
+	<!-- <vehicle id="veh0" type="veh_passenger" depart="0.00" departLane="best" route="basic"/> -->
     <vehicle id="veh1" type="veh_passenger" depart="1.00" departLane="best" route="basic"/>
-    <vehicle id="veh2" type="veh_passenger" depart="2.00" departLane="best" route="basic"/>
+    <!-- <vehicle id="veh2" type="veh_passenger" depart="2.00" departLane="best" route="basic"/> -->
     <!-- <vehicle id="veh3" type="veh_passenger" depart="3.00" departLane="best" route="basic"/>
     <vehicle id="veh4" type="veh_passenger" depart="4.00" departLane="best" route="basic"/>
     <vehicle id="veh5" type="veh_passenger" depart="5.00" departLane="best" route="basic"/>    

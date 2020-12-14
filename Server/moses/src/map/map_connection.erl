@@ -47,6 +47,7 @@ query_for_junctions({Connection, _}, #{lon := LonLowerLeft, lat := LatLowerLeft}
 parse_position_query_result(Rows) ->
     case single_row(Rows) of
         no_rows -> unknown;
+        {null, _, _} -> unknown;
         {RoadNumber, true, PartOfRoad} -> {road, map_parsing:road_id(RoadNumber), PartOfRoad};
         {JunctionNumber, false, _} -> {junction, map_parsing:junction_id(JunctionNumber)}
     end.

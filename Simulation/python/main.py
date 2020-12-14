@@ -52,8 +52,10 @@ def setup_app_connector():
 
 def update_app_tracking(app_connector):
     tracked = app_connector.getTrackedVehicles()
+    print(tracked)
     for vehicle_id in tracked:
-        app_connector.updateVehiclePosition(vehicle_id, *vehicles[vehicle_id].coords[::-1])
+        if vehicle_id in vehicles:
+            app_connector.updateVehiclePosition(vehicle_id, *(vehicles[vehicle_id].coords))
 
 def setupCmd(simulation_directory_name):
     sumoBinary = "/usr/bin/sumo-gui"
