@@ -12,4 +12,8 @@ public class UnknownPosition implements Position {
     public boolean doesNotificationApply(Notification notification) {
         return false;
     }
+
+    @Override
+    public void setHistoricalInfo(Position previousPosition) {
+    }
 }

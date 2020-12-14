@@ -51,3 +51,4 @@ class Displayer:
     @JOverride
     def displayNotification(self, notification):
         self.vehicle.highlight()
+        print(notification.text)

@@ -6,10 +6,12 @@ import com.moses.notifications.RoadBounds;
 public class PositionOnRoad implements Position {
     public final String roadId;
     public final double partOfRoad;
+    public Direction direction;
 
     public PositionOnRoad(String roadId, double partOfRoad) {
         this.roadId = roadId;
         this.partOfRoad = partOfRoad;
+        this.direction = Direction.UNKNOWN;
     }
 
     @Override
@@ -26,11 +28,42 @@ public class PositionOnRoad implements Position {
     public boolean doesNotificationApply(Notification notification) {
         if (notification.geographicalBounds.roadNetworkElementId.equals(roadId)) {
             RoadBounds roadBounds = (RoadBounds) notification.geographicalBounds;
-            return (roadBounds.direction.equals(Notification.Direction.FORWARD) && partOfRoad > roadBounds.beginAt && partOfRoad < roadBounds.endAt)
-                    || (roadBounds.direction.equals(Notification.Direction.BACKWARD) && partOfRoad < roadBounds.beginAt && partOfRoad > roadBounds.endAt);
+
+//            if (partOfRoad <= roadBounds.beginAt || partOfRoad >= roadBounds.endAt) {
+//                System.out.println("Rejected based on part of road");
+//            }
+//            if (direction == Direction.UNKNOWN) {
+//                System.out.println("Rejected based on direction unknown");
+//            }
+//            else if (!direction.equals(roadBounds.direction)) {
+//                System.out.println("Rejected based on different directions");
+//            }
+
+            return partOfRoad > roadBounds.beginAt && partOfRoad < roadBounds.endAt
+                    && !direction.equals(Direction.UNKNOWN) && direction.equals(roadBounds.direction);
         }
         else {
             return false;
         }
+    }
+
+    public void setHistoricalInfo(Position previousPosition) {
+        this.direction = calculateDirection(previousPosition);
+    }
+
+    private Direction calculateDirection(Position previousPosition) {
+        if (previousPosition instanceof PositionOnRoad) {
+            PositionOnRoad typedPreviousPosition = (PositionOnRoad) previousPosition;
+            if (roadId.equals(typedPreviousPosition.roadId)) {
+                if (partOfRoad > typedPreviousPosition.partOfRoad) {
+                    return Direction.FORWARD;
+                }
+                else if (partOfRoad < typedPreviousPosition.partOfRoad) {
+                    return Direction.BACKWARD;
+                }
+            }
+        }
+
+        return Direction.UNKNOWN;
     }
 }

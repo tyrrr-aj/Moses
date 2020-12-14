@@ -4,6 +4,7 @@ import com.moses.notifications.GeographicalBounds;
 import com.moses.notifications.JunctionBounds;
 import com.moses.notifications.Notification;
 import com.moses.notifications.RoadBounds;
+import com.moses.position.Direction;
 
 import java.util.Arrays;
 
@@ -30,7 +31,7 @@ public class NotificationMarshaller {
         RoadBounds roadBounds = new RoadBounds();
         roadBounds.beginAt = ((float) (int) rawNotification[1]) / 100;
         roadBounds.endAt = ((float) (int) rawNotification[2]) / 100;
-        roadBounds.direction = Notification.Direction.values()[(int) rawNotification[3]];
+        roadBounds.direction = (int) rawNotification[3] == 0 ? Direction.BACKWARD : Direction.FORWARD;
 
         notification.geographicalBounds = roadBounds;
         notification.geographicalBounds.roadNetworkElementId = routingKey;

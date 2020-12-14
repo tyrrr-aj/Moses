@@ -1,7 +1,9 @@
 package com.moses.notifications;
 
+import com.moses.position.Direction;
+
 public class RoadBounds extends GeographicalBounds {
     public float beginAt;
     public float endAt;
-    public Notification.Direction direction;
+    public Direction direction;
 }

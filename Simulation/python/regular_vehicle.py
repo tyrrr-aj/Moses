@@ -27,7 +27,7 @@ class RegularVehicle(Vehicle):
         if self.received_notification:
             traci.vehicle.highlight(self.vehicle_id, alphaMax=255, duration=10)
             self.received_notification = False
-            traci.vehicle.setSpeed(self.vehicle_id, 1)
+            traci.vehicle.setSpeed(self.vehicle_id, 3)
 
         if self.remaining_stop > 0:
             self.remaining_stop -= 1

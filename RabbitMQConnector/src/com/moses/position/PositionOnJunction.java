@@ -20,7 +20,13 @@ public class PositionOnJunction implements Position {
     }
 
     @Override
+    public void setHistoricalInfo(Position previousPosition) {
+    }
+
+    @Override
     public String toString() {
         return junctionId;
     }
+
+
 }

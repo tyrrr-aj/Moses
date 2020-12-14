@@ -64,7 +64,7 @@ def setupCmd(simulation_directory_name):
 
     config_path = os.path.join(base_dir, simulation_directory_name, f'{simulation_directory_name}.sumocfg')
 
-    return [sumoBinary, "-c", config_path, '-d', '1000', '--device.bluelight.explicit', ev_list]
+    return [sumoBinary, "-c", config_path, '-d', '500', '--device.bluelight.explicit', ev_list]
 
 def runSimulation(sumoCmd):
     traci.start(sumoCmd)

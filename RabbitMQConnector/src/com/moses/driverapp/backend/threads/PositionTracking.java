@@ -73,6 +73,7 @@ public class PositionTracking extends Thread {
     }
 
     private void updatePosition(Position newPosition) {
+        newPosition.setHistoricalInfo(lastKnownPosition);
         syncedPosition.set(newPosition);
     }
 

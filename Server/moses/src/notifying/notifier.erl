@@ -20,7 +20,7 @@
 %%  begining_at => PartOfRoad,
 %%  ending_at => PartOfRoad,
 %%  direction => forward | backward,
-%%  notification_body => <<"NotificationBody">>
+%%  notification_code => 0 - "make way on road" | 1 - "make way on junction" | 2 - "no action required"
 %% }]
 
 %% marshalled notification:
