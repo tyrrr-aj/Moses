@@ -110,7 +110,7 @@ public class Main {
 		Displayer displayer = new Displayer() {
 			@Override
 			public void displayNotification(Notification notification) {
-				System.out.println(notification.text);
+				System.out.println(notification.type);
 			}
 		};
 

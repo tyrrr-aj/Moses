@@ -24,8 +24,8 @@
 %% }]
 
 %% marshalled notification:
-%% <<"0 beg_at end_at road_id; text">>
-%% <<"1 junction_id; text">>
+%% <<"0 code beg_at end_at road_id">>
+%% <<"1 code junction_id">>
 
 
 %% API
@@ -82,15 +82,15 @@ setup_exchange(Channel) ->
     #'exchange.declare_ok'{} = amqp_channel:call(Channel, Declare).
 
 
-marshall_notification(#{road_network_element_type := road, ride_id := RideId, begining_at := Begin, ending_at := End, direction := Direction, notification_body := Text}) ->
+marshall_notification(#{road_network_element_type := road, ride_id := RideId, begining_at := Begin, ending_at := End, direction := Direction, notification_code := Code}) ->
     DirectionRepr = case Direction of
                         backward -> 0;
                         forward -> 1
                     end,
-    list_to_binary([0, trunc(Begin * 100), trunc(End * 100), DirectionRepr, list_to_binary(RideId), <<";">>, Text]);
+    list_to_binary([0, Code, trunc(Begin * 100), trunc(End * 100), DirectionRepr, list_to_binary(RideId)]);
 
-marshall_notification(#{road_network_element_type := junction, ride_id := RideId, notification_body := Text}) ->
-    list_to_binary([1, list_to_binary(RideId), <<";">>, Text]).
+marshall_notification(#{road_network_element_type := junction, ride_id := RideId, notification_code := Code}) ->
+    list_to_binary([1, Code, list_to_binary(RideId)]).
 
 
 

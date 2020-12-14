@@ -29,15 +29,15 @@ public class PositionOnRoad implements Position {
         if (notification.geographicalBounds.roadNetworkElementId.equals(roadId)) {
             RoadBounds roadBounds = (RoadBounds) notification.geographicalBounds;
 
-//            if (partOfRoad <= roadBounds.beginAt || partOfRoad >= roadBounds.endAt) {
-//                System.out.println("Rejected based on part of road");
-//            }
-//            if (direction == Direction.UNKNOWN) {
-//                System.out.println("Rejected based on direction unknown");
-//            }
-//            else if (!direction.equals(roadBounds.direction)) {
-//                System.out.println("Rejected based on different directions");
-//            }
+            if (partOfRoad <= roadBounds.beginAt || partOfRoad >= roadBounds.endAt) {
+                System.out.println("Rejected based on part of road");
+            }
+            if (direction == Direction.UNKNOWN) {
+                System.out.println("Rejected based on direction unknown");
+            }
+            else if (!direction.equals(roadBounds.direction)) {
+                System.out.println("Rejected based on different directions");
+            }
 
             return partOfRoad > roadBounds.beginAt && partOfRoad < roadBounds.endAt
                     && !direction.equals(Direction.UNKNOWN) && direction.equals(roadBounds.direction);

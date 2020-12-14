@@ -6,6 +6,7 @@ from com.moses import RabbitMqConnector
 
 from com.moses.driverapp.backend.interfaces import Displayer, GPSAccessor
 from com.moses.driverapp.backend.dto import GPSCoords
+from com.moses.notifications import NotificationType
 
 
 class DriverAppEmulator:
@@ -50,5 +51,8 @@ class Displayer:
     
     @JOverride
     def displayNotification(self, notification):
-        self.vehicle.highlight()
-        print(notification.text)
+        print(notification.type)
+        if notification.type.equals(NotificationType.MAKE_WAY_ON_ROAD):
+            self.vehicle.make_way()
+        elif notification.type.equals(NotificationType.NO_ACTION_REQUIRED):
+            self.vehicle.be_calmed()

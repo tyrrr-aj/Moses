@@ -28,6 +28,8 @@ public class NotificationsProcessor {
                     notification.geographicalBounds.roadNetworkElementId, syncedPosition.applyAndGet(Position::getRoutingKey)));
             if (alreadyProcessedRides.isPresent(notification.rideId)) {
                 alreadyProcessedRides.resetTTL(notification.rideId);
+
+                System.out.println("...but DISMISSED as already processed");
             }
             else {
                 alreadyProcessedRides.addRide(notification.rideId);

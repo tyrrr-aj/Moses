@@ -4,8 +4,8 @@
 
 generate_vehicle_notifications(#{id := RoadId} = RoadSpec, EVs, PreviousNotifications) ->
     EVsWithKnownDirection = maps:filter(fun(_, #{direction := Direction}) -> (Direction == forward) or (Direction == backward) end, EVs),
-    [action_required_notification(RoadId, Entry) || Entry <- maps:to_list(EVsWithKnownDirection)].
-    % ++ [action_unnecessary_notification(RoadId, Entry) || Entry <- maps:to_list(EVsWithKnownDirection)].
+    [action_required_notification(RoadId, Entry) || Entry <- maps:to_list(EVsWithKnownDirection)]
+    ++ [action_unnecessary_notification(RoadId, Entry) || Entry <- maps:to_list(EVsWithKnownDirection)].
 
 
 generate_junction_info(RoadSpec, EVs) ->
@@ -26,7 +26,7 @@ action_required_notification(RoadId, {RideId,
         begining_at => begin_at(Ev),
         ending_at => end_at(Ev),
         direction => Direction,
-        notification_body => action_required_message()
+        notification_code => make_way_on_road_code()
         }.
 
 
@@ -42,7 +42,7 @@ action_unnecessary_notification(RoadId, {RideId,
         begining_at => begin_at(Ev),
         ending_at => end_at(Ev),
         direction => opposite_direction(Direction),
-        notification_body => action_unnecessary_message()
+        notification_code => action_unnecessary_code()
         }.
 
 
@@ -63,6 +63,8 @@ opposite_direction(backward) -> forward.
 
 %% private constants
 
-action_required_message() -> <<"Ev is coming - make way!">>.
+make_way_on_road_code() -> 0.
 
-action_unnecessary_message() -> <<"Ev is near, but you don't have to do anything">>.
+make_way_on_junction_code() -> 1.
+
+action_unnecessary_code() -> 2. 
