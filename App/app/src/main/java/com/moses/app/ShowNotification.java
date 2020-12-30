@@ -1,11 +1,13 @@
 package com.moses.app;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
+
+import com.ebanx.swipebtn.OnActiveListener;
+import com.ebanx.swipebtn.SwipeButton;
 
 public class ShowNotification extends Activity {
 
@@ -24,5 +26,19 @@ public class ShowNotification extends Activity {
         TextView notificationBody = findViewById(R.id.notification_body);
         notificationBody.setText(messageBody);
 
+        setActivityBackgroundColor(intent.getIntExtra(MainActivity.BACKGROUND_COLOR, 0));
+
+        SwipeButton confirmButton = findViewById(R.id.confirm_button);
+        confirmButton.setOnActiveListener(new OnActiveListener() {
+            @Override
+            public void onActive() {
+                finish();
+            }
+        });
+    }
+
+    public void setActivityBackgroundColor(int color) {
+        View view = this.getWindow().getDecorView();
+        view.setBackgroundColor(color);
     }
 }

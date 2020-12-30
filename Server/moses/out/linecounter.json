@@ -1,0 +1,4124 @@
+{
+    "extension": "linecounter",
+    "version": "0.2.7",
+    "workspace": "/home/adams/Projekty/Moses/Server/moses",
+    "linecount": [
+        {
+            "version": "0.2.7",
+            "counttime": "2020-12-28 21:05:39",
+            "filesum": 627,
+            "codesum": 50969,
+            "commentsum": 8603,
+            "blanksum": 7661,
+            "statistics": {
+                ".config": {
+                    "code": 396,
+                    "comment": 1,
+                    "blank": 18
+                },
+                ".hrl": {
+                    "code": 841,
+                    "comment": 16,
+                    "blank": 86
+                },
+                ".md": {
+                    "code": 1556,
+                    "comment": 36,
+                    "blank": 472
+                },
+                ".erl": {
+                    "code": 34053,
+                    "comment": 1451,
+                    "blank": 5108
+                },
+                ".src": {
+                    "code": 209,
+                    "comment": 0,
+                    "blank": 2
+                },
+                "": {
+                    "code": 1358,
+                    "comment": 11,
+                    "blank": 287
+                },
+                ".app": {
+                    "code": 216,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".lock": {
+                    "code": 44,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".mk": {
+                    "code": 8620,
+                    "comment": 7070,
+                    "blank": 1466
+                },
+                ".txt": {
+                    "code": 2,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".css": {
+                    "code": 214,
+                    "comment": 4,
+                    "blank": 42
+                },
+                ".script": {
+                    "code": 25,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".asciidoc": {
+                    "code": 27,
+                    "comment": 4,
+                    "blank": 11
+                },
+                ".exs": {
+                    "code": 51,
+                    "comment": 0,
+                    "blank": 6
+                },
+                ".in": {
+                    "code": 13,
+                    "comment": 0,
+                    "blank": 10
+                },
+                ".awk": {
+                    "code": 25,
+                    "comment": 0,
+                    "blank": 1
+                },
+                ".sh": {
+                    "code": 48,
+                    "comment": 10,
+                    "blank": 11
+                },
+                ".org": {
+                    "code": 34,
+                    "comment": 0,
+                    "blank": 8
+                },
+                ".1": {
+                    "code": 532,
+                    "comment": 0,
+                    "blank": 19
+                },
+                ".log": {
+                    "code": 809,
+                    "comment": 0,
+                    "blank": 42
+                },
+                ".0": {
+                    "code": 1697,
+                    "comment": 0,
+                    "blank": 71
+                },
+                ".crashdump": {
+                    "code": 199,
+                    "comment": 0,
+                    "blank": 1
+                }
+            },
+            "filelist": [
+                {
+                    "blank": 0,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": ".gitignore"
+                },
+                {
+                    "filename": "_build/default/lib/.rebar3/rebar_compiler_erl/source_apps.dag",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/.rebar3/rebar_compiler_erl/source_project_apps.dag",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/amqp_client/ebin/amqp_auth_mechanisms.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/amqp_client/ebin/amqp_channel.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/amqp_client/ebin/amqp_channel_sup.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/amqp_client/ebin/amqp_channel_sup_sup.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/amqp_client/ebin/amqp_channels_manager.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 29,
+                    "comment": 0,
+                    "filename": "_build/default/lib/amqp_client/ebin/amqp_client.app"
+                },
+                {
+                    "filename": "_build/default/lib/amqp_client/ebin/amqp_client.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/amqp_client/ebin/amqp_connection.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/amqp_client/ebin/amqp_connection_sup.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/amqp_client/ebin/amqp_connection_type_sup.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/amqp_client/ebin/amqp_direct_connection.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/amqp_client/ebin/amqp_direct_consumer.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/amqp_client/ebin/amqp_gen_connection.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/amqp_client/ebin/amqp_gen_consumer.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/amqp_client/ebin/amqp_main_reader.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/amqp_client/ebin/amqp_network_connection.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/amqp_client/ebin/amqp_rpc_client.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/amqp_client/ebin/amqp_rpc_server.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/amqp_client/ebin/amqp_selective_consumer.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/amqp_client/ebin/amqp_ssl.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/amqp_client/ebin/amqp_sup.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/amqp_client/ebin/amqp_uri.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/amqp_client/ebin/amqp_util.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/amqp_client/ebin/rabbit_routing_util.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/amqp_client/ebin/uri_parser.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 443,
+                    "code": 2600,
+                    "comment": 2023,
+                    "filename": "_build/default/lib/amqp_client/erlang.mk"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "_build/default/lib/amqp_client/git-revisions.txt"
+                },
+                {
+                    "blank": 0,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "_build/default/lib/amqp_client/hex_metadata.config"
+                },
+                {
+                    "blank": 7,
+                    "code": 49,
+                    "comment": 1,
+                    "filename": "_build/default/lib/amqp_client/include/amqp_client.hrl"
+                },
+                {
+                    "blank": 7,
+                    "code": 34,
+                    "comment": 1,
+                    "filename": "_build/default/lib/amqp_client/include/amqp_client_internal.hrl"
+                },
+                {
+                    "blank": 3,
+                    "code": 38,
+                    "comment": 1,
+                    "filename": "_build/default/lib/amqp_client/include/amqp_gen_consumer_spec.hrl"
+                },
+                {
+                    "blank": 1,
+                    "code": 23,
+                    "comment": 1,
+                    "filename": "_build/default/lib/amqp_client/include/rabbit_routing_prefixes.hrl"
+                },
+                {
+                    "blank": 18,
+                    "code": 60,
+                    "comment": 1,
+                    "filename": "_build/default/lib/amqp_client/Makefile"
+                },
+                {
+                    "blank": 6,
+                    "code": 42,
+                    "comment": 0,
+                    "filename": "_build/default/lib/amqp_client/rabbitmq-components.mk"
+                },
+                {
+                    "blank": 8,
+                    "code": 45,
+                    "comment": 1,
+                    "filename": "_build/default/lib/amqp_client/src/amqp_auth_mechanisms.erl"
+                },
+                {
+                    "blank": 25,
+                    "code": 290,
+                    "comment": 1,
+                    "filename": "_build/default/lib/amqp_client/src/amqp_channel.erl"
+                },
+                {
+                    "blank": 12,
+                    "code": 69,
+                    "comment": 1,
+                    "filename": "_build/default/lib/amqp_client/src/amqp_channel_sup.erl"
+                },
+                {
+                    "blank": 9,
+                    "code": 36,
+                    "comment": 1,
+                    "filename": "_build/default/lib/amqp_client/src/amqp_channel_sup_sup.erl"
+                },
+                {
+                    "blank": 41,
+                    "code": 217,
+                    "comment": 1,
+                    "filename": "_build/default/lib/amqp_client/src/amqp_channels_manager.erl"
+                },
+                {
+                    "blank": 0,
+                    "code": 29,
+                    "comment": 0,
+                    "filename": "_build/default/lib/amqp_client/src/amqp_client.app.src"
+                },
+                {
+                    "blank": 8,
+                    "code": 38,
+                    "comment": 3,
+                    "filename": "_build/default/lib/amqp_client/src/amqp_client.erl"
+                },
+                {
+                    "blank": 27,
+                    "code": 243,
+                    "comment": 1,
+                    "filename": "_build/default/lib/amqp_client/src/amqp_connection.erl"
+                },
+                {
+                    "blank": 8,
+                    "code": 42,
+                    "comment": 1,
+                    "filename": "_build/default/lib/amqp_client/src/amqp_connection_sup.erl"
+                },
+                {
+                    "blank": 13,
+                    "code": 79,
+                    "comment": 1,
+                    "filename": "_build/default/lib/amqp_client/src/amqp_connection_type_sup.erl"
+                },
+                {
+                    "blank": 27,
+                    "code": 133,
+                    "comment": 1,
+                    "filename": "_build/default/lib/amqp_client/src/amqp_direct_connection.erl"
+                },
+                {
+                    "blank": 16,
+                    "code": 96,
+                    "comment": 1,
+                    "filename": "_build/default/lib/amqp_client/src/amqp_direct_consumer.erl"
+                },
+                {
+                    "blank": 36,
+                    "code": 122,
+                    "comment": 1,
+                    "filename": "_build/default/lib/amqp_client/src/amqp_gen_connection.erl"
+                },
+                {
+                    "blank": 33,
+                    "code": 260,
+                    "comment": 1,
+                    "filename": "_build/default/lib/amqp_client/src/amqp_gen_consumer.erl"
+                },
+                {
+                    "blank": 20,
+                    "code": 141,
+                    "comment": 1,
+                    "filename": "_build/default/lib/amqp_client/src/amqp_main_reader.erl"
+                },
+                {
+                    "blank": 35,
+                    "code": 345,
+                    "comment": 2,
+                    "filename": "_build/default/lib/amqp_client/src/amqp_network_connection.erl"
+                },
+                {
+                    "blank": 26,
+                    "code": 159,
+                    "comment": 1,
+                    "filename": "_build/default/lib/amqp_client/src/amqp_rpc_client.erl"
+                },
+                {
+                    "blank": 23,
+                    "code": 124,
+                    "comment": 1,
+                    "filename": "_build/default/lib/amqp_client/src/amqp_rpc_server.erl"
+                },
+                {
+                    "blank": 28,
+                    "code": 246,
+                    "comment": 1,
+                    "filename": "_build/default/lib/amqp_client/src/amqp_selective_consumer.erl"
+                },
+                {
+                    "blank": 11,
+                    "code": 76,
+                    "comment": 2,
+                    "filename": "_build/default/lib/amqp_client/src/amqp_ssl.erl"
+                },
+                {
+                    "blank": 10,
+                    "code": 37,
+                    "comment": 1,
+                    "filename": "_build/default/lib/amqp_client/src/amqp_sup.erl"
+                },
+                {
+                    "blank": 29,
+                    "code": 253,
+                    "comment": 1,
+                    "filename": "_build/default/lib/amqp_client/src/amqp_uri.erl"
+                },
+                {
+                    "blank": 3,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "_build/default/lib/amqp_client/src/amqp_util.erl"
+                },
+                {
+                    "blank": 10,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "_build/default/lib/amqp_client/src/overview.edoc.in"
+                },
+                {
+                    "blank": 40,
+                    "code": 191,
+                    "comment": 1,
+                    "filename": "_build/default/lib/amqp_client/src/rabbit_routing_util.erl"
+                },
+                {
+                    "blank": 17,
+                    "code": 108,
+                    "comment": 2,
+                    "filename": "_build/default/lib/amqp_client/src/uri_parser.erl"
+                },
+                {
+                    "blank": 0,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "_build/default/lib/credentials_obfuscation/ebin/credentials_obfuscation.app"
+                },
+                {
+                    "filename": "_build/default/lib/credentials_obfuscation/ebin/credentials_obfuscation.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/credentials_obfuscation/ebin/credentials_obfuscation_app.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/credentials_obfuscation/ebin/credentials_obfuscation_pbe.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/credentials_obfuscation/ebin/credentials_obfuscation_sup.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/credentials_obfuscation/ebin/credentials_obfuscation_svc.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "_build/default/lib/credentials_obfuscation/hex_metadata.config"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "_build/default/lib/credentials_obfuscation/include/credentials_obfuscation.hrl"
+                },
+                {
+                    "blank": 1,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "_build/default/lib/credentials_obfuscation/LICENSE"
+                },
+                {
+                    "blank": 29,
+                    "code": 154,
+                    "comment": 1,
+                    "filename": "_build/default/lib/credentials_obfuscation/LICENSE-APACHE2"
+                },
+                {
+                    "blank": 36,
+                    "code": 167,
+                    "comment": 1,
+                    "filename": "_build/default/lib/credentials_obfuscation/LICENSE-MPL-RabbitMQ"
+                },
+                {
+                    "blank": 13,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "_build/default/lib/credentials_obfuscation/README.md"
+                },
+                {
+                    "blank": 4,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "_build/default/lib/credentials_obfuscation/rebar.config"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "_build/default/lib/credentials_obfuscation/rebar.lock"
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "_build/default/lib/credentials_obfuscation/src/credentials_obfuscation.app.src"
+                },
+                {
+                    "blank": 12,
+                    "code": 51,
+                    "comment": 1,
+                    "filename": "_build/default/lib/credentials_obfuscation/src/credentials_obfuscation.erl"
+                },
+                {
+                    "blank": 5,
+                    "code": 24,
+                    "comment": 1,
+                    "filename": "_build/default/lib/credentials_obfuscation/src/credentials_obfuscation_app.erl"
+                },
+                {
+                    "blank": 40,
+                    "code": 216,
+                    "comment": 1,
+                    "filename": "_build/default/lib/credentials_obfuscation/src/credentials_obfuscation_pbe.erl"
+                },
+                {
+                    "blank": 8,
+                    "code": 41,
+                    "comment": 1,
+                    "filename": "_build/default/lib/credentials_obfuscation/src/credentials_obfuscation_sup.erl"
+                },
+                {
+                    "blank": 25,
+                    "code": 135,
+                    "comment": 1,
+                    "filename": "_build/default/lib/credentials_obfuscation/src/credentials_obfuscation_svc.erl"
+                },
+                {
+                    "blank": 0,
+                    "code": 27,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql.app"
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_binary.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_cmd_batch.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_cmd_bind.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_cmd_close.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_cmd_connect.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_cmd_describe_portal.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_cmd_describe_statement.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_cmd_equery.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_cmd_execute.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_cmd_parse.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_cmd_prepared_query.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_cmd_squery.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_cmd_start_replication.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_cmd_sync.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_cmd_update_type_cache.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_codec.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_codec_boolean.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_codec_bpchar.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_codec_datetime.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_codec_float.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_codec_geometric.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_codec_hstore.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_codec_integer.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_codec_intrange.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_codec_json.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_codec_net.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_codec_noop.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_codec_postgis.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_codec_text.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_codec_timerange.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_codec_uuid.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_command.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_errcodes.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_fdatetime.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_idatetime.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_oid_db.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_scram.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_sock.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsql_wire.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsqla.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/epgsqli.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/epgsql/ebin/ewkb.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 47,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/hex_metadata.config"
+                },
+                {
+                    "blank": 3,
+                    "code": 36,
+                    "comment": 3,
+                    "filename": "_build/default/lib/epgsql/include/epgsql.hrl"
+                },
+                {
+                    "blank": 14,
+                    "code": 59,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/include/epgsql_geometry.hrl"
+                },
+                {
+                    "blank": 7,
+                    "code": 44,
+                    "comment": 1,
+                    "filename": "_build/default/lib/epgsql/include/protocol.hrl"
+                },
+                {
+                    "blank": 3,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/LICENSE"
+                },
+                {
+                    "blank": 121,
+                    "code": 390,
+                    "comment": 10,
+                    "filename": "_build/default/lib/epgsql/README.md"
+                },
+                {
+                    "blank": 5,
+                    "code": 29,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/rebar.config"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/rebar.lock"
+                },
+                {
+                    "blank": 12,
+                    "code": 110,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/commands/epgsql_cmd_batch.erl"
+                },
+                {
+                    "blank": 0,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/commands/epgsql_cmd_bind.erl"
+                },
+                {
+                    "blank": 0,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/commands/epgsql_cmd_close.erl"
+                },
+                {
+                    "blank": 38,
+                    "code": 239,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/commands/epgsql_cmd_connect.erl"
+                },
+                {
+                    "blank": 6,
+                    "code": 32,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/commands/epgsql_cmd_describe_portal.erl"
+                },
+                {
+                    "blank": 0,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/commands/epgsql_cmd_describe_statement.erl"
+                },
+                {
+                    "blank": 6,
+                    "code": 76,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/commands/epgsql_cmd_equery.erl"
+                },
+                {
+                    "blank": 0,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/commands/epgsql_cmd_execute.erl"
+                },
+                {
+                    "blank": 0,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/commands/epgsql_cmd_parse.erl"
+                },
+                {
+                    "blank": 6,
+                    "code": 68,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/commands/epgsql_cmd_prepared_query.erl"
+                },
+                {
+                    "blank": 0,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/commands/epgsql_cmd_squery.erl"
+                },
+                {
+                    "blank": 9,
+                    "code": 60,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/commands/epgsql_cmd_start_replication.erl"
+                },
+                {
+                    "blank": 6,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/commands/epgsql_cmd_sync.erl"
+                },
+                {
+                    "blank": 9,
+                    "code": 52,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/commands/epgsql_cmd_update_type_cache.erl"
+                },
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/datatypes/epgsql_codec_boolean.erl"
+                },
+                {
+                    "blank": 0,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/datatypes/epgsql_codec_bpchar.erl"
+                },
+                {
+                    "blank": 11,
+                    "code": 55,
+                    "comment": 6,
+                    "filename": "_build/default/lib/epgsql/src/datatypes/epgsql_codec_datetime.erl"
+                },
+                {
+                    "blank": 12,
+                    "code": 48,
+                    "comment": 1,
+                    "filename": "_build/default/lib/epgsql/src/datatypes/epgsql_codec_float.erl"
+                },
+                {
+                    "blank": 7,
+                    "code": 20,
+                    "comment": 1,
+                    "filename": "_build/default/lib/epgsql/src/datatypes/epgsql_codec_geometric.erl"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/datatypes/epgsql_codec_hstore.erl"
+                },
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/datatypes/epgsql_codec_integer.erl"
+                },
+                {
+                    "blank": 19,
+                    "code": 88,
+                    "comment": 1,
+                    "filename": "_build/default/lib/epgsql/src/datatypes/epgsql_codec_intrange.erl"
+                },
+                {
+                    "blank": 13,
+                    "code": 59,
+                    "comment": 3,
+                    "filename": "_build/default/lib/epgsql/src/datatypes/epgsql_codec_json.erl"
+                },
+                {
+                    "blank": 0,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/datatypes/epgsql_codec_net.erl"
+                },
+                {
+                    "blank": 9,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/datatypes/epgsql_codec_noop.erl"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/datatypes/epgsql_codec_postgis.erl"
+                },
+                {
+                    "blank": 4,
+                    "code": 18,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/datatypes/epgsql_codec_text.erl"
+                },
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/datatypes/epgsql_codec_timerange.erl"
+                },
+                {
+                    "blank": 9,
+                    "code": 28,
+                    "comment": 1,
+                    "filename": "_build/default/lib/epgsql/src/datatypes/epgsql_codec_uuid.erl"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/epgsql.app.src"
+                },
+                {
+                    "blank": 54,
+                    "code": 323,
+                    "comment": 1,
+                    "filename": "_build/default/lib/epgsql/src/epgsql.erl"
+                },
+                {
+                    "blank": 15,
+                    "code": 159,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/epgsql_binary.erl"
+                },
+                {
+                    "blank": 16,
+                    "code": 67,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/epgsql_codec.erl"
+                },
+                {
+                    "blank": 4,
+                    "code": 18,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/epgsql_command.erl"
+                },
+                {
+                    "blank": 1,
+                    "code": 262,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/epgsql_errcodes.erl"
+                },
+                {
+                    "blank": 17,
+                    "code": 82,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/epgsql_fdatetime.erl"
+                },
+                {
+                    "blank": 17,
+                    "code": 91,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/epgsql_idatetime.erl"
+                },
+                {
+                    "blank": 18,
+                    "code": 96,
+                    "comment": 1,
+                    "filename": "_build/default/lib/epgsql/src/epgsql_oid_db.erl"
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/epgsql_replication.hrl"
+                },
+                {
+                    "blank": 27,
+                    "code": 106,
+                    "comment": 4,
+                    "filename": "_build/default/lib/epgsql/src/epgsql_scram.erl"
+                },
+                {
+                    "blank": 32,
+                    "code": 227,
+                    "comment": 2,
+                    "filename": "_build/default/lib/epgsql/src/epgsql_sock.erl"
+                },
+                {
+                    "blank": 29,
+                    "code": 207,
+                    "comment": 1,
+                    "filename": "_build/default/lib/epgsql/src/epgsql_wire.erl"
+                },
+                {
+                    "blank": 0,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/epgsqla.erl"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "_build/default/lib/epgsql/src/epgsqli.erl"
+                },
+                {
+                    "blank": 25,
+                    "code": 284,
+                    "comment": 2,
+                    "filename": "_build/default/lib/epgsql/src/ewkb.erl"
+                },
+                {
+                    "filename": "_build/default/lib/goldrush/ebin/glc.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/goldrush/ebin/glc_code.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/goldrush/ebin/glc_lib.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/goldrush/ebin/glc_ops.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/goldrush/ebin/glc_run.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "_build/default/lib/goldrush/ebin/goldrush.app"
+                },
+                {
+                    "filename": "_build/default/lib/goldrush/ebin/gr_app.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/goldrush/ebin/gr_context.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/goldrush/ebin/gr_counter.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/goldrush/ebin/gr_counter_sup.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/goldrush/ebin/gr_manager.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/goldrush/ebin/gr_manager_sup.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/goldrush/ebin/gr_param.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/goldrush/ebin/gr_param_sup.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/goldrush/ebin/gr_sup.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/goldrush/ebin/gre.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "_build/default/lib/goldrush/hex_metadata.config"
+                },
+                {
+                    "blank": 2,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "_build/default/lib/goldrush/LICENSE"
+                },
+                {
+                    "blank": 21,
+                    "code": 107,
+                    "comment": 2,
+                    "filename": "_build/default/lib/goldrush/priv/edoc.css"
+                },
+                {
+                    "blank": 8,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "_build/default/lib/goldrush/README.org"
+                },
+                {
+                    "blank": 1,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "_build/default/lib/goldrush/rebar.config"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "_build/default/lib/goldrush/rebar.lock"
+                },
+                {
+                    "blank": 6,
+                    "code": 74,
+                    "comment": 0,
+                    "filename": "_build/default/lib/goldrush/src/glc.erl"
+                },
+                {
+                    "blank": 27,
+                    "code": 295,
+                    "comment": 0,
+                    "filename": "_build/default/lib/goldrush/src/glc_code.erl"
+                },
+                {
+                    "blank": 30,
+                    "code": 264,
+                    "comment": 0,
+                    "filename": "_build/default/lib/goldrush/src/glc_lib.erl"
+                },
+                {
+                    "blank": 19,
+                    "code": 107,
+                    "comment": 0,
+                    "filename": "_build/default/lib/goldrush/src/glc_ops.erl"
+                },
+                {
+                    "blank": 5,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "_build/default/lib/goldrush/src/glc_run.erl"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "_build/default/lib/goldrush/src/goldrush.app.src"
+                },
+                {
+                    "blank": 4,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "_build/default/lib/goldrush/src/gr_app.erl"
+                },
+                {
+                    "blank": 10,
+                    "code": 61,
+                    "comment": 0,
+                    "filename": "_build/default/lib/goldrush/src/gr_context.erl"
+                },
+                {
+                    "blank": 24,
+                    "code": 244,
+                    "comment": 0,
+                    "filename": "_build/default/lib/goldrush/src/gr_counter.erl"
+                },
+                {
+                    "blank": 7,
+                    "code": 35,
+                    "comment": 0,
+                    "filename": "_build/default/lib/goldrush/src/gr_counter_sup.erl"
+                },
+                {
+                    "blank": 23,
+                    "code": 162,
+                    "comment": 0,
+                    "filename": "_build/default/lib/goldrush/src/gr_manager.erl"
+                },
+                {
+                    "blank": 6,
+                    "code": 41,
+                    "comment": 0,
+                    "filename": "_build/default/lib/goldrush/src/gr_manager_sup.erl"
+                },
+                {
+                    "blank": 35,
+                    "code": 234,
+                    "comment": 0,
+                    "filename": "_build/default/lib/goldrush/src/gr_param.erl"
+                },
+                {
+                    "blank": 7,
+                    "code": 41,
+                    "comment": 0,
+                    "filename": "_build/default/lib/goldrush/src/gr_param_sup.erl"
+                },
+                {
+                    "blank": 7,
+                    "code": 35,
+                    "comment": 0,
+                    "filename": "_build/default/lib/goldrush/src/gr_sup.erl"
+                },
+                {
+                    "blank": 19,
+                    "code": 85,
+                    "comment": 0,
+                    "filename": "_build/default/lib/goldrush/src/gre.erl"
+                },
+                {
+                    "blank": 50,
+                    "code": 76,
+                    "comment": 0,
+                    "filename": "_build/default/lib/jsx/CHANGES.md"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "_build/default/lib/jsx/ebin/jsx.app"
+                },
+                {
+                    "filename": "_build/default/lib/jsx/ebin/jsx.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/jsx/ebin/jsx_config.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/jsx/ebin/jsx_consult.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/jsx/ebin/jsx_decoder.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/jsx/ebin/jsx_encoder.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/jsx/ebin/jsx_parser.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/jsx/ebin/jsx_to_json.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/jsx/ebin/jsx_to_term.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/jsx/ebin/jsx_verify.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 18,
+                    "comment": 0,
+                    "filename": "_build/default/lib/jsx/hex_metadata.config"
+                },
+                {
+                    "blank": 4,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "_build/default/lib/jsx/LICENSE"
+                },
+                {
+                    "blank": 5,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "_build/default/lib/jsx/mix.exs"
+                },
+                {
+                    "blank": 82,
+                    "code": 286,
+                    "comment": 14,
+                    "filename": "_build/default/lib/jsx/README.md"
+                },
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 0,
+                    "filename": "_build/default/lib/jsx/rebar.config"
+                },
+                {
+                    "blank": 0,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "_build/default/lib/jsx/rebar.config.script"
+                },
+                {
+                    "blank": 0,
+                    "code": 26,
+                    "comment": 0,
+                    "filename": "_build/default/lib/jsx/src/jsx.app.src"
+                },
+                {
+                    "blank": 132,
+                    "code": 395,
+                    "comment": 0,
+                    "filename": "_build/default/lib/jsx/src/jsx.erl"
+                },
+                {
+                    "blank": 40,
+                    "code": 306,
+                    "comment": 0,
+                    "filename": "_build/default/lib/jsx/src/jsx_config.erl"
+                },
+                {
+                    "blank": 0,
+                    "code": 18,
+                    "comment": 0,
+                    "filename": "_build/default/lib/jsx/src/jsx_config.hrl"
+                },
+                {
+                    "blank": 25,
+                    "code": 74,
+                    "comment": 0,
+                    "filename": "_build/default/lib/jsx/src/jsx_consult.erl"
+                },
+                {
+                    "blank": 141,
+                    "code": 1356,
+                    "comment": 0,
+                    "filename": "_build/default/lib/jsx/src/jsx_decoder.erl"
+                },
+                {
+                    "blank": 36,
+                    "code": 91,
+                    "comment": 0,
+                    "filename": "_build/default/lib/jsx/src/jsx_encoder.erl"
+                },
+                {
+                    "blank": 46,
+                    "code": 543,
+                    "comment": 0,
+                    "filename": "_build/default/lib/jsx/src/jsx_parser.erl"
+                },
+                {
+                    "blank": 64,
+                    "code": 298,
+                    "comment": 0,
+                    "filename": "_build/default/lib/jsx/src/jsx_to_json.erl"
+                },
+                {
+                    "blank": 38,
+                    "code": 160,
+                    "comment": 0,
+                    "filename": "_build/default/lib/jsx/src/jsx_to_term.erl"
+                },
+                {
+                    "blank": 18,
+                    "code": 51,
+                    "comment": 0,
+                    "filename": "_build/default/lib/jsx/src/jsx_verify.erl"
+                },
+                {
+                    "filename": "_build/default/lib/lager/ebin/error_logger_lager_h.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 37,
+                    "comment": 0,
+                    "filename": "_build/default/lib/lager/ebin/lager.app"
+                },
+                {
+                    "filename": "_build/default/lib/lager/ebin/lager.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/lager/ebin/lager_app.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/lager/ebin/lager_backend_throttle.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/lager/ebin/lager_common_test_backend.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/lager/ebin/lager_config.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/lager/ebin/lager_console_backend.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/lager/ebin/lager_crash_log.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/lager/ebin/lager_default_formatter.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/lager/ebin/lager_file_backend.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/lager/ebin/lager_format.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/lager/ebin/lager_handler_watcher.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/lager/ebin/lager_handler_watcher_sup.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/lager/ebin/lager_manager_killer.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/lager/ebin/lager_msg.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/lager/ebin/lager_rotator_behaviour.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/lager/ebin/lager_rotator_default.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/lager/ebin/lager_stdlib.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/lager/ebin/lager_sup.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/lager/ebin/lager_transform.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/lager/ebin/lager_trunc_io.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/lager/ebin/lager_util.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 27,
+                    "comment": 0,
+                    "filename": "_build/default/lib/lager/hex_metadata.config"
+                },
+                {
+                    "blank": 24,
+                    "code": 126,
+                    "comment": 1,
+                    "filename": "_build/default/lib/lager/include/lager.hrl"
+                },
+                {
+                    "blank": 28,
+                    "code": 150,
+                    "comment": 1,
+                    "filename": "_build/default/lib/lager/LICENSE"
+                },
+                {
+                    "blank": 21,
+                    "code": 107,
+                    "comment": 2,
+                    "filename": "_build/default/lib/lager/priv/edoc.css"
+                },
+                {
+                    "blank": 191,
+                    "code": 657,
+                    "comment": 9,
+                    "filename": "_build/default/lib/lager/README.md"
+                },
+                {
+                    "blank": 7,
+                    "code": 53,
+                    "comment": 1,
+                    "filename": "_build/default/lib/lager/rebar.config"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "_build/default/lib/lager/rebar.config.script"
+                },
+                {
+                    "blank": 0,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "_build/default/lib/lager/rebar.lock"
+                },
+                {
+                    "blank": 41,
+                    "code": 332,
+                    "comment": 1,
+                    "filename": "_build/default/lib/lager/src/error_logger_lager_h.erl"
+                },
+                {
+                    "blank": 0,
+                    "code": 29,
+                    "comment": 0,
+                    "filename": "_build/default/lib/lager/src/lager.app.src"
+                },
+                {
+                    "blank": 50,
+                    "code": 279,
+                    "comment": 1,
+                    "filename": "_build/default/lib/lager/src/lager.erl"
+                },
+                {
+                    "blank": 5,
+                    "code": 149,
+                    "comment": 1,
+                    "filename": "_build/default/lib/lager/src/lager_app.erl"
+                },
+                {
+                    "blank": 6,
+                    "code": 26,
+                    "comment": 1,
+                    "filename": "_build/default/lib/lager/src/lager_backend_throttle.erl"
+                },
+                {
+                    "blank": 9,
+                    "code": 41,
+                    "comment": 0,
+                    "filename": "_build/default/lib/lager/src/lager_common_test_backend.erl"
+                },
+                {
+                    "blank": 9,
+                    "code": 51,
+                    "comment": 1,
+                    "filename": "_build/default/lib/lager/src/lager_config.erl"
+                },
+                {
+                    "blank": 19,
+                    "code": 175,
+                    "comment": 1,
+                    "filename": "_build/default/lib/lager/src/lager_console_backend.erl"
+                },
+                {
+                    "blank": 1,
+                    "code": 27,
+                    "comment": 1,
+                    "filename": "_build/default/lib/lager/src/lager_crash_log.erl"
+                },
+                {
+                    "blank": 5,
+                    "code": 49,
+                    "comment": 1,
+                    "filename": "_build/default/lib/lager/src/lager_default_formatter.erl"
+                },
+                {
+                    "blank": 45,
+                    "code": 547,
+                    "comment": 1,
+                    "filename": "_build/default/lib/lager/src/lager_file_backend.erl"
+                },
+                {
+                    "blank": 39,
+                    "code": 330,
+                    "comment": 1,
+                    "filename": "_build/default/lib/lager/src/lager_format.erl"
+                },
+                {
+                    "blank": 15,
+                    "code": 73,
+                    "comment": 1,
+                    "filename": "_build/default/lib/lager/src/lager_handler_watcher.erl"
+                },
+                {
+                    "blank": 8,
+                    "code": 31,
+                    "comment": 1,
+                    "filename": "_build/default/lib/lager/src/lager_handler_watcher_sup.erl"
+                },
+                {
+                    "blank": 7,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "_build/default/lib/lager/src/lager_manager_killer.erl"
+                },
+                {
+                    "blank": 14,
+                    "code": 50,
+                    "comment": 0,
+                    "filename": "_build/default/lib/lager/src/lager_msg.erl"
+                },
+                {
+                    "blank": 4,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "_build/default/lib/lager/src/lager_rotator_behaviour.erl"
+                },
+                {
+                    "blank": 14,
+                    "code": 117,
+                    "comment": 1,
+                    "filename": "_build/default/lib/lager/src/lager_rotator_default.erl"
+                },
+                {
+                    "blank": 16,
+                    "code": 125,
+                    "comment": 2,
+                    "filename": "_build/default/lib/lager/src/lager_stdlib.erl"
+                },
+                {
+                    "blank": 1,
+                    "code": 16,
+                    "comment": 1,
+                    "filename": "_build/default/lib/lager/src/lager_sup.erl"
+                },
+                {
+                    "blank": 2,
+                    "code": 106,
+                    "comment": 1,
+                    "filename": "_build/default/lib/lager/src/lager_transform.erl"
+                },
+                {
+                    "blank": 57,
+                    "code": 448,
+                    "comment": 1,
+                    "filename": "_build/default/lib/lager/src/lager_trunc_io.erl"
+                },
+                {
+                    "blank": 56,
+                    "code": 597,
+                    "comment": 1,
+                    "filename": "_build/default/lib/lager/src/lager_util.erl"
+                },
+                {
+                    "filename": "_build/default/lib/moses/ebin/dispatcher.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/moses/ebin/dispatchers_sup.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/moses/ebin/driver_apps_controller.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/moses/ebin/ev_tracker.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/moses/ebin/ev_trackers_sup.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/moses/ebin/junction_clearance.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/moses/ebin/junction_controller.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/moses/ebin/junction_controllers_sup.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/moses/ebin/manual_dispatch.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/moses/ebin/manual_tracking.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/moses/ebin/map_connection.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/moses/ebin/map_controller.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/moses/ebin/map_controller_sup.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/moses/ebin/map_parsing.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "_build/default/lib/moses/ebin/moses.app"
+                },
+                {
+                    "filename": "_build/default/lib/moses/ebin/moses_app.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/moses/ebin/moses_sup.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/moses/ebin/names.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/moses/ebin/notification_codes.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/moses/ebin/notifier.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/moses/ebin/notifier_sup.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/moses/ebin/rabbitmq_connector.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/moses/ebin/road_clearance.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/moses/ebin/road_controller.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/moses/ebin/road_controllers_sup.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/moses/ebin/road_network_sup.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/moses/ebin/service_tracking_connectors_sup.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/moses/ebin/simulation_dispatch.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/moses/ebin/simulation_tracking.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 2,
+                    "code": 2,
+                    "comment": 0,
+                    "filename": "_build/default/lib/moses/src/clearence/junction_clearance.erl"
+                },
+                {
+                    "blank": 18,
+                    "code": 43,
+                    "comment": 0,
+                    "filename": "_build/default/lib/moses/src/clearence/road_clearance.erl"
+                },
+                {
+                    "blank": 18,
+                    "code": 33,
+                    "comment": 0,
+                    "filename": "_build/default/lib/moses/src/dispatch/dispatcher.erl"
+                },
+                {
+                    "blank": 9,
+                    "code": 37,
+                    "comment": 0,
+                    "filename": "_build/default/lib/moses/src/dispatch/dispatchers_sup.erl"
+                },
+                {
+                    "blank": 17,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "_build/default/lib/moses/src/dispatch/manual_dispatch.erl"
+                },
+                {
+                    "blank": 35,
+                    "code": 59,
+                    "comment": 0,
+                    "filename": "_build/default/lib/moses/src/dispatch/simulation_dispatch.erl"
+                },
+                {
+                    "blank": 23,
+                    "code": 52,
+                    "comment": 0,
+                    "filename": "_build/default/lib/moses/src/driver_app/driver_apps_controller.erl"
+                },
+                {
+                    "blank": 30,
+                    "code": 58,
+                    "comment": 0,
+                    "filename": "_build/default/lib/moses/src/map/map_connection.erl"
+                },
+                {
+                    "blank": 21,
+                    "code": 35,
+                    "comment": 0,
+                    "filename": "_build/default/lib/moses/src/map/map_controller.erl"
+                },
+                {
+                    "blank": 6,
+                    "code": 29,
+                    "comment": 0,
+                    "filename": "_build/default/lib/moses/src/map/map_controller_sup.erl"
+                },
+                {
+                    "blank": 10,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "_build/default/lib/moses/src/map/map_parsing.erl"
+                },
+                {
+                    "blank": 1,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "_build/default/lib/moses/src/moses.app.src"
+                },
+                {
+                    "blank": 6,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "_build/default/lib/moses/src/moses_app.erl"
+                },
+                {
+                    "blank": 8,
+                    "code": 70,
+                    "comment": 0,
+                    "filename": "_build/default/lib/moses/src/moses_sup.erl"
+                },
+                {
+                    "blank": 10,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "_build/default/lib/moses/src/names.erl"
+                },
+                {
+                    "blank": 5,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "_build/default/lib/moses/src/notifying/notification_codes.erl"
+                },
+                {
+                    "blank": 44,
+                    "code": 74,
+                    "comment": 0,
+                    "filename": "_build/default/lib/moses/src/notifying/notifier.erl"
+                },
+                {
+                    "blank": 6,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "_build/default/lib/moses/src/notifying/notifier_sup.erl"
+                },
+                {
+                    "blank": 24,
+                    "code": 81,
+                    "comment": 0,
+                    "filename": "_build/default/lib/moses/src/rabbitmq/rabbitmq_connector.erl"
+                },
+                {
+                    "blank": 19,
+                    "code": 56,
+                    "comment": 0,
+                    "filename": "_build/default/lib/moses/src/road_network/junctions/junction_controller.erl"
+                },
+                {
+                    "blank": 4,
+                    "code": 18,
+                    "comment": 0,
+                    "filename": "_build/default/lib/moses/src/road_network/junctions/junction_controllers_sup.erl"
+                },
+                {
+                    "blank": 22,
+                    "code": 87,
+                    "comment": 0,
+                    "filename": "_build/default/lib/moses/src/road_network/road_network_sup.erl"
+                },
+                {
+                    "blank": 34,
+                    "code": 79,
+                    "comment": 0,
+                    "filename": "_build/default/lib/moses/src/road_network/roads/road_controller.erl"
+                },
+                {
+                    "blank": 4,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "_build/default/lib/moses/src/road_network/roads/road_controllers_sup.erl"
+                },
+                {
+                    "blank": 63,
+                    "code": 132,
+                    "comment": 0,
+                    "filename": "_build/default/lib/moses/src/tracking/ev_tracker.erl"
+                },
+                {
+                    "blank": 6,
+                    "code": 24,
+                    "comment": 0,
+                    "filename": "_build/default/lib/moses/src/tracking/ev_trackers_sup.erl"
+                },
+                {
+                    "blank": 24,
+                    "code": 58,
+                    "comment": 0,
+                    "filename": "_build/default/lib/moses/src/tracking/service_connectors/manual_tracking.erl"
+                },
+                {
+                    "blank": 6,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "_build/default/lib/moses/src/tracking/service_connectors/service_tracking_connectors_sup.erl"
+                },
+                {
+                    "blank": 30,
+                    "code": 69,
+                    "comment": 0,
+                    "filename": "_build/default/lib/moses/src/tracking/service_connectors/simulation_tracking.erl"
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/app_utils.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/code_version.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/credit_flow.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/delegate.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/delegate_sup.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/file_handle_cache.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/file_handle_cache_stats.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/gen_server2.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/lager_forwarder_backend.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/mirrored_supervisor.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/mnesia_sync.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/pmon.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/priority_queue.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_amqp_connection.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_amqqueue_common.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_auth_backend_dummy.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_auth_mechanism.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_authn_backend.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_authz_backend.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_basic_common.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_binary_generator.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_binary_parser.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_cert_info.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_channel_common.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_command_assembler.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 43,
+                    "comment": 0,
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_common.app"
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_control_misc.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_core_metrics.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_data_coercion.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_env.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_error_logger_handler.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_event.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_exchange_type.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_framing_amqp_0_8.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_framing_amqp_0_9_1.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_heartbeat.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_http_util.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_json.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_log.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_log_ra_shim.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_misc.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_msg_store_index.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_net.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_nodes_common.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_numerical.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_password_hashing.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_pbe.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_peer_discovery_backend.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_policy_validator.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_queue_collector.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_registry.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_registry_class.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_resource_monitor_misc.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_runtime.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_runtime_parameter.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_semver.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_semver_parser.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_ssl_options.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_types.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/rabbit_writer.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/supervisor2.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/vm_memory_monitor.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/worker_pool.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/worker_pool_sup.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/rabbit_common/ebin/worker_pool_worker.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 455,
+                    "code": 2659,
+                    "comment": 2030,
+                    "filename": "_build/default/lib/rabbit_common/erlang.mk"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "_build/default/lib/rabbit_common/git-revisions.txt"
+                },
+                {
+                    "blank": 0,
+                    "code": 77,
+                    "comment": 0,
+                    "filename": "_build/default/lib/rabbit_common/hex_metadata.config"
+                },
+                {
+                    "blank": 9,
+                    "code": 102,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/include/rabbit.hrl"
+                },
+                {
+                    "blank": 4,
+                    "code": 55,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/include/rabbit_core_metrics.hrl"
+                },
+                {
+                    "blank": 0,
+                    "code": 170,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/include/rabbit_framing.hrl"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "_build/default/lib/rabbit_common/include/rabbit_log.hrl"
+                },
+                {
+                    "blank": 2,
+                    "code": 18,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/include/rabbit_memory.hrl"
+                },
+                {
+                    "blank": 1,
+                    "code": 16,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/include/rabbit_misc.hrl"
+                },
+                {
+                    "blank": 3,
+                    "code": 18,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/include/rabbit_msg_store.hrl"
+                },
+                {
+                    "blank": 1,
+                    "code": 22,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/include/resource.hrl"
+                },
+                {
+                    "blank": 1,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "_build/default/lib/rabbit_common/LICENSE"
+                },
+                {
+                    "blank": 5,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "_build/default/lib/rabbit_common/LICENSE-BSD-recon"
+                },
+                {
+                    "blank": 4,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "_build/default/lib/rabbit_common/LICENSE-MIT-Erlware-Commons"
+                },
+                {
+                    "blank": 4,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "_build/default/lib/rabbit_common/LICENSE-MIT-Mochi"
+                },
+                {
+                    "blank": 36,
+                    "code": 167,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/LICENSE-MPL-RabbitMQ"
+                },
+                {
+                    "blank": 13,
+                    "code": 38,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/Makefile"
+                },
+                {
+                    "blank": 2,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "_build/default/lib/rabbit_common/mk/rabbitmq-build.mk"
+                },
+                {
+                    "blank": 6,
+                    "code": 30,
+                    "comment": 0,
+                    "filename": "_build/default/lib/rabbit_common/mk/rabbitmq-components.hexpm.mk"
+                },
+                {
+                    "blank": 6,
+                    "code": 42,
+                    "comment": 0,
+                    "filename": "_build/default/lib/rabbit_common/mk/rabbitmq-components.mk"
+                },
+                {
+                    "blank": 13,
+                    "code": 53,
+                    "comment": 184,
+                    "filename": "_build/default/lib/rabbit_common/mk/rabbitmq-dist.mk"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "_build/default/lib/rabbit_common/mk/rabbitmq-early-plugin.mk"
+                },
+                {
+                    "blank": 18,
+                    "code": 64,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/mk/rabbitmq-early-test.mk"
+                },
+                {
+                    "blank": 10,
+                    "code": 51,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/mk/rabbitmq-hexpm.mk"
+                },
+                {
+                    "blank": 1,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "_build/default/lib/rabbit_common/mk/rabbitmq-macros.mk"
+                },
+                {
+                    "blank": 5,
+                    "code": 18,
+                    "comment": 0,
+                    "filename": "_build/default/lib/rabbit_common/mk/rabbitmq-plugin.mk"
+                },
+                {
+                    "blank": 15,
+                    "code": 78,
+                    "comment": 0,
+                    "filename": "_build/default/lib/rabbit_common/mk/rabbitmq-run.mk"
+                },
+                {
+                    "blank": 12,
+                    "code": 68,
+                    "comment": 0,
+                    "filename": "_build/default/lib/rabbit_common/mk/rabbitmq-test.mk"
+                },
+                {
+                    "blank": 44,
+                    "code": 302,
+                    "comment": 26,
+                    "filename": "_build/default/lib/rabbit_common/mk/rabbitmq-tools.mk"
+                },
+                {
+                    "blank": 47,
+                    "code": 287,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/mk/xrefr"
+                },
+                {
+                    "blank": 1,
+                    "code": 3,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/README.md"
+                },
+                {
+                    "blank": 20,
+                    "code": 155,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/app_utils.erl"
+                },
+                {
+                    "blank": 32,
+                    "code": 325,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/code_version.erl"
+                },
+                {
+                    "blank": 24,
+                    "code": 158,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/credit_flow.erl"
+                },
+                {
+                    "blank": 34,
+                    "code": 196,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/delegate.erl"
+                },
+                {
+                    "blank": 14,
+                    "code": 50,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/delegate_sup.erl"
+                },
+                {
+                    "blank": 45,
+                    "code": 438,
+                    "comment": 2,
+                    "filename": "_build/default/lib/rabbit_common/src/file_handle_cache.erl"
+                },
+                {
+                    "blank": 11,
+                    "code": 55,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/file_handle_cache_stats.erl"
+                },
+                {
+                    "blank": 80,
+                    "code": 854,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/gen_server2.erl"
+                },
+                {
+                    "blank": 11,
+                    "code": 118,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/lager_forwarder_backend.erl"
+                },
+                {
+                    "blank": 20,
+                    "code": 142,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/mirrored_supervisor.erl"
+                },
+                {
+                    "blank": 19,
+                    "code": 54,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/mnesia_sync.erl"
+                },
+                {
+                    "blank": 21,
+                    "code": 83,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/pmon.erl"
+                },
+                {
+                    "blank": 1,
+                    "code": 21,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/priority_queue.erl"
+                },
+                {
+                    "blank": 4,
+                    "code": 39,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_amqp_connection.erl"
+                },
+                {
+                    "blank": 9,
+                    "code": 39,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_amqqueue_common.erl"
+                },
+                {
+                    "blank": 10,
+                    "code": 38,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_auth_backend_dummy.erl"
+                },
+                {
+                    "blank": 8,
+                    "code": 40,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_auth_mechanism.erl"
+                },
+                {
+                    "blank": 3,
+                    "code": 25,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_authn_backend.erl"
+                },
+                {
+                    "blank": 4,
+                    "code": 38,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_authz_backend.erl"
+                },
+                {
+                    "blank": 5,
+                    "code": 31,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_basic_common.erl"
+                },
+                {
+                    "blank": 28,
+                    "code": 216,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_binary_generator.erl"
+                },
+                {
+                    "blank": 9,
+                    "code": 39,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_binary_parser.erl"
+                },
+                {
+                    "blank": 20,
+                    "code": 108,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_cert_info.erl"
+                },
+                {
+                    "blank": 6,
+                    "code": 28,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_channel_common.erl"
+                },
+                {
+                    "blank": 17,
+                    "code": 116,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_command_assembler.erl"
+                },
+                {
+                    "blank": 0,
+                    "code": 43,
+                    "comment": 0,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_common.app.src"
+                },
+                {
+                    "blank": 15,
+                    "code": 83,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_control_misc.erl"
+                },
+                {
+                    "blank": 49,
+                    "code": 346,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_core_metrics.erl"
+                },
+                {
+                    "blank": 9,
+                    "code": 47,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_data_coercion.erl"
+                },
+                {
+                    "blank": 49,
+                    "code": 467,
+                    "comment": 1302,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_env.erl"
+                },
+                {
+                    "blank": 17,
+                    "code": 160,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_error_logger_handler.erl"
+                },
+                {
+                    "blank": 16,
+                    "code": 76,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_event.erl"
+                },
+                {
+                    "blank": 6,
+                    "code": 24,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_exchange_type.erl"
+                },
+                {
+                    "blank": 23,
+                    "code": 1647,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_framing_amqp_0_8.erl"
+                },
+                {
+                    "blank": 23,
+                    "code": 1256,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_framing_amqp_0_9_1.erl"
+                },
+                {
+                    "blank": 17,
+                    "code": 66,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_heartbeat.erl"
+                },
+                {
+                    "blank": 63,
+                    "code": 378,
+                    "comment": 0,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_http_util.erl"
+                },
+                {
+                    "blank": 17,
+                    "code": 55,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_json.erl"
+                },
+                {
+                    "blank": 18,
+                    "code": 127,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_log.erl"
+                },
+                {
+                    "blank": 4,
+                    "code": 21,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_log_ra_shim.erl"
+                },
+                {
+                    "blank": 81,
+                    "code": 672,
+                    "comment": 4,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_misc.erl"
+                },
+                {
+                    "blank": 10,
+                    "code": 42,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_msg_store_index.erl"
+                },
+                {
+                    "blank": 27,
+                    "code": 164,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_net.erl"
+                },
+                {
+                    "blank": 27,
+                    "code": 164,
+                    "comment": 2,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_nodes_common.erl"
+                },
+                {
+                    "blank": 2,
+                    "code": 9,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_numerical.erl"
+                },
+                {
+                    "blank": 2,
+                    "code": 18,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_password_hashing.erl"
+                },
+                {
+                    "blank": 14,
+                    "code": 49,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_pbe.erl"
+                },
+                {
+                    "blank": 11,
+                    "code": 48,
+                    "comment": 0,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_peer_discovery_backend.erl"
+                },
+                {
+                    "blank": 7,
+                    "code": 24,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_policy_validator.erl"
+                },
+                {
+                    "blank": 22,
+                    "code": 67,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_queue_collector.erl"
+                },
+                {
+                    "blank": 33,
+                    "code": 141,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_registry.erl"
+                },
+                {
+                    "blank": 2,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_registry_class.erl"
+                },
+                {
+                    "blank": 5,
+                    "code": 43,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_resource_monitor_misc.erl"
+                },
+                {
+                    "blank": 9,
+                    "code": 53,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_runtime.erl"
+                },
+                {
+                    "blank": 6,
+                    "code": 28,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_runtime_parameter.erl"
+                },
+                {
+                    "blank": 53,
+                    "code": 677,
+                    "comment": 2,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_semver.erl"
+                },
+                {
+                    "blank": 37,
+                    "code": 269,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_semver_parser.erl"
+                },
+                {
+                    "blank": 11,
+                    "code": 95,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_ssl_options.erl"
+                },
+                {
+                    "blank": 31,
+                    "code": 159,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_types.erl"
+                },
+                {
+                    "blank": 57,
+                    "code": 370,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/rabbit_writer.erl"
+                },
+                {
+                    "blank": 39,
+                    "code": 339,
+                    "comment": 0,
+                    "filename": "_build/default/lib/rabbit_common/src/supervisor2.erl"
+                },
+                {
+                    "blank": 83,
+                    "code": 500,
+                    "comment": 4,
+                    "filename": "_build/default/lib/rabbit_common/src/vm_memory_monitor.erl"
+                },
+                {
+                    "blank": 35,
+                    "code": 146,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/worker_pool.erl"
+                },
+                {
+                    "blank": 18,
+                    "code": 60,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/worker_pool_sup.erl"
+                },
+                {
+                    "blank": 43,
+                    "code": 158,
+                    "comment": 1,
+                    "filename": "_build/default/lib/rabbit_common/src/worker_pool_worker.erl"
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "_build/default/lib/ranch/ebin/ranch.app"
+                },
+                {
+                    "filename": "_build/default/lib/ranch/ebin/ranch.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/ranch/ebin/ranch_acceptor.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/ranch/ebin/ranch_acceptors_sup.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/ranch/ebin/ranch_app.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/ranch/ebin/ranch_conns_sup.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/ranch/ebin/ranch_crc32c.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/ranch/ebin/ranch_listener_sup.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/ranch/ebin/ranch_protocol.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/ranch/ebin/ranch_proxy_header.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/ranch/ebin/ranch_server.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/ranch/ebin/ranch_ssl.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/ranch/ebin/ranch_sup.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/ranch/ebin/ranch_tcp.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/ranch/ebin/ranch_transport.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 430,
+                    "code": 2594,
+                    "comment": 2805,
+                    "filename": "_build/default/lib/ranch/erlang.mk"
+                },
+                {
+                    "blank": 0,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "_build/default/lib/ranch/hex_metadata.config"
+                },
+                {
+                    "blank": 2,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "_build/default/lib/ranch/LICENSE"
+                },
+                {
+                    "blank": 18,
+                    "code": 34,
+                    "comment": 2,
+                    "filename": "_build/default/lib/ranch/Makefile"
+                },
+                {
+                    "blank": 11,
+                    "code": 27,
+                    "comment": 4,
+                    "filename": "_build/default/lib/ranch/README.asciidoc"
+                },
+                {
+                    "blank": 0,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "_build/default/lib/ranch/src/ranch.app.src"
+                },
+                {
+                    "blank": 8,
+                    "code": 92,
+                    "comment": 0,
+                    "filename": "_build/default/lib/ranch/src/ranch.erl"
+                },
+                {
+                    "blank": 4,
+                    "code": 35,
+                    "comment": 0,
+                    "filename": "_build/default/lib/ranch/src/ranch_acceptor.erl"
+                },
+                {
+                    "blank": 6,
+                    "code": 65,
+                    "comment": 0,
+                    "filename": "_build/default/lib/ranch/src/ranch_acceptors_sup.erl"
+                },
+                {
+                    "blank": 6,
+                    "code": 38,
+                    "comment": 0,
+                    "filename": "_build/default/lib/ranch/src/ranch_app.erl"
+                },
+                {
+                    "blank": 17,
+                    "code": 128,
+                    "comment": 0,
+                    "filename": "_build/default/lib/ranch/src/ranch_conns_sup.erl"
+                },
+                {
+                    "blank": 7,
+                    "code": 108,
+                    "comment": 0,
+                    "filename": "_build/default/lib/ranch/src/ranch_crc32c.erl"
+                },
+                {
+                    "blank": 4,
+                    "code": 37,
+                    "comment": 0,
+                    "filename": "_build/default/lib/ranch/src/ranch_listener_sup.erl"
+                },
+                {
+                    "blank": 2,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "_build/default/lib/ranch/src/ranch_protocol.erl"
+                },
+                {
+                    "blank": 24,
+                    "code": 538,
+                    "comment": 0,
+                    "filename": "_build/default/lib/ranch/src/ranch_proxy_header.erl"
+                },
+                {
+                    "blank": 34,
+                    "code": 199,
+                    "comment": 0,
+                    "filename": "_build/default/lib/ranch/src/ranch_server.erl"
+                },
+                {
+                    "blank": 32,
+                    "code": 214,
+                    "comment": 0,
+                    "filename": "_build/default/lib/ranch/src/ranch_ssl.erl"
+                },
+                {
+                    "blank": 4,
+                    "code": 36,
+                    "comment": 0,
+                    "filename": "_build/default/lib/ranch/src/ranch_sup.erl"
+                },
+                {
+                    "blank": 29,
+                    "code": 216,
+                    "comment": 0,
+                    "filename": "_build/default/lib/ranch/src/ranch_tcp.erl"
+                },
+                {
+                    "blank": 6,
+                    "code": 60,
+                    "comment": 0,
+                    "filename": "_build/default/lib/ranch/src/ranch_transport.erl"
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "_build/default/lib/recon/ebin/recon.app"
+                },
+                {
+                    "filename": "_build/default/lib/recon/ebin/recon.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/recon/ebin/recon_alloc.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/recon/ebin/recon_lib.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/recon/ebin/recon_map.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/recon/ebin/recon_rec.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "_build/default/lib/recon/ebin/recon_trace.beam",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "_build/default/lib/recon/hex_metadata.config"
+                },
+                {
+                    "blank": 5,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "_build/default/lib/recon/LICENSE"
+                },
+                {
+                    "blank": 1,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "_build/default/lib/recon/mix.exs"
+                },
+                {
+                    "blank": 11,
+                    "code": 115,
+                    "comment": 2,
+                    "filename": "_build/default/lib/recon/README.md"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "_build/default/lib/recon/rebar.lock"
+                },
+                {
+                    "blank": 5,
+                    "code": 65,
+                    "comment": 0,
+                    "filename": "_build/default/lib/recon/script/app_deps.erl"
+                },
+                {
+                    "blank": 11,
+                    "code": 48,
+                    "comment": 10,
+                    "filename": "_build/default/lib/recon/script/erl_crashdump_analyzer.sh"
+                },
+                {
+                    "blank": 1,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "_build/default/lib/recon/script/queue_fun.awk"
+                },
+                {
+                    "blank": 0,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "_build/default/lib/recon/src/recon.app.src"
+                },
+                {
+                    "blank": 44,
+                    "code": 370,
+                    "comment": 1,
+                    "filename": "_build/default/lib/recon/src/recon.erl"
+                },
+                {
+                    "blank": 29,
+                    "code": 398,
+                    "comment": 1,
+                    "filename": "_build/default/lib/recon/src/recon_alloc.erl"
+                },
+                {
+                    "blank": 9,
+                    "code": 107,
+                    "comment": 1,
+                    "filename": "_build/default/lib/recon/src/recon_lib.erl"
+                },
+                {
+                    "blank": 21,
+                    "code": 158,
+                    "comment": 0,
+                    "filename": "_build/default/lib/recon/src/recon_map.erl"
+                },
+                {
+                    "blank": 13,
+                    "code": 95,
+                    "comment": 0,
+                    "filename": "_build/default/lib/recon/src/recon_rec.erl"
+                },
+                {
+                    "blank": 39,
+                    "code": 485,
+                    "comment": 2,
+                    "filename": "_build/default/lib/recon/src/recon_trace.erl"
+                },
+                {
+                    "blank": 31,
+                    "code": 160,
+                    "comment": 2,
+                    "filename": "LICENSE"
+                },
+                {
+                    "blank": 0,
+                    "code": 131,
+                    "comment": 0,
+                    "filename": "log/console.log"
+                },
+                {
+                    "blank": 0,
+                    "code": 620,
+                    "comment": 0,
+                    "filename": "log/console.log.0"
+                },
+                {
+                    "blank": 0,
+                    "code": 218,
+                    "comment": 0,
+                    "filename": "log/console.log.1"
+                },
+                {
+                    "blank": 42,
+                    "code": 602,
+                    "comment": 0,
+                    "filename": "log/crash.log"
+                },
+                {
+                    "blank": 71,
+                    "code": 953,
+                    "comment": 0,
+                    "filename": "log/crash.log.0"
+                },
+                {
+                    "blank": 19,
+                    "code": 280,
+                    "comment": 0,
+                    "filename": "log/crash.log.1"
+                },
+                {
+                    "blank": 0,
+                    "code": 76,
+                    "comment": 0,
+                    "filename": "log/error.log"
+                },
+                {
+                    "blank": 0,
+                    "code": 124,
+                    "comment": 0,
+                    "filename": "log/error.log.0"
+                },
+                {
+                    "blank": 0,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "log/error.log.1"
+                },
+                {
+                    "blank": 3,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "README.md"
+                },
+                {
+                    "blank": 1,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "rebar.config"
+                },
+                {
+                    "blank": 0,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "rebar.lock"
+                },
+                {
+                    "blank": 1,
+                    "code": 199,
+                    "comment": 0,
+                    "filename": "rebar3.crashdump"
+                },
+                {
+                    "filename": "road_network.data",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 2,
+                    "code": 2,
+                    "comment": 0,
+                    "filename": "src/clearence/junction_clearance.erl"
+                },
+                {
+                    "blank": 18,
+                    "code": 43,
+                    "comment": 0,
+                    "filename": "src/clearence/road_clearance.erl"
+                },
+                {
+                    "blank": 18,
+                    "code": 33,
+                    "comment": 0,
+                    "filename": "src/dispatch/dispatcher.erl"
+                },
+                {
+                    "blank": 9,
+                    "code": 37,
+                    "comment": 0,
+                    "filename": "src/dispatch/dispatchers_sup.erl"
+                },
+                {
+                    "blank": 17,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "src/dispatch/manual_dispatch.erl"
+                },
+                {
+                    "blank": 35,
+                    "code": 59,
+                    "comment": 0,
+                    "filename": "src/dispatch/simulation_dispatch.erl"
+                },
+                {
+                    "blank": 23,
+                    "code": 52,
+                    "comment": 0,
+                    "filename": "src/driver_app/driver_apps_controller.erl"
+                },
+                {
+                    "blank": 30,
+                    "code": 58,
+                    "comment": 0,
+                    "filename": "src/map/map_connection.erl"
+                },
+                {
+                    "blank": 21,
+                    "code": 35,
+                    "comment": 0,
+                    "filename": "src/map/map_controller.erl"
+                },
+                {
+                    "blank": 6,
+                    "code": 29,
+                    "comment": 0,
+                    "filename": "src/map/map_controller_sup.erl"
+                },
+                {
+                    "blank": 10,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "src/map/map_parsing.erl"
+                },
+                {
+                    "blank": 1,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "src/moses.app.src"
+                },
+                {
+                    "blank": 6,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "src/moses_app.erl"
+                },
+                {
+                    "blank": 8,
+                    "code": 70,
+                    "comment": 0,
+                    "filename": "src/moses_sup.erl"
+                },
+                {
+                    "blank": 10,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "src/names.erl"
+                },
+                {
+                    "blank": 5,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "src/notifying/notification_codes.erl"
+                },
+                {
+                    "blank": 44,
+                    "code": 74,
+                    "comment": 0,
+                    "filename": "src/notifying/notifier.erl"
+                },
+                {
+                    "blank": 6,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "src/notifying/notifier_sup.erl"
+                },
+                {
+                    "blank": 24,
+                    "code": 81,
+                    "comment": 0,
+                    "filename": "src/rabbitmq/rabbitmq_connector.erl"
+                },
+                {
+                    "blank": 19,
+                    "code": 56,
+                    "comment": 0,
+                    "filename": "src/road_network/junctions/junction_controller.erl"
+                },
+                {
+                    "blank": 4,
+                    "code": 18,
+                    "comment": 0,
+                    "filename": "src/road_network/junctions/junction_controllers_sup.erl"
+                },
+                {
+                    "blank": 22,
+                    "code": 87,
+                    "comment": 0,
+                    "filename": "src/road_network/road_network_sup.erl"
+                },
+                {
+                    "blank": 34,
+                    "code": 79,
+                    "comment": 0,
+                    "filename": "src/road_network/roads/road_controller.erl"
+                },
+                {
+                    "blank": 4,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "src/road_network/roads/road_controllers_sup.erl"
+                },
+                {
+                    "blank": 63,
+                    "code": 132,
+                    "comment": 0,
+                    "filename": "src/tracking/ev_tracker.erl"
+                },
+                {
+                    "blank": 6,
+                    "code": 24,
+                    "comment": 0,
+                    "filename": "src/tracking/ev_trackers_sup.erl"
+                },
+                {
+                    "blank": 24,
+                    "code": 58,
+                    "comment": 0,
+                    "filename": "src/tracking/service_connectors/manual_tracking.erl"
+                },
+                {
+                    "blank": 6,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "src/tracking/service_connectors/service_tracking_connectors_sup.erl"
+                },
+                {
+                    "blank": 30,
+                    "code": 69,
+                    "comment": 0,
+                    "filename": "src/tracking/service_connectors/simulation_tracking.erl"
+                },
+                {
+                    "blank": 12,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "test/dispatch/dispatcher_tests.erl"
+                },
+                {
+                    "blank": 5,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "test/dispatch/test_dispatch.erl"
+                },
+                {
+                    "blank": 5,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "test/end_to_end/end_to_end_test_dispatch.erl"
+                },
+                {
+                    "blank": 6,
+                    "code": 18,
+                    "comment": 0,
+                    "filename": "test/end_to_end/end_to_end_test_tracking.erl"
+                },
+                {
+                    "blank": 33,
+                    "code": 88,
+                    "comment": 0,
+                    "filename": "test/end_to_end/end_to_end_tests.erl"
+                },
+                {
+                    "blank": 22,
+                    "code": 45,
+                    "comment": 0,
+                    "filename": "test/notifying/notifier_tests.erl"
+                },
+                {
+                    "blank": 10,
+                    "code": 38,
+                    "comment": 0,
+                    "filename": "test/utils/rabbitmq_con.erl"
+                }
+            ]
+        }
+    ]
+}

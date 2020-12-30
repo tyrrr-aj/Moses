@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on pon, 14 gru 2020, 02:06:33 by Eclipse SUMO netedit Version 1.8.0
+<!-- generated on nie, 20 gru 2020, 19:39:24 by Eclipse SUMO netedit Version 1.8.0
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
 
     <input>
@@ -42,6 +42,5 @@
 -->
 
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
-    <route edges="-260028416#1" color="yellow" id="route_0"/>
-    <route edges="24804188" color="yellow" id="route_1"/>
+    <route edges="-149948158#1" color="yellow" id="basic"/>
 </routes>

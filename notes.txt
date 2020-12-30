@@ -1,0 +1,7 @@
+Serwer:
+- brakujący supervisor
+- przekazywanie informacji przez skrzyżowania
+
+Aplikacja:
+- blokowanie wyświetlania następnego powiadomienia
+- odczytywanie prawdziwej pozycji

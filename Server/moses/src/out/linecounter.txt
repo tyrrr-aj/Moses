@@ -1,0 +1,47 @@
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2020-12-28 21:06:35
+count workspace : /home/adams/Projekty/Moses/Server/moses/src
+total files : 29
+total code lines : 1252
+total comment lines : 0
+total blank lines : 505
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |           .erl|           1237|              0|            504|     99|
+   |           .src|             15|              0|              1|    1.2|
+   -------------------------------------------------------------------------
+clearence/junction_clearance.erl, code is 2, comment is 0, blank is 2.
+clearence/road_clearance.erl, code is 43, comment is 0, blank is 18.
+dispatch/dispatcher.erl, code is 33, comment is 0, blank is 18.
+dispatch/dispatchers_sup.erl, code is 37, comment is 0, blank is 9.
+dispatch/manual_dispatch.erl, code is 34, comment is 0, blank is 17.
+dispatch/simulation_dispatch.erl, code is 59, comment is 0, blank is 35.
+driver_app/driver_apps_controller.erl, code is 52, comment is 0, blank is 23.
+map/map_connection.erl, code is 58, comment is 0, blank is 30.
+map/map_controller.erl, code is 35, comment is 0, blank is 21.
+map/map_controller_sup.erl, code is 29, comment is 0, blank is 6.
+map/map_parsing.erl, code is 12, comment is 0, blank is 10.
+moses.app.src, code is 15, comment is 0, blank is 1.
+moses_app.erl, code is 12, comment is 0, blank is 6.
+moses_sup.erl, code is 70, comment is 0, blank is 8.
+names.erl, code is 13, comment is 0, blank is 10.
+notifying/notification_codes.erl, code is 5, comment is 0, blank is 5.
+notifying/notifier.erl, code is 74, comment is 0, blank is 44.
+notifying/notifier_sup.erl, code is 23, comment is 0, blank is 6.
+rabbitmq/rabbitmq_connector.erl, code is 81, comment is 0, blank is 24.
+road_network/junctions/junction_controller.erl, code is 56, comment is 0, blank is 19.
+road_network/junctions/junction_controllers_sup.erl, code is 18, comment is 0, blank is 4.
+road_network/road_network_sup.erl, code is 87, comment is 0, blank is 22.
+road_network/roads/road_controller.erl, code is 79, comment is 0, blank is 34.
+road_network/roads/road_controllers_sup.erl, code is 19, comment is 0, blank is 4.
+tracking/ev_tracker.erl, code is 132, comment is 0, blank is 63.
+tracking/ev_trackers_sup.erl, code is 24, comment is 0, blank is 6.
+tracking/service_connectors/manual_tracking.erl, code is 58, comment is 0, blank is 24.
+tracking/service_connectors/service_tracking_connectors_sup.erl, code is 23, comment is 0, blank is 6.
+tracking/service_connectors/simulation_tracking.erl, code is 69, comment is 0, blank is 30.
+===============================================================================

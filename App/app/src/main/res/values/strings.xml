@@ -2,5 +2,6 @@
     <string name="app_name">Moses</string>
     <string name="greeting_text">Droga wolna!</string>
     <string name="wait_text">Jeśli w pobliżu pojawi się pojazd uprzywilejowany, dam Ci znać</string>
+    <string name="confirm_text">Potwierdź</string>
     <string name="track_button_text">Śledź pojazd</string>
 </resources>

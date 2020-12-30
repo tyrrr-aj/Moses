@@ -2,7 +2,7 @@
 
 -behaviour(gen_server).
 
--export([establish_connection/0, get_new_rides/1, get_ended_rides/1]). % dispatch API
+-export([establish_connection/0, get_new_rides/1, get_ended_rides/1, shutdown_connection/1]). % dispatch API
 -export([init/1, handle_call/3, handle_cast/2, handle_info/2]). % gen_server callbacks
 
 -define(SERVER, ?MODULE).
@@ -22,6 +22,9 @@ get_new_rides(DispatchPid) ->
 get_ended_rides(DispatchPid) ->
     EndedRides = gen_server:call(DispatchPid, ended_rides),
     {ok, EndedRides}.
+
+shutdown_connection(_DispatchPid) ->
+    ok.
 
 
 %% Callbacks

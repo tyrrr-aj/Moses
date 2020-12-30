@@ -1,0 +1,203 @@
+{
+    "extension": "linecounter",
+    "version": "0.2.7",
+    "workspace": "/home/adams/Projekty/Moses/Server/moses/src",
+    "linecount": [
+        {
+            "version": "0.2.7",
+            "counttime": "2020-12-28 21:06:35",
+            "filesum": 29,
+            "codesum": 1252,
+            "commentsum": 0,
+            "blanksum": 505,
+            "statistics": {
+                ".erl": {
+                    "code": 1237,
+                    "comment": 0,
+                    "blank": 504
+                },
+                ".src": {
+                    "code": 15,
+                    "comment": 0,
+                    "blank": 1
+                }
+            },
+            "filelist": [
+                {
+                    "blank": 2,
+                    "code": 2,
+                    "comment": 0,
+                    "filename": "clearence/junction_clearance.erl"
+                },
+                {
+                    "blank": 18,
+                    "code": 43,
+                    "comment": 0,
+                    "filename": "clearence/road_clearance.erl"
+                },
+                {
+                    "blank": 18,
+                    "code": 33,
+                    "comment": 0,
+                    "filename": "dispatch/dispatcher.erl"
+                },
+                {
+                    "blank": 9,
+                    "code": 37,
+                    "comment": 0,
+                    "filename": "dispatch/dispatchers_sup.erl"
+                },
+                {
+                    "blank": 17,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "dispatch/manual_dispatch.erl"
+                },
+                {
+                    "blank": 35,
+                    "code": 59,
+                    "comment": 0,
+                    "filename": "dispatch/simulation_dispatch.erl"
+                },
+                {
+                    "blank": 23,
+                    "code": 52,
+                    "comment": 0,
+                    "filename": "driver_app/driver_apps_controller.erl"
+                },
+                {
+                    "blank": 30,
+                    "code": 58,
+                    "comment": 0,
+                    "filename": "map/map_connection.erl"
+                },
+                {
+                    "blank": 21,
+                    "code": 35,
+                    "comment": 0,
+                    "filename": "map/map_controller.erl"
+                },
+                {
+                    "blank": 6,
+                    "code": 29,
+                    "comment": 0,
+                    "filename": "map/map_controller_sup.erl"
+                },
+                {
+                    "blank": 10,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "map/map_parsing.erl"
+                },
+                {
+                    "blank": 1,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "moses.app.src"
+                },
+                {
+                    "blank": 6,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "moses_app.erl"
+                },
+                {
+                    "blank": 8,
+                    "code": 70,
+                    "comment": 0,
+                    "filename": "moses_sup.erl"
+                },
+                {
+                    "blank": 10,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "names.erl"
+                },
+                {
+                    "blank": 5,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "notifying/notification_codes.erl"
+                },
+                {
+                    "blank": 44,
+                    "code": 74,
+                    "comment": 0,
+                    "filename": "notifying/notifier.erl"
+                },
+                {
+                    "blank": 6,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "notifying/notifier_sup.erl"
+                },
+                {
+                    "blank": 24,
+                    "code": 81,
+                    "comment": 0,
+                    "filename": "rabbitmq/rabbitmq_connector.erl"
+                },
+                {
+                    "blank": 19,
+                    "code": 56,
+                    "comment": 0,
+                    "filename": "road_network/junctions/junction_controller.erl"
+                },
+                {
+                    "blank": 4,
+                    "code": 18,
+                    "comment": 0,
+                    "filename": "road_network/junctions/junction_controllers_sup.erl"
+                },
+                {
+                    "blank": 22,
+                    "code": 87,
+                    "comment": 0,
+                    "filename": "road_network/road_network_sup.erl"
+                },
+                {
+                    "blank": 34,
+                    "code": 79,
+                    "comment": 0,
+                    "filename": "road_network/roads/road_controller.erl"
+                },
+                {
+                    "blank": 4,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "road_network/roads/road_controllers_sup.erl"
+                },
+                {
+                    "blank": 63,
+                    "code": 132,
+                    "comment": 0,
+                    "filename": "tracking/ev_tracker.erl"
+                },
+                {
+                    "blank": 6,
+                    "code": 24,
+                    "comment": 0,
+                    "filename": "tracking/ev_trackers_sup.erl"
+                },
+                {
+                    "blank": 24,
+                    "code": 58,
+                    "comment": 0,
+                    "filename": "tracking/service_connectors/manual_tracking.erl"
+                },
+                {
+                    "blank": 6,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "tracking/service_connectors/service_tracking_connectors_sup.erl"
+                },
+                {
+                    "blank": 30,
+                    "code": 69,
+                    "comment": 0,
+                    "filename": "tracking/service_connectors/simulation_tracking.erl"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType id="veh_passenger" vClass="passenger"/>
+	
+	<vType id="ambulance" vClass="emergency" guiShape="emergency" speedFactor="2"/>
+	<vType id="police" vClass="emergency" guiShape="police" speedFactor="2"/>
+	<vType id="firebrigade" vClass="emergency" guiShape="firebrigade" speedFactor="2"/>
+	
+	<route id="basic" edges="-149948158#1"/>
+
+	<vehicle id="veh0" type="veh_passenger" depart="0.00" departLane="best" route="basic"/>
+    <vehicle id="veh1" type="veh_passenger" depart="1.00" departLane="best" route="basic"/>
+    <vehicle id="veh2" type="veh_passenger" depart="2.00" departLane="best" route="basic"/>
+    <vehicle id="veh3" type="veh_passenger" depart="3.00" departLane="best" route="basic"/>
+    <vehicle id="veh4" type="veh_passenger" depart="4.00" departLane="best" route="basic"/>
+    <vehicle id="veh5" type="veh_passenger" depart="5.00" departLane="best" route="basic"/>    
+    <!-- <vehicle id="veh6" type="veh_passenger" depart="6.00" departLane="best" route="basic"/>
+    <vehicle id="veh7" type="veh_passenger" depart="7.00" departLane="best" route="basic"/>
+    <vehicle id="veh8" type="veh_passenger" depart="8.00" departLane="best" route="basic"/>
+    <vehicle id="veh9" type="veh_passenger" depart="9.00" departLane="best" route="basic"/>
+    <vehicle id="veh10" type="veh_passenger" depart="10.00" departLane="best" route="basic"/>
+    <vehicle id="veh11" type="veh_passenger" depart="11.00" departLane="best" route="basic"/>
+    <vehicle id="veh12" type="veh_passenger" depart="12.00" departLane="best" route="basic"/>
+    <vehicle id="veh13" type="veh_passenger" depart="13.00" departLane="best" route="basic"/>
+    <vehicle id="veh14" type="veh_passenger" depart="14.00" departLane="best" route="basic"/> -->
+
+    <vehicle id="fir0" type="firebrigade" depart="8.0" departLane="best" route="basic"/>
+
+</routes>

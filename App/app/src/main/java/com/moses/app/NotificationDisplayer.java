@@ -1,6 +1,7 @@
 package com.moses.app;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.util.Log;
 
 import com.moses.driverapp.backend.interfaces.Displayer;
@@ -19,7 +20,7 @@ public class NotificationDisplayer implements Displayer {
     @Override
     public void displayNotification(Notification notification) {
         Log.d("Notification displayer", "NOTIFICATION ARRIVED!");
-        mainActivity.showMessage(title(notification.type), message(notification.type));
+        mainActivity.showMessage(title(notification.type), message(notification.type), color(notification.type));
     }
 
     private String title(NotificationType notificationType) {
@@ -51,6 +52,22 @@ public class NotificationDisplayer implements Displayer {
 
             default:
                 return "Domyślna treść powiadomienia";
+        }
+    }
+
+    private int color(NotificationType notificationType) {
+        switch (notificationType) {
+            case MAKE_WAY_ON_ROAD:
+                return mainActivity.getResources().getColor(R.color.colorNotificationMakeWayOnRoad);
+
+            case MAKE_WAY_ON_JUNCTION:
+                return mainActivity.getResources().getColor(R.color.colorNotificationMakeWayOnJunction);
+
+            case NO_ACTION_REQUIRED:
+                return mainActivity.getResources().getColor(R.color.colorNotificationNoActionRequired);
+
+            default:
+                return 0;
         }
     }
 }

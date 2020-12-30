@@ -14,7 +14,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
+import com.ebanx.swipebtn.OnActiveListener;
+import com.ebanx.swipebtn.SwipeButton;
 import com.moses.RabbitMqConnector;
 import com.moses.driverapp.backend.NotificationsReceiver;
 import com.moses.driverapp.backend.interfaces.GPSAccessor;
@@ -34,6 +37,7 @@ public class MainActivity extends AppCompatActivity{
 
     public static String MESSAGE_TITLE = "com.moses.app.MESSAGE_TITLE";
     public static String MESSAGE_BODY = "com.moses.app.MESSAGE_BODY";
+    public static String BACKGROUND_COLOR = "com.moses.app.BACKGROUND_COLOR";
 
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -71,13 +75,13 @@ public class MainActivity extends AppCompatActivity{
 
 
         Button button = findViewById(R.id.button);
-//        TextView textview = (TextView) findViewById(R.id.textView);
+        EditText vehicleToTrackField = findViewById(R.id.vehicleToTrack);
 
         button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 simConnector.ensureConnected();
-                simConnector.trackVehicle("veh1");
+                simConnector.trackVehicle(vehicleToTrackField.getText().toString());
 //                String longtitudeText = "Longtitude : ";
 //                longtitudeText += locationListener.longitude;
 //
@@ -88,6 +92,7 @@ public class MainActivity extends AppCompatActivity{
 //                textview.setText(location);
             }
         });
+
     }
 
     @Override
@@ -96,10 +101,11 @@ public class MainActivity extends AppCompatActivity{
         notificationsReceiver.shutdown();
     }
 
-    public void showMessage(String messageTitle, String messageBody) {
+    public void showMessage(String messageTitle, String messageBody, int backgroundColor) {
         Intent intent = new Intent(this, ShowNotification.class);
         intent.putExtra(MESSAGE_TITLE, messageTitle);
         intent.putExtra(MESSAGE_BODY, messageBody);
+        intent.putExtra(BACKGROUND_COLOR, backgroundColor);
         startActivity(intent);
     }
 
