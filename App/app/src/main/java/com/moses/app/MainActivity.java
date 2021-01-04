@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity{
         RabbitMqConnector rabbitMqConnector = null;
         GPSAccessor gpsAccessor = null;
         try {
-            rabbitMqConnector = new RabbitMqConnector("192.168.1.13", "moses", "split");
+            rabbitMqConnector = new RabbitMqConnector("192.168.0.6", "moses", "split");
             simConnector = new SimConnector(rabbitMqConnector);
             SimulatedGPSAccessor simGpsAccessor = new SimulatedGPSAccessor(simConnector);
             simGpsAccessor.init();

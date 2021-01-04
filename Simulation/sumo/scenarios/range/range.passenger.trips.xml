@@ -14,7 +14,7 @@
     <vehicle id="veh2" type="veh_passenger" depart="2.00" departLane="best" route="basic"/>
     <vehicle id="veh3" type="veh_passenger" depart="3.00" departLane="best" route="basic"/>
     <vehicle id="veh4" type="veh_passenger" depart="4.00" departLane="best" route="basic"/>
-    <vehicle id="veh5" type="veh_passenger" depart="5.00" departLane="best" route="basic"/>    
+    <!-- <vehicle id="veh5" type="veh_passenger" depart="5.00" departLane="best" route="basic"/>     -->
     <!-- <vehicle id="veh6" type="veh_passenger" depart="6.00" departLane="best" route="basic"/>
     <vehicle id="veh7" type="veh_passenger" depart="7.00" departLane="best" route="basic"/>
     <vehicle id="veh8" type="veh_passenger" depart="8.00" departLane="best" route="basic"/>

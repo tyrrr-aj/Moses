@@ -44,6 +44,8 @@ public class PositionTracking extends Thread {
                     Position currentPosition = connector.updateLocalization(coords);
 
                     if (currentPosition != null) {
+                        System.out.println("Road: " + currentPosition.getRoutingKey());
+
                         updatePosition(currentPosition);
 
                         if (routingKeyHasChanged(currentPosition)) {

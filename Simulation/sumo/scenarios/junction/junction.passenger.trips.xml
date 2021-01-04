@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType id="veh_passenger" vClass="passenger"/>
+	
+	<vType id="ambulance" vClass="emergency" guiShape="emergency" speedFactor="2"/>
+	<vType id="police" vClass="emergency" guiShape="police" speedFactor="2"/>
+	<vType id="firebrigade" vClass="emergency" guiShape="firebrigade" speedFactor="2"/>
+	
+	<route edges="-25757036#7 -25757036#4 -25757036#3 -25757036#2" color="yellow" id="ev"/>
+    <route edges="154350018#0 154350019#0" color="yellow" id="regular"/>
+
+	<vehicle id="veh0" type="veh_passenger" depart="0.00" departLane="best" route="regular"/>
+    <!-- <vehicle id="veh0t" type="veh_passenger" depart="0.00" departLane="best" route="test"/>
+    <vehicle id="veh0t2" type="veh_passenger" depart="0.00" departLane="best" route="test2"/> -->
+    <vehicle id="veh1" type="veh_passenger" depart="1.00" departLane="best" route="regular"/>
+    <!-- <vehicle id="veh1t" type="veh_passenger" depart="1.00" departLane="best" route="test"/>
+    <vehicle id="veh1t2" type="veh_passenger" depart="1.00" departLane="best" route="test2"/> -->
+    <vehicle id="veh2" type="veh_passenger" depart="2.00" departLane="best" route="regular"/>
+    <!-- <vehicle id="veh2t" type="veh_passenger" depart="2.00" departLane="best" route="test"/>
+    <vehicle id="veh2t2" type="veh_passenger" depart="2.00" departLane="best" route="test2"/> -->
+    <vehicle id="veh3" type="veh_passenger" depart="3.00" departLane="best" route="regular"/>
+    <vehicle id="veh4" type="veh_passenger" depart="4.00" departLane="best" route="regular"/>
+    <vehicle id="veh5" type="veh_passenger" depart="5.00" departLane="best" route="regular"/>    
+    <vehicle id="veh6" type="veh_passenger" depart="6.00" departLane="best" route="regular"/>
+    <vehicle id="veh7" type="veh_passenger" depart="7.00" departLane="best" route="regular"/>
+    <vehicle id="veh8" type="veh_passenger" depart="8.00" departLane="best" route="regular"/>
+
+    <vehicle id="fir0" type="firebrigade" depart="8.50" departLane="best" route="ev"/>
+
+    <vehicle id="veh9" type="veh_passenger" depart="9.00" departLane="best" route="regular"/>
+    <vehicle id="veh10" type="veh_passenger" depart="10.00" departLane="best" route="regular"/>
+    <vehicle id="veh11" type="veh_passenger" depart="11.00" departLane="best" route="regular"/>
+    <vehicle id="veh12" type="veh_passenger" depart="12.00" departLane="best" route="regular"/>
+    <vehicle id="veh13" type="veh_passenger" depart="13.00" departLane="best" route="regular"/>
+    <vehicle id="veh14" type="veh_passenger" depart="14.00" departLane="best" route="regular"/>
+
+</routes>

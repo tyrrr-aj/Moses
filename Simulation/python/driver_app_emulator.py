@@ -53,6 +53,8 @@ class Displayer:
     def displayNotification(self, notification):
         print(notification.type)
         if notification.type.equals(NotificationType.MAKE_WAY_ON_ROAD):
-            self.vehicle.make_way()
+            self.vehicle.make_way_on_road()
+        elif notification.type.equals(NotificationType.MAKE_WAY_ON_JUNCTION):
+            self.vehicle.make_way_on_junction()
         elif notification.type.equals(NotificationType.NO_ACTION_REQUIRED):
             self.vehicle.be_calmed()

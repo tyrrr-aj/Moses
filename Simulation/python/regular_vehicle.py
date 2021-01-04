@@ -15,7 +15,8 @@ class RegularVehicle(Vehicle):
         self.coords = tracking.get_position(self.vehicle_id)
         self.app = DriverAppEmulator(self)
         self.app.listen_for_notifications()
-        self.should_make_way = False
+        self.should_make_way_on_road = False
+        self.should_make_way_on_junction = False
         self.remaining_stop = 0
         self.was_calmed = False
     
@@ -25,10 +26,14 @@ class RegularVehicle(Vehicle):
             self.update_localization()
             self.step_no = 0
         
-        if self.should_make_way:
+        if self.should_make_way_on_road:
             traci.vehicle.highlight(self.vehicle_id, alphaMax=255, duration=10)
-            self.should_make_way = False
+            self.should_make_way_on_road = False
             traci.vehicle.setSpeed(self.vehicle_id, 2)
+
+        if self.should_make_way_on_junction:
+            traci.vehicle.highlight(self.vehicle_id, color=(0, 0, 255, 255), alphaMax=255, duration=10)
+            self.should_make_way_on_junction = False
 
         if self.remaining_stop > 0:
             self.remaining_stop -= 1
@@ -36,15 +41,19 @@ class RegularVehicle(Vehicle):
                 traci.vehicle.setSpeed(self.vehicle_id, -1)
 
         if self.was_calmed:
-            traci.vehicle.highlight(self.vehicle_id, color=(0, 0, 255, 255), alphaMax=255, duration=10)
+            traci.vehicle.highlight(self.vehicle_id, color=(0, 255, 0, 255), alphaMax=255, duration=10)
             self.was_calmed = False
         
     
     def update_localization(self):
         self.coords = tracking.get_position(self.vehicle_id)
 
-    def make_way(self):
-        self.should_make_way = True
+    def make_way_on_road(self):
+        self.should_make_way_on_road = True
+        self.remaining_stop = stop_duration
+
+    def make_way_on_junction(self):
+        self.should_make_way_on_junction = True
         self.remaining_stop = stop_duration
 
     def be_calmed(self):

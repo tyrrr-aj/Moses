@@ -175,8 +175,8 @@ update_ev_position_on_road({road, Road, PartOfRoad}, #{ride_id := RideId, direct
     road_controller:update_ev_position(Road, {RideId, PartOfRoad, Direction, EmergencyServiceType}).
 
 
-add_ev_on_junction(JunctionId, #{ride_id := RideId}) ->
-    junction_controller:add_ev(JunctionId, RideId).
+add_ev_on_junction(JunctionId, #{ride_id := RideId, emergency_service_type := EmergencyServiceType}) ->
+    junction_controller:add_ev(JunctionId, RideId, EmergencyServiceType).
 
 
 remove_ev_from_junction(JunctionId, RideId) ->

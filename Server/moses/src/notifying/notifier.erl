@@ -52,7 +52,7 @@ handle_call(_, _, _) ->
 
 
 handle_cast({notify, Notification}, {_, Channel} = State) ->
-    io:format("[notifier] got notification to send: ~p~n", [Notification]),
+    % io:format("[notifier] got notification to send: ~p~n", [Notification]),
     Payload = marshall_notification(Notification),
     Publish = #'basic.publish'{exchange = exchange_name(), routing_key = choose_routing_key(Notification)},
     % io:format("[notifier] notification prepared ~n", []),
@@ -82,7 +82,7 @@ setup_exchange(Channel) ->
     #'exchange.declare_ok'{} = amqp_channel:call(Channel, Declare).
 
 
-marshall_notification(#{road_network_element_type := road, ride_id := RideId, begining_at := Begin, ending_at := End, direction := Direction, notification_code := Code}) ->
+marshall_notification(#{road_network_element_type := road, ride_id := RideId, beginning_at := Begin, ending_at := End, direction := Direction, notification_code := Code}) ->
     DirectionRepr = case Direction of
                         backward -> 0;
                         forward -> 1

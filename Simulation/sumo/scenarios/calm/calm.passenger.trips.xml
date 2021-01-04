@@ -29,6 +29,6 @@
     <vehicle id="veh13" type="veh_passenger" depart="13.00" departLane="best" route="basic"/>
     <vehicle id="veh14" type="veh_passenger" depart="14.00" departLane="best" route="basic"/> -->
 
-    <vehicle id="amb0" type="ambulance" depart="10.0" departLane="best" route="same_direction"/>
+    <vehicle id="amb0" type="ambulance" depart="100.0" departLane="best" route="same_direction"/>
 
 </routes>
