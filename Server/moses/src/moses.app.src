@@ -6,7 +6,9 @@
   {applications,
    [kernel,
     stdlib,
-    amqp_client
+    amqp_client,
+    epgsql,
+    rabbit_common
    ]},
   {env,[]},
   {modules, []},

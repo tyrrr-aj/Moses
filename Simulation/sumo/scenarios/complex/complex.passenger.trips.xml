@@ -9,7 +9,7 @@
 	
 	<route edges="31875857#0 -302727395#0 24244307#2" id="ev"/>
     <route edges="-302727395#1 -302727395#0" id="regular_mwoj_1"/>
-    <route edges="-24244307#2 -24244307#1 302727395#1" id="regular_mwoj_2"/>
+    <route edges="24164608#7 -24244307#2 -24244307#1 302727395#1 -184311201#1" id="regular_mwoj_2"/>
     <route edges="31875857#0 -302727395#0 24244307#2" id="regular_mwor"/>
     <route edges="-302727395#1 -31875857#1" id="regular_nar"/>
 
@@ -34,6 +34,6 @@
     <vehicle id="veh4c" type="veh_passenger" depart="4.00" departLane="best" route="regular_mwor"/>
     <vehicle id="veh4d" type="veh_passenger" depart="4.00" departLane="best" route="regular_nar"/>
 
-    <vehicle id="amb0" type="ambulance" depart="30.0" departLane="best" route="ev"/>
+    <vehicle id="amb0" type="ambulance" depart="25.0" departLane="best" route="ev"/>
 
 </routes>

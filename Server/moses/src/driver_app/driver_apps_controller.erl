@@ -38,8 +38,9 @@ handle_info(Message, {Connection, Channel}) ->
     % io:format("Replied~n", []),
     {noreply, {Connection, Channel}}.
 
-terminate(_, _, {Connection, Channel}) ->
-    rabbitmq_connector:delete_queue(queue_name(), Channel, Connection).
+terminate(_, _, {_Connection, _Channel}) ->
+    % rabbitmq_connector:delete_queue(queue_name(), Channel, Connection).
+    ok.
 
 %% internal functions
 

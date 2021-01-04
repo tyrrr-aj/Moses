@@ -3,4 +3,4 @@
 -compile(export_all).
 
 
-notifying_range() -> 300.0.  % in meters
+notifying_range() -> 150.0.  % in meters
